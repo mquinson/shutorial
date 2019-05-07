@@ -1,0 +1,31 @@
+{
+  "title": "Premiers pas avec le shell",
+  "description": "Cette leçon vous fait découvrir les joies du terminal : commandes et paramètres, navigation sur le disque. (+ peut-être un jour redirection, etc)",
+  "details": {
+    "steps": [
+      {
+        "title": "Le terminal ??? À quoi ça sert ?",
+        "text": "1-intro.md"
+      },
+      {
+        "title": "Premières commandes",
+        "text": "2-commands.md"
+      },
+      {
+        "title": "Navigation",
+          "text": "3-navigation.md",
+          "verify": "3-navigation-verify.sh"
+      }
+    ],
+    "hideintro": true,
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "git"
+  }
+}
