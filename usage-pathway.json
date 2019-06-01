@@ -1,0 +1,16 @@
+{
+  "title": "Utiliser le shell",
+  "description": "Découvrez les joies du terminal, depuis votre navigateur",
+  "courses": [
+    {
+      "title": "Premiers pas avec le shell",
+      "description": "Intro: commandes et paramètres",
+      "course_id": "intro"
+    },
+    {
+      "title": "Navigation shell",
+      "description": "Se déplacer sur le système de fichiers",
+      "course_id": "navigation"
+    }
+  ]
+}
