@@ -4,15 +4,13 @@ find dir* -type d 2>/dev/null | sort | sed 's|^./||' | grep [a-zA-Z] > /tmp/.dir
 cat > /tmp/.dir.expect <<EOF
 dir1
 dir1/dir2
-dir1/dir2/dir3
-dir4
+dir3
 EOF
 
 find dir* -type f 2>/dev/null | sort -r | sed 's|^./||' > /tmp/.file.got
 cat > /tmp/.file.expect <<EOF
-dir4/doc3
+dir3/doc2
 dir1/dir2/doc1
-dir1/dir2/dir3/doc2
 EOF
 
 sync
