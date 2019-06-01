@@ -14,7 +14,7 @@
       {
         "title": "Navigation",
 	"text": "3-navigation.md",
-	"answer": "3-navigation-sol.sh"
+	"answer": "3-navigation-sol.sh",
 	"verify": "3-navigation-check.sh"
       }
     ],
