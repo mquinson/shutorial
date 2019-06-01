@@ -2,6 +2,9 @@
   "title": "Premiers pas avec le shell",
   "description": "Cette leçon vous fait découvrir les joies du terminal : commandes et paramètres, navigation sur le disque. (+ peut-être un jour redirection, etc)",
   "details": {
+    "intro": {
+      "courseData": "setup-french.sh"
+    },
     "steps": [
       {
         "title": "Le terminal ??? À quoi ça sert ?",
