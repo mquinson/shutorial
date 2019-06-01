@@ -11,11 +11,13 @@
         "title": "Premières commandes",
         "text": "2-commands.md"
       }
-    ]
+    ],
+    "finish": { 
+      "text": "finish.md" 
+    }
   },
   "environment": {
     "hideintro": true,
-    "hidefinish": true,
     "uilayout": "terminal"
   },
   "backend": {
