@@ -13,19 +13,20 @@
       },
       {
         "title": "Navigation",
-          "text": "3-navigation.md",
-          "verify": "3-navigation-verify.sh"
+	"text": "3-navigation.md",
+	"answer": "3-navigation-sol.sh"
+	"verify": "3-navigation-check.sh"
       }
     ],
-    "hideintro": true,
     "finish": {
       "text": "finish.md"
     }
   },
   "environment": {
+    "hideintro": true,
     "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "git"
+    "imageid": "ubuntu"
   }
 }
