@@ -1,0 +1,25 @@
+{
+  "title": "Premiers pas avec le shell",
+  "description": "Cette leçon vous fait découvrir comment naviguer sur le disque",
+  "details": {
+    "intro": {
+      "courseData": "../../setup-french.sh"
+    },
+    "steps": [
+      {
+        "title": "Navigation",
+	"text": "navigation.md",
+	"solution": "navigation-sol.sh",
+	"verify": "navigation-check.sh"
+      }
+    ]
+  },
+  "environment": {
+    "hideintro": true,
+    "hidefinish": true,
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}

@@ -1,9 +1,9 @@
 {
   "title": "Premiers pas avec le shell",
-  "description": "Cette leçon vous fait découvrir les joies du terminal : commandes et paramètres, navigation sur le disque. (+ peut-être un jour redirection, etc)",
+  "description": "Cette leçon vous fait découvrir les joies du terminal : commandes et paramètres",
   "details": {
     "intro": {
-      "courseData": "setup-french.sh"
+      "courseData": "../../setup-french.sh"
     },
     "steps": [
       {
@@ -13,12 +13,6 @@
       {
         "title": "Premières commandes",
         "text": "2-commands.md"
-      },
-      {
-        "title": "Navigation",
-	"text": "3-navigation.md",
-	"answer": "3-navigation-sol.sh",
-	"verify": "3-navigation-check.sh"
       }
     ],
     "finish": {
@@ -27,6 +21,7 @@
   },
   "environment": {
     "hideintro": true,
+    "hidefinish": true,
     "uilayout": "terminal"
   },
   "backend": {
