@@ -4,12 +4,12 @@
   "courses": [
     {
       "title": "Premiers pas avec le shell",
-      "description": "Intro: commandes et paramètres",
+      "description": "Introduction : commandes et paramètres.",
       "course_id": "intro"
     },
     {
       "title": "Navigation shell",
-      "description": "Se déplacer sur le système de fichiers",
+      "description": "Naviguer dans le système de fichiers; Créer et déplacer des fichiers et répertoires.",
       "course_id": "navigation"
     }
   ]
