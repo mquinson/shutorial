@@ -53,8 +53,8 @@ préservé.
     └── 🖹 DOC2
 ```
 
-Coincée? Utilisez la commande ```ls -R```{{execute}} pour afficher récursivement
+Coincé? Utilisez la commande ```tree```{{execute}} pour afficher récursivement
 le contenu de tous les répertoires. Vous pouvez aussi exécuter le programme de
-test ```(cd ;/tmp/kc_verify0.sh)```{{execute}} à la main pour voir le
-problème. Si les choses sont graves, rechargez la page pour
+test ```/tmp/kc_verify0.sh```{{execute}} à la main pour voir le
+problème. Si les choses tournent trop mal, rechargez la page pour
 recommencer du début.

@@ -1,15 +1,22 @@
 {
   "noindex": true,
-  "title": "Premiers pas avec le shell",
-  "description": "Découvrez comment naviguer sur le disque, et créer des fichiers et répertoires.",
+  "title": "Déplacer des fichiers et répertoires",
+  "description": "Déplacer des fichiers et répertoires.",
   "details": {
     "steps": [
       {
         "title": "Déplacer des fichiers et répertoire",
-	"courseData": "moving-setup.sh",
-	"solution": "moving-sol.sh",
-	"verify": "moving-check.sh",
-	"text": "moving.md"
+	"courseData": "moving-1-setup.sh",
+	"solution": "moving-1-sol.sh",
+	"verify": "moving-1-check.sh",
+	"text": "moving-1.md"
+      },
+      {
+        "title": "Déplacer des fichiers en masse",
+	"courseData": "moving-2-setup.sh",
+	"solution": "moving-2-sol.sh",
+	"verify": "moving-2-check.sh",
+	"text": "moving-2.md"
       }
     ],
     "assets": {
