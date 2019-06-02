@@ -1,0 +1,27 @@
+{
+  "noindex": true,
+  "title": "Premiers pas avec le shell",
+  "description": "Découvrez comment naviguer sur le disque, et créer des fichiers et répertoires.",
+  "details": {
+    "steps": [
+      {
+        "title": "Déplacer des fichiers et répertoire",
+	"courseData": "moving-setup.sh",
+	"solution": "moving-sol.sh",
+	"verify": "moving-check.sh",
+	"text": "moving.md"
+      }
+    ],
+    "assets": {
+      "host01": [
+        {"file": "tree", "target": "/usr/local/bin/", "chmod": "+x"}
+      ]
+    }		    
+  },		    
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}

@@ -8,9 +8,14 @@
       "course_id": "intro"
     },
     {
-      "title": "Navigation shell",
-      "description": "Naviguer dans le système de fichiers; Créer et déplacer des fichiers et répertoires.",
+      "title": "Créer et effacer des fichiers et répertoires",
+      "description": "Découverte des commandes suivantes: pwd, ls, mkdir, rmdir, rm, cd, touch.",
       "course_id": "navigation"
+    },
+    {
+      "title": "Déplacer des fichiers",
+      "description": "Découverte de la commande 'mv'",
+      "course_id": "moving"
     }
   ]
 }

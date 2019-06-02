@@ -17,6 +17,9 @@ arborescence de répertoires. Voici quelques commandes utiles:
   récursivement ```machin``` et tout son contenu.
 - ```ls```{{execute}} 
 
+Au besoin, lisez la documentation de ces commandes avec par exemple
+```man ls```{{execute}} ('q' pour quiter cette aide).
+
 # Au travail
 
 Il s'agit maintenant de créer l'aborescence suivante. Si ce n'est pas fait,
@@ -33,8 +36,9 @@ supprimez également le résultat de vos essais antérieurs.
 Les logos sont juste pour l'explication, les noms de fichiers et répertoires ne
 doivent contenir que des lettres et des chiffres dans cet exercice. 
 
-Coincée? Utilisez la commande ```ls -R```{{execute}} pour afficher récursivement
-le contenu de tous les répertoires. Vous pouvez aussi exécuter le programme de
-test ```(cd ;/tmp/kc_verify0.sh)```{{execute}} à la main pour voir le
-problème (il n'est pas nécessaire de comprendre ce que fait cette commande pour
-l'utiliser, heureusement).
+Coincée? Utilisez la commande ```ls -R```{{execute}} pour afficher
+récursivement le contenu de tous les répertoires. Vous pouvez aussi
+exécuter le programme de test ```(cd;/tmp/kc_verify0.sh)```{{execute}}
+à la main pour voir le problème (il n'est pas nécessaire de comprendre
+ce que fait cette commande pour l'utiliser, heureusement). Si les
+choses sont graves, rechargez la page pour recommencer du début.
