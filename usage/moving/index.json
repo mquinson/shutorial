@@ -17,6 +17,10 @@
 	"solution": "moving-2-sol.sh",
 	"verify": "moving-2-check.sh",
 	"text": "moving-2.md"
+      },
+      {
+        "title": "Quiz",
+	"text": "moving-quiz.md"
       }
     ],
     "assets": {

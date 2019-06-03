@@ -8,6 +8,10 @@
 	"text": "navigation.md",
 	"solution": "navigation-sol.sh",
 	"verify": "navigation-check.sh"
+      },
+      {
+        "title": "Quiz",
+	"text": "navigation-quiz.md"
       }
     ]
   },

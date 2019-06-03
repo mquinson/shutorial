@@ -8,7 +8,7 @@ arborescence de répertoires. Voici quelques commandes utiles:
 - ```pwd```{{execute}}
 - ```cd ..```{{execute}} aller dans le répertoire "..", c'est-à-dire un étage plus haut
 - ```pwd```{{execute}} 
-- ```touch bidule```{{execute}} créer un répertoire vide nommé bidule
+- ```touch bidule```{{execute}} créer un fichier vide nommé bidule (ou change sa date d'accès si le fichier existe)
 - ```ls```{{execute}} 
 - ```rm bidule```{{execute}} effacer le fichier bidule. Attention, c'est une opération irréversible.
 - ```ls```{{execute}} 
