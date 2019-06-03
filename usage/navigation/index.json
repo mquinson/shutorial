@@ -11,7 +11,8 @@
       },
       {
         "title": "Quiz",
-	"text": "navigation-quiz1.md"
+	"text": "navigation-quiz1.md",
+	"answer": "navigation-quiz1-answer.md"
       },
       {
         "title": "Quiz",
