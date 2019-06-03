@@ -1,28 +1,22 @@
 #! /bin/sh
 
-find dir* -type d 2>/dev/null | sort | sed 's|^./||' | grep [a-zA-Z] > /tmp/.dir.got
-cat > /tmp/.dir.expect <<EOF
-dir1
-dir1/dir2
-dir3
-EOF
-
-find dir* -type f 2>/dev/null | sort -r | sed 's|^./||' > /tmp/.file.got
-cat > /tmp/.file.expect <<EOF
-dir3/doc2
-dir1/dir2/doc1
+cd 
+tree -n --noreport --charset ascii | sed 's/`/\\/' > /tmp/.tree.got
+cat > /tmp/.tree.expect <<EOF
+.
+|-- dir1
+|   \-- dir2
+|       \-- doc1
+\-- dir3
+    \-- doc2
 EOF
 
 sync
 ###################
 
-if ! diff -u /tmp/.dir.got /tmp/.dir.expect ; then
-    echo "Erreur: on dirait que vous n'avez la bonne arborescence (ligne en -: répertoire en trop; ligne en +: répertoire manquant)"
-    exit 1
-fi
-
-if ! diff -u /tmp/.file.got /tmp/.file.expect ; then 
-    echo "Erreur: on dirait que vous n'avez la bonne arborescence (ligne en -: fichier en trop; ligne en +: fichier manquant)"
+if ! cmp /tmp/.tree.got /tmp/.tree.expect ; then
+    diff -y /tmp/.tree.got /tmp/.tree.expect
+    echo "Erreur: on dirait que vous n'avez la bonne arborescence (a gauche: ce que vous avez; a droite: ce qu'il faut)"
     exit 1
 fi
 

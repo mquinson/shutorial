@@ -13,7 +13,12 @@
         "title": "Quiz",
 	"text": "navigation-quiz.md"
       }
-    ]
+    ],
+    "assets": {
+      "host01": [
+        {"file": "tree", "target": "/usr/local/bin/", "chmod": "+x"}
+      ]
+    }		    
   },
   "environment": {
     "hideintro": true,
