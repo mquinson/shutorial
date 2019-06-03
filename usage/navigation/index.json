@@ -11,7 +11,11 @@
       },
       {
         "title": "Quiz",
-	"text": "navigation-quiz.md"
+	"text": "navigation-quiz1.md"
+      },
+      {
+        "title": "Quiz",
+	"text": "navigation-quiz2.md"
       }
     ],
     "assets": {
