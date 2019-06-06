@@ -38,7 +38,7 @@ doivent contenir que des lettres et des chiffres dans cet exercice.
 
 Coincée? Utilisez la commande ```ls -R```{{execute}} pour afficher
 récursivement le contenu de tous les répertoires. Vous pouvez aussi
-exécuter le programme de test ```/tmp/kc_verify0.sh```{{execute}}
+exécuter le programme de test ```navigation_check```{{execute}}
 à la main pour voir le problème (il n'est pas nécessaire de comprendre
 ce que fait cette commande pour l'utiliser, heureusement). Si les
 choses sont graves, rechargez la page pour recommencer du début.

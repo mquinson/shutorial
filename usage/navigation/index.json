@@ -16,12 +16,14 @@
       },
       {
         "title": "Quiz",
-	"text": "navigation-quiz2.md"
+	"text": "navigation-quiz2.md",
+	"answer": "navigation-quiz2-answer.md"
       }
     ],
     "assets": {
       "host01": [
-        {"file": "tree", "target": "/usr/local/bin/", "chmod": "+x"}
+        {"file": "tree", "target": "/usr/local/bin/", "chmod": "+x"},
+        {"file": "navigation-check", "target": "/usr/local/bin", "chmod": "+x"}
       ]
     }		    
   },
