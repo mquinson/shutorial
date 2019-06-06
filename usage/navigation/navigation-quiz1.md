@@ -4,7 +4,6 @@ n'hésitez pas à lire la documentation en ligne avec `man <commande>`
 et à faire des essais dans le terminal.
 
 ## Question 1
-(2 questions au total)
 
 >>Pour effacer un fichier nommé `bidule` on peut utiliser:<<
 [ ] remove bidule
@@ -12,3 +11,7 @@ et à faire des essais dans le terminal.
 [*] rm -r bidule
 [ ] rmdir bidule
 
+(2 questions au total)
+
+Pour ne pas vous divulgâcher l'exercice, essayez de répondre avant
+d'afficher les réponses.

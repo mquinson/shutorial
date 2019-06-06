@@ -4,9 +4,12 @@ n'hésitez pas à lire la documentation en ligne avec `man <commande>`
 et à faire des essais dans le terminal.
 
 ## Question 2
-(2 questions au total)
 
->>Peut-on utiliser la commande `touch` sur un fichier existant?<<
+>>Peut-on utiliser la commande <tt>touch</tt> sur un fichier existant?<<
 ( ) Non, cette commande ne sert qu'à créer de nouveaux fichiers.
 (*) Oui, cela va changer sa date de dernière modification.
 
+(2 questions au total)
+
+Pour ne pas vous divulgâcher l'exercice, essayez de répondre avant
+d'afficher les réponses.
