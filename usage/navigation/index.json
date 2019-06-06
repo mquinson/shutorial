@@ -21,7 +21,7 @@
       }
     ],
     "assets": {
-      "host01": [
+      "client": [
         {"file": "tree", "target": "/usr/local/bin/", "chmod": "+x"},
         {"file": "navigation-check", "target": "/usr/local/bin", "chmod": "+x"}
       ]
