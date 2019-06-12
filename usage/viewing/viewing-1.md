@@ -20,7 +20,7 @@ Pour passer à la suite, il suffit de trouver le mot de passe qui se
 trouve dans le fichier ``mot-de-passe``, et le recopier ci-dessous.
 
 >>Quel est le contenu du fichier 'mot-de-passe' ?<<
-=== poufpouf_badaboum
+=== poufpouf badaboum
 
 >>Quelle information se cache à la fin du fichier 'cache-cache-passe' ?<<
 === Bop bop BOUM
