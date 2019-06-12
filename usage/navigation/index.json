@@ -21,12 +21,7 @@
 	"text": "navigation-quiz2.md",
 	"answer": "navigation-quiz2-answer.md"
       }
-    ],
-    "assets": {
-      "host01": [
-	{"file": "tree", "target": "/usr/local/bin/", "chmod": "+x"}
-      ]
-    }		    
+    ]
   },
   "environment": {
     "uilayout": "terminal"

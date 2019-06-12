@@ -20,7 +20,8 @@ for sharin in os.listdir():
                 if re.match('#!', line):
                     output.write(line)
                     output.write("\n# THIS SCRIPT WAS GENERATED, DO NOT EDIT\n# Real source: {}\n".format(sharin))
-                    output.write("if which uuencode >/dev/null 2>/dev/null ; then pass; else (apt update;apt install sharutils) 2>/dev/null >/dev/null; fi\n")
+                    output.write("if which uuencode >/dev/null 2>/dev/null ; then :; else (apt update;apt install sharutils) 2>/dev/null >/dev/null; fi\n")
+                    output.write("if which tree >/dev/null 2>/dev/null ; then :; else (apt update;apt install tree) 2>/dev/null >/dev/null; fi\n")
                 elif re.match('.*KCINCLUDE.*', line):
                     cmd = re.sub('.*KCINCLUDE *','',line).split()
                     if len(cmd) != 2:
@@ -102,7 +103,7 @@ if 'steps' in main['details']:
             verify="/tmp/katacoda/{}".format(step['verify'])
 
             print("XXXXXXXX\nXXX Step '{}': check that the test really needs the solution\nXXXXXXXX".format(step['title']))
-            cmd="docker run --rm --volume /tmp/katalocal/:/tmp/katacoda debian:testing sh -c 'cd && /tmp/katacoda/setup_assets && {} && {}' >/dev/null 2>/dev/null".format(setup, verify)
+            cmd="docker run --rm --volume /tmp/katalocal/:/tmp/katacoda kctest sh -c 'cd && /tmp/katacoda/setup_assets && {} && {}' >/dev/null 2>/dev/null".format(setup, verify)
             print("Exec {}\n".format(cmd))            
             if subprocess.call(cmd, shell=True):
                 print("XXXXXXXX\nXXX Step '{}': the verification on a blank docker fails as expected.".format(step['title']))
@@ -111,7 +112,7 @@ if 'steps' in main['details']:
                 sys.exit(2)
                 
             print("XXXXXXXX\nXXX Step '{}': check that the solution passes the test\nXXXXXXXX".format(step['title']))
-            cmd="docker run --rm --volume /tmp/katalocal/:/tmp/katacoda debian:testing sh -x -c 'cd && /tmp/katacoda/setup_assets && {} && {} && {}'".format(setup, solution, verify)
+            cmd="docker run --rm --volume /tmp/katalocal/:/tmp/katacoda kctest sh -x -c 'cd && /tmp/katacoda/setup_assets && {} && {} && {}'".format(setup, solution, verify)
             print("Exec {}\n".format(cmd))            
             if subprocess.call(cmd, shell=True):
                 print("XXXXXXXX\nXXX Step '{}': Verification failed.".format(step['title']))

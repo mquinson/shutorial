@@ -24,12 +24,7 @@
         "title": "Quiz",
 	"text": "moving-quiz.md"
       }
-    ],
-    "assets": {
-      "host01": [
-        {"file": "tree", "target": "/usr/local/bin/", "chmod": "+x"}
-      ]
-    }		    
+    ]
   },		    
   "environment": {
     "uilayout": "terminal"
