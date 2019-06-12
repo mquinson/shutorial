@@ -1,4 +1,6 @@
 #! /bin/bash
+export LANG=fr_FR.UTF-8
+
 bash << 'EOF'
 clear
 
