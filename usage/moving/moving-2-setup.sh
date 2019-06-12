@@ -2,6 +2,7 @@
 
 # THIS SCRIPT WAS GENERATED, DO NOT EDIT
 # Real source: moving-2-setup.sharin
+if which uuencode >/dev/null 2>/dev/null ; then pass; else (apt update;apt install sharutils) 2>/dev/null >/dev/null; fi
 
 cd
 rm -rf *
@@ -13,7 +14,7 @@ done
 mkdir web
 
 ## KCINCLUDE moving-2-check.sh /usr/local/bin
-uudecode << 'KCINCLUDE_EOF' > '/usr/local/bin/moving-2-check.sh' &&
+uudecode << KCINCLUDE_EOF > /usr/local/bin/moving-2-check.sh &&
 begin-base64 644 -
 IyEgL2Jpbi9zaAoKY2QgCnRyZWUgLW4gLS1ub3JlcG9ydCAtLWNoYXJzZXQg
 YXNjaWkgfCBzZWQgJ3MvYC9cXC8nID4gL3RtcC8udHJlZS5nb3QKY2F0ID4g
@@ -67,7 +68,7 @@ KGEgZ2F1Y2hlOiBjZSBxdWUgdm91cyBhdmV6OyBhIGRyb2l0ZTogY2UgcXUn
 aWwgZmF1dCkiCiAgICBleGl0IDEKZmkKCmVjaG8gImRvbmUiCg==
 ====
 KCINCLUDE_EOF
-chmod 0o755 '/usr/local/bin/moving-2-check.sh'
+chmod 0755 /usr/local/bin/moving-2-check.sh
 # End of KCINCLUDE moving-2-check.sh
 
 

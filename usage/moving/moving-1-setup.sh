@@ -2,6 +2,7 @@
 
 # THIS SCRIPT WAS GENERATED, DO NOT EDIT
 # Real source: moving-1-setup.sharin
+if which uuencode >/dev/null 2>/dev/null ; then pass; else (apt update;apt install sharutils) 2>/dev/null >/dev/null; fi
 
 cd
 mkdir -p dir1/dir2
@@ -12,7 +13,7 @@ mkdir truc
 touch machin toto
 
 ## KCINCLUDE moving-1-check.sh /usr/local/bin
-uudecode << 'KCINCLUDE_EOF' > '/usr/local/bin/moving-1-check.sh' &&
+uudecode << KCINCLUDE_EOF > /usr/local/bin/moving-1-check.sh &&
 begin-base64 644 -
 IyEgL2Jpbi9zaAoKY2QgCnRyZWUgLW4gLS1ub3JlcG9ydCAtLWNoYXJzZXQg
 YXNjaWkgfCBzZWQgJ3MvYC9cXC8nID4gL3RtcC8udHJlZS5nb3QKY2F0ID4g
@@ -33,7 +34,7 @@ My9ET0MyIG4nb250IHBhcyBsZSBib24gY29udGVudS4iCiAgICBleGl0IDEK
 ZmkKCmVjaG8gImRvbmUiCg==
 ====
 KCINCLUDE_EOF
-chmod 0o755 '/usr/local/bin/moving-1-check.sh'
+chmod 0755 /usr/local/bin/moving-1-check.sh
 # End of KCINCLUDE moving-1-check.sh
 
 
