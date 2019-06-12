@@ -16,7 +16,7 @@ fichiers `pdf` dans le répertoire `print` (que vous devez créer) et
 les fichiers `png` dans le répertoire `image`. 
 
 Comme d'habitude, vous pouvez utiliser la commande
-```/tmp/kc_verify1.sh```{{execute}} vous permet de lancer le script de
+```moving-2-check.sh```{{execute}} vous permet de lancer le script de
 validation à la main si vous êtes coincé. 
 
 Avouez que pouvoir déplacer autant de fichiers en une seule commande

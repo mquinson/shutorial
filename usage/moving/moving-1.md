@@ -55,6 +55,6 @@ préservé.
 
 Coincé? Utilisez la commande ```tree```{{execute}} pour afficher récursivement
 le contenu de tous les répertoires. Vous pouvez aussi exécuter le programme de
-test ```/tmp/kc_verify0.sh```{{execute}} à la main pour voir le
+test ```moving-1-check.sh```{{execute}} à la main pour voir le
 problème. Si les choses tournent trop mal, rechargez la page pour
 recommencer du début.
