@@ -1,12 +1,48 @@
 #! /usr/bin/python3
 
 import json
-import shutil, os, sys, stat, subprocess
+import shutil, os, sys, stat, subprocess, re
 
+### Check the index.json syntax
 if subprocess.call("jsonlint-py3 index.json", shell=True):
     print("Please fix your json sytax")
     os.exit(1)
 
+### Recompile the shar files
+# I fail to get the assets doing what I want, so I embeed some content files in the setup scripts
+
+for sharin in os.listdir():
+    if re.match('.*\.sharin$', sharin):
+        basescript=re.sub(r'sharin$', r'sh', sharin)
+        print("Compiling {}".format(basescript))
+        with open(sharin, "r") as input , open(basescript, "w") as output:
+            for line in input:
+                if re.match('#!', line):
+                    output.write(line)
+                    output.write("\n# THIS SCRIPT WAS GENERATED, DO NOT EDIT\n# Real source: {}\n".format(sharin))
+                    continue
+                if re.match('.*KCINCLUDE.*', line):
+                    cmd = re.sub('.*KCINCLUDE *','',line).split()
+                    if len(cmd) != 2:
+                        print("Syntax error in KCINCLUDE (not 2 parameters):\n  {}".format(line))
+                        exit(1)
+                    (component, destdir) = cmd
+                    assert os.path.exists(basescript), "Component {} of {} not found".format(component, basescript)
+                    print("INCLUDE {}".format(cmd))
+                    output.write(line)
+                    output.write("uudecode << 'KCINCLUDE_EOF' > '{}/{}' &&\n".format(destdir,os.path.basename(component)))
+                    encoded = subprocess.run("uuencode --base64 - < {}".format(component), stdout=subprocess.PIPE, shell=True, text=True)
+                    for l in encoded.stdout:
+                        output.write(l)
+                    output.write("KCINCLUDE_EOF\n")
+                    output.write("chmod {} '{}/{}'\n".format(oct(stat.S_IMODE(os.stat(component).st_mode)),
+                                                          destdir,os.path.basename(component)))
+                    output.write("# End of KCINCLUDE {}\n\n".format(component))
+                else:
+                    output.write(line)
+        print("Done")
+
+### Check the tests in a docker    
 with open('index.json') as data_file:
     main = json.load(data_file)
 
@@ -57,8 +93,6 @@ if 'steps' in main['details']:
                     dst_name = '/tmp/katalocal/{}'.format(step[key])
                     shutil.copyfile(step[key], dst_name)
                     os.chmod(dst_name, stat.S_IRUSR|stat.S_IWUSR|stat.S_IXUSR) # user rwx
-            
-            # TODO: install the assets
             
             setup="true"            
             if 'courseData' in step:
