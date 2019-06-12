@@ -2,7 +2,7 @@
 bash << 'EOF'
 clear
 
-echo -n "Configuring exercise... "
+echo -n "Configuration de l'exercice... "
 for pos in `seq 1 100` ; do
 #  echo "expr substr '\\|/-' $pos 1"
   p=`expr $pos % 4 + 1`
@@ -15,7 +15,9 @@ for pos in `seq 1 100` ; do
   fi
 done
 printf "    \b\b\b\b"
-echo "done."
+echo "fini."
+echo "Votre environnement est prêt."
+echo
 
 hash -r
 EOF

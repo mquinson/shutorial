@@ -5,7 +5,7 @@
 if which uuencode >/dev/null 2>/dev/null ; then pass; else (apt update;apt install sharutils) 2>/dev/null >/dev/null; fi
 
 # KCINCLUDE navigation-check.sh /usr/local/bin
-uudecode << KCINCLUDE_EOF > /usr/local/bin/navigation-check.sh &&
+uudecode << 'KCINCLUDE_EOF' > /usr/local/bin/navigation-check.sh &&
 begin-base64 644 -
 IyEgL2Jpbi9zaAoKY2QgCnRyZWUgLW4gLS1ub3JlcG9ydCAtLWNoYXJzZXQg
 YXNjaWkgfCBzZWQgJ3MvYC9cXC8nID4gL3RtcC8udHJlZS5nb3QKY2F0ID4g
