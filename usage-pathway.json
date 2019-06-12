@@ -14,8 +14,13 @@
     },
     {
       "title": "Déplacer des fichiers",
-      "description": "Découverte de la commande 'mv'",
+      "description": "Découverte de la commande 'mv'.",
       "course_id": "moving"
+    },
+    {
+      "title": "Voir le contenu des fichiers",
+      "description": "Découverte des commandes: cat, head, tail, less.",
+      "course_id": "viewing"
     }
   ]
 }

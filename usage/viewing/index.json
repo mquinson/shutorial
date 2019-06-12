@@ -1,0 +1,20 @@
+{
+  "title": "Voir des fichiers",
+  "description": "Découvrez comment afficher le contenu de fichiers à l'écran.",
+  "details": {
+    "steps": [
+      {
+        "title": "Voir des fichiers",
+	"text": "viewing-1.md",
+	"code": "wait-config.sh",
+	"courseData": "viewing-1-setup.sh"
+      }
+    ]
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
