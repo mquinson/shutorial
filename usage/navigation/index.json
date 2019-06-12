@@ -6,6 +6,7 @@
       {
         "title": "Navigation",
 	"text": "navigation.md",
+	"courseData": "navigation-setup.sh",
 	"solution": "navigation-sol.sh",
 	"verify": "navigation-check.sh"
       },
@@ -22,13 +23,11 @@
     ],
     "assets": {
       "client01": [
-        {"file": "tree", "target": "/usr/local/bin/", "chmod": "+x"},
-        {"file": "navigation-check", "target": "/usr/local/bin", "chmod": "+x"}
+        {"file": "tree", "target": "/usr/local/bin/", "chmod": "+x"}
       ]
     }		    
   },
   "environment": {
-    "hideintro": true,
     "uilayout": "terminal"
   },
   "backend": {
