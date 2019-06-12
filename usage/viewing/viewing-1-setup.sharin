@@ -58,5 +58,5 @@ echo "L'info cachée est : Bop bop BOUM" >> cache-cache-passe
 
 
 for f in fichier fichier_long cache-cache-passe ; do 
-  iconv -f ISO_8859-1 -t utf8 $f /tmp/AZE && mv /tmp/AZE $f
+  iconv -f ISO_8859-1 -t utf8 -o /tmp/AZE $f && mv /tmp/AZE $f
 done

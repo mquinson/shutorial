@@ -2,8 +2,6 @@
 
 # THIS SCRIPT WAS GENERATED, DO NOT EDIT
 # Real source: viewing-1-setup.sharin
-if which uuencode >/dev/null 2>/dev/null ; then :; else (apt update;apt install sharutils) 2>/dev/null >/dev/null; fi
-if which tree >/dev/null 2>/dev/null ; then :; else (apt update;apt install tree) 2>/dev/null >/dev/null; fi
 
 sed -i -e "s/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/" /etc/locale.gen
 dpkg-reconfigure --frontend=noninteractive locales
@@ -63,7 +61,7 @@ echo "L'info cachée est : Bop bop BOUM" >> cache-cache-passe
 
 
 for f in fichier fichier_long cache-cache-passe ; do 
-  iconv -f ISO_8859-1 -t utf8 $f /tmp/AZE && mv /tmp/AZE $f
+  iconv -f ISO_8859-1 -t utf8 -o /tmp/AZE $f && mv /tmp/AZE $f
 done
 
 echo done > /tmp/.katacoda-finished
