@@ -8,6 +8,8 @@ printf "This is the content of doc2.\n">  dir3/doc2
 mkdir truc
 touch machin toto
 
+## KCINSTALL tree tree
+
 ## KCINCLUDE moving-1-check.sh /usr/local/bin
 
 if tree > /dev/null ; then

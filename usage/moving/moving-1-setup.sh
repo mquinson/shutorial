@@ -2,8 +2,6 @@
 
 # THIS SCRIPT WAS GENERATED, DO NOT EDIT
 # Real source: moving-1-setup.sharin
-if which uuencode >/dev/null 2>/dev/null ; then :; else (apt update;apt install sharutils) 2>/dev/null >/dev/null; fi
-if which tree >/dev/null 2>/dev/null ; then :; else (apt update;apt install tree) 2>/dev/null >/dev/null; fi
 
 cd
 mkdir -p dir1/dir2
@@ -13,7 +11,11 @@ printf "This is the content of doc2.\n">  dir3/doc2
 mkdir truc
 touch machin toto
 
+## KCINSTALL tree tree
+if which tree >/dev/null 2>/dev/null ; then :; else (apt update;apt install tree) 2>/dev/null >/dev/null; fi
+
 ## KCINCLUDE moving-1-check.sh /usr/local/bin
+if which uuencode >/dev/null 2>/dev/null ; then :; else (apt update;apt install sharutils) 2>/dev/null >/dev/null; fi
 uudecode << 'KCINCLUDE_EOF' > /usr/local/bin/moving-1-check.sh &&
 begin-base64 644 -
 IyEgL2Jpbi9zaAoKY2QgCnRyZWUgLW4gLS1ub3JlcG9ydCAtLWNoYXJzZXQg

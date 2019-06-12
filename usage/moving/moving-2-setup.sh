@@ -2,8 +2,6 @@
 
 # THIS SCRIPT WAS GENERATED, DO NOT EDIT
 # Real source: moving-2-setup.sharin
-if which uuencode >/dev/null 2>/dev/null ; then :; else (apt update;apt install sharutils) 2>/dev/null >/dev/null; fi
-if which tree >/dev/null 2>/dev/null ; then :; else (apt update;apt install tree) 2>/dev/null >/dev/null; fi
 
 cd
 rm -rf *
@@ -14,7 +12,11 @@ for suffix in html pdf png ; do
 done
 mkdir web
 
+## KCINSTALL tree tree
+if which tree >/dev/null 2>/dev/null ; then :; else (apt update;apt install tree) 2>/dev/null >/dev/null; fi
+
 ## KCINCLUDE moving-2-check.sh /usr/local/bin
+if which uuencode >/dev/null 2>/dev/null ; then :; else (apt update;apt install sharutils) 2>/dev/null >/dev/null; fi
 uudecode << 'KCINCLUDE_EOF' > /usr/local/bin/moving-2-check.sh &&
 begin-base64 644 -
 IyEgL2Jpbi9zaAoKY2QgCnRyZWUgLW4gLS1ub3JlcG9ydCAtLWNoYXJzZXQg

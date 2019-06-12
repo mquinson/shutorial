@@ -1,3 +1,4 @@
 #! /bin/sh
 
+# KCINSTALL tree tree
 # KCINCLUDE navigation-check.sh /usr/local/bin

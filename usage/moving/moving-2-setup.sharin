@@ -9,6 +9,8 @@ for suffix in html pdf png ; do
 done
 mkdir web
 
+## KCINSTALL tree tree
+
 ## KCINCLUDE moving-2-check.sh /usr/local/bin
 
 if tree > /dev/null ; then
