@@ -5,7 +5,7 @@ et à faire des essais dans le terminal.
 
 ## Question 1
 
->>Pour effacer un fichier nommé `bidule` on peut utiliser:<<
+>>Pour effacer un fichier nommé 'bidule' on peut utiliser:<<
 [ ] remove bidule
 [*] rm bidule
 [*] rm -r bidule
