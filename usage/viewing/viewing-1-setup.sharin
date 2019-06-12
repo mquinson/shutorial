@@ -46,10 +46,19 @@ Ce fichier est plus long, mais pas plus intéressant.
 EOF
 done
 
-for i in `seq 1 500` ; do 
-  echo "Pas intéressant." | iconv -f ISO_8859-1 -t utf8 >> cache-cache-passe
+echo "L'info cachée au début est : Attention, attention" > cache-cache-passe
+for i in `seq 1 50` ; do
+  echo "Pas intéressant." >> cache-cache-passe
 done
-echo "L'info cachée est : Bop bop BOUM" >> cache-cache-passe
+echo "L'info cachée un peu après est : Plouf plouf" >> cache-cache-passe
+for i in `seq 1 200` ; do 
+  echo "Pas intéressant." >> cache-cache-passe
+done
+echo "L'info cachée vers le milieu est : Bim bam" >> cache-cache-passe
+for i in `seq 1 250` ; do
+  echo "Pas intéressant." >> cache-cache-passe
+done
+echo "L'info cachée à la fin est : Bop bop BOUM" >> cache-cache-passe
 
 
 for f in fichier fichier_long cache-cache-passe ; do 
