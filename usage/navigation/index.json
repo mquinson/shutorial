@@ -6,6 +6,7 @@
       {
         "title": "Navigation",
 	"text": "navigation.md",
+	"code": "wait-config.sh",
 	"courseData": "navigation-setup.sh",
 	"solution": "navigation-sol.sh",
 	"verify": "navigation-check.sh"
@@ -22,8 +23,8 @@
       }
     ],
     "assets": {
-      "client01": [
-        {"file": "tree", "target": "/usr/local/bin/", "chmod": "+x"}
+      "host01": [
+	{"file": "tree", "target": "/usr/local/bin/", "chmod": "+x"}
       ]
     }		    
   },

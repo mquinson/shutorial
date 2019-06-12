@@ -23,3 +23,5 @@ KCINCLUDE_EOF
 chmod 0755 /usr/local/bin/navigation-check.sh
 # End of KCINCLUDE navigation-check.sh
 
+
+echo done > /tmp/.katacoda-finished
