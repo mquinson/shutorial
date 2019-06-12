@@ -14,7 +14,7 @@ done
 mkdir web
 
 ## KCINCLUDE moving-2-check.sh /usr/local/bin
-uudecode << KCINCLUDE_EOF > /usr/local/bin/moving-2-check.sh &&
+uudecode << 'KCINCLUDE_EOF' > /usr/local/bin/moving-2-check.sh &&
 begin-base64 644 -
 IyEgL2Jpbi9zaAoKY2QgCnRyZWUgLW4gLS1ub3JlcG9ydCAtLWNoYXJzZXQg
 YXNjaWkgfCBzZWQgJ3MvYC9cXC8nID4gL3RtcC8udHJlZS5nb3QKY2F0ID4g
@@ -81,3 +81,5 @@ else
 fi
 
 touch /tmp/.kc_started
+
+echo done > /tmp/.katacoda-finished

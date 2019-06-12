@@ -6,6 +6,7 @@
     "steps": [
       {
         "title": "Déplacer des fichiers et répertoire",
+	"code": "wait-config.sh",
 	"courseData": "moving-1-setup.sh",
 	"solution": "moving-1-sol.sh",
 	"verify": "moving-1-check.sh",
@@ -13,6 +14,7 @@
       },
       {
         "title": "Déplacer des fichiers en masse",
+	"code": "wait-config.sh",
 	"courseData": "moving-2-setup.sh",
 	"solution": "moving-2-sol.sh",
 	"verify": "moving-2-check.sh",
