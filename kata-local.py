@@ -16,12 +16,21 @@ for sharin in os.listdir():
         basescript=re.sub(r'sharin$', r'sh', sharin)
         print("Compiling {}".format(basescript))
         with open(sharin, "r") as input , open(basescript, "w") as output:
+            installed=[]
             for line in input:
                 if re.match('#!', line):
                     output.write(line)
                     output.write("\n# THIS SCRIPT WAS GENERATED, DO NOT EDIT\n# Real source: {}\n".format(sharin))
-                    output.write("if which uuencode >/dev/null 2>/dev/null ; then :; else (apt update;apt install sharutils) 2>/dev/null >/dev/null; fi\n")
-                    output.write("if which tree >/dev/null 2>/dev/null ; then :; else (apt update;apt install tree) 2>/dev/null >/dev/null; fi\n")
+                elif re.match('.*KCINSTALL.*', line):
+                    request = re.sub('.*KCINSTALL *','',line).split()
+                    if len(request) != 2:
+                        print("Syntax error in KCINSTALL (not 2 parameters):\n  {}".format(line))
+                        exit(1)                    
+                    (cmd, pkg) = request
+                    print("INSTALL {} if {} not found".format(pkg,cmd))
+                    output.write(line)
+                    output.write("if which {} >/dev/null 2>/dev/null ; then :; else (apt update;apt install {}) 2>/dev/null >/dev/null; fi\n".format(cmd,pkg))
+                    installed.append(pkg)
                 elif re.match('.*KCINCLUDE.*', line):
                     cmd = re.sub('.*KCINCLUDE *','',line).split()
                     if len(cmd) != 2:
@@ -29,8 +38,14 @@ for sharin in os.listdir():
                         exit(1)
                     (component, destdir) = cmd
                     assert os.path.exists(basescript), "Component {} of {} not found".format(component, basescript)
+
                     print("INCLUDE {}".format(cmd))
+
                     output.write(line)
+                    if not "sharutils" in installed:
+                        output.write("if which uuencode >/dev/null 2>/dev/null ; then :; else (apt update;apt install sharutils) 2>/dev/null >/dev/null; fi\n")
+                        installed.append("sharutils")
+                        
                     output.write("uudecode << 'KCINCLUDE_EOF' > {}/{} &&\n".format(destdir,os.path.basename(component)))
                     encoded = subprocess.run("uuencode --base64 - < {}".format(component), stdout=subprocess.PIPE, shell=True, text=True)
                     for l in encoded.stdout:
