@@ -3,6 +3,12 @@
 # THIS SCRIPT WAS GENERATED, DO NOT EDIT
 # Real source: moving-1-setup.sharin
 
+(apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null
+sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen
+dpkg-reconfigure --frontend=noninteractive locales
+update-locale LANG=fr_FR.UTF-8
+
+
 cd
 mkdir -p dir1/dir2
 printf "This is the content of doc1.\n">  dir1/dir2/doc1
@@ -12,10 +18,10 @@ mkdir truc
 touch machin toto
 
 ## KCINSTALL tree tree
-if which tree >/dev/null 2>/dev/null ; then :; else (apt update;apt install tree) 2>/dev/null >/dev/null; fi
+if which tree >/dev/null 2>/dev/null || [ -e tree ] ; then :; else apt install tree 2>/dev/null >/dev/null; fi
 
 ## KCINCLUDE moving-1-check.sh /usr/local/bin
-if which uuencode >/dev/null 2>/dev/null ; then :; else (apt update;apt install sharutils) 2>/dev/null >/dev/null; fi
+if which uuencode >/dev/null 2>/dev/null ; then :; else apt install sharutils 2>/dev/null >/dev/null; fi
 uudecode << 'KCINCLUDE_EOF' > /usr/local/bin/moving-1-check.sh &&
 begin-base64 644 -
 IyEgL2Jpbi9zaAoKY2QgCnRyZWUgLW4gLS1ub3JlcG9ydCAtLWNoYXJzZXQg

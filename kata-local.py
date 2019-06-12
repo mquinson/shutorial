@@ -21,6 +21,11 @@ for sharin in os.listdir():
                 if re.match('#!', line):
                     output.write(line)
                     output.write("\n# THIS SCRIPT WAS GENERATED, DO NOT EDIT\n# Real source: {}\n".format(sharin))
+                    output.write("\n(apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null\n")
+                    output.write("sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen\n")
+                    output.write("dpkg-reconfigure --frontend=noninteractive locales\n")
+                    output.write("update-locale LANG=fr_FR.UTF-8\n\n")
+                    
                 elif re.match('.*KCINSTALL.*', line):
                     request = re.sub('.*KCINSTALL *','',line).split()
                     if len(request) != 2:
@@ -29,8 +34,9 @@ for sharin in os.listdir():
                     (cmd, pkg) = request
                     print("INSTALL {} if {} not found".format(pkg,cmd))
                     output.write(line)
-                    output.write("if which {} >/dev/null 2>/dev/null ; then :; else (apt update;apt install {}) 2>/dev/null >/dev/null; fi\n".format(cmd,pkg))
+                    output.write("if which {} >/dev/null 2>/dev/null || [ -e {} ] ; then :; else apt install {} 2>/dev/null >/dev/null; fi\n".format(cmd,cmd,pkg))
                     installed.append(pkg)
+                    
                 elif re.match('.*KCINCLUDE.*', line):
                     cmd = re.sub('.*KCINCLUDE *','',line).split()
                     if len(cmd) != 2:
@@ -43,7 +49,7 @@ for sharin in os.listdir():
 
                     output.write(line)
                     if not "sharutils" in installed:
-                        output.write("if which uuencode >/dev/null 2>/dev/null ; then :; else (apt update;apt install sharutils) 2>/dev/null >/dev/null; fi\n")
+                        output.write("if which uuencode >/dev/null 2>/dev/null ; then :; else apt install sharutils 2>/dev/null >/dev/null; fi\n")
                         installed.append("sharutils")
                         
                     output.write("uudecode << 'KCINCLUDE_EOF' > {}/{} &&\n".format(destdir,os.path.basename(component)))

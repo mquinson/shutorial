@@ -1,10 +1,5 @@
 #! /bin/sh
 
-sed -i -e "s/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/" /etc/locale.gen
-dpkg-reconfigure --frontend=noninteractive locales
-update-locale LANG=fr_FR.UTF-8
-export LANG=fr_FR.UTF-8
-
 cat << EOF > fichier
 Ceci est le contenu du fichier dont le nom est "fichier". Il est un peu répétitif.
 Ceci est le contenu du fichier dont le nom est "fichier". Il est un peu répétitif.

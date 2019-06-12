@@ -3,6 +3,12 @@
 # THIS SCRIPT WAS GENERATED, DO NOT EDIT
 # Real source: moving-2-setup.sharin
 
+(apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null
+sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen
+dpkg-reconfigure --frontend=noninteractive locales
+update-locale LANG=fr_FR.UTF-8
+
+
 cd
 rm -rf *
 for suffix in html pdf png ; do
@@ -13,10 +19,10 @@ done
 mkdir web
 
 ## KCINSTALL tree tree
-if which tree >/dev/null 2>/dev/null ; then :; else (apt update;apt install tree) 2>/dev/null >/dev/null; fi
+if which tree >/dev/null 2>/dev/null || [ -e tree ] ; then :; else apt install tree 2>/dev/null >/dev/null; fi
 
 ## KCINCLUDE moving-2-check.sh /usr/local/bin
-if which uuencode >/dev/null 2>/dev/null ; then :; else (apt update;apt install sharutils) 2>/dev/null >/dev/null; fi
+if which uuencode >/dev/null 2>/dev/null ; then :; else apt install sharutils 2>/dev/null >/dev/null; fi
 uudecode << 'KCINCLUDE_EOF' > /usr/local/bin/moving-2-check.sh &&
 begin-base64 644 -
 IyEgL2Jpbi9zaAoKY2QgCnRyZWUgLW4gLS1ub3JlcG9ydCAtLWNoYXJzZXQg

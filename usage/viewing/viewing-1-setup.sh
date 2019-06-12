@@ -3,10 +3,11 @@
 # THIS SCRIPT WAS GENERATED, DO NOT EDIT
 # Real source: viewing-1-setup.sharin
 
-sed -i -e "s/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/" /etc/locale.gen
+(apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null
+sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen
 dpkg-reconfigure --frontend=noninteractive locales
 update-locale LANG=fr_FR.UTF-8
-export LANG=fr_FR.UTF-8
+
 
 cat << EOF > fichier
 Ceci est le contenu du fichier dont le nom est "fichier". Il est un peu répétitif.
