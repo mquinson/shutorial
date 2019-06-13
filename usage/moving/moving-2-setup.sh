@@ -83,7 +83,7 @@ IHRvdWNoIGZpbGUtYHByaW50ZiAiJTAyZCIgJG5hbWVgLiRzdWZmaXgKICBk
 b25lCmRvbmUKbWtkaXIgd2ViCg==
 ====
 KCINCLUDE_EOF
-chmod 0644 /usr/local/bin/step2-setup.sh
+chmod 0755 /usr/local/bin/step2-setup.sh
 # End of KCINCLUDE step2-setup.sh
 
 
