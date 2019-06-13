@@ -13,6 +13,7 @@ for pos in `seq 1 100` ; do
   sleep 0.75s
   printf "\b\b\b\b\b\b"
   if [ -e /tmp/.katacoda-finished ] ; then
+    rm -f /tmp/.katacoda-finished # So that waiting the next exercise works
     break
   fi
 done
