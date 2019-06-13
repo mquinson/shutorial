@@ -33,9 +33,10 @@ vous devriez avoir une arborescence très proche de ce que vous aviez
 à la fin de l'exercice précédent:
 
 ```
-📁 dir1
-├── 📁 dir2
-│   └── 🖹 doc1
+📁
+├── 📁 dir1
+│   └── 📁 dir2
+│       └── 🖹 doc1
 └── 📁 dir3
     └── 🖹 doc2
 ```
@@ -46,9 +47,10 @@ l'arborescence, car le contenu des fichiers doc1 et doc2 doit être
 préservé.
 
 ```
-📁 DIR1
-├── 📁 DIR2
-│   └── 🖹 DOC1
+📁
+├── 📁 DIR1
+│   └── 📁 DIR2
+│       └── 🖹 DOC1
 └── 📁 DIR3
     └── 🖹 DOC2
 ```
