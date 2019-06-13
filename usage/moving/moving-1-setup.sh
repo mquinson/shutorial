@@ -10,19 +10,13 @@ update-locale LANG=fr_FR.UTF-8
 
 
 cd
-mkdir -p dir1/dir2
-printf "This is the content of doc1.\n">  dir1/dir2/doc1
-mkdir dir3
-printf "This is the content of doc2.\n">  dir3/doc2
-mkdir truc
-touch machin toto
 
 ## KCINSTALL tree tree
 if which tree >/dev/null 2>/dev/null || [ -e tree ] ; then :; else apt install tree 2>/dev/null >/dev/null; fi
 
-## KCINCLUDE moving-1-check.sh /usr/local/bin
+## KCINCLUDE step1-check.sh /usr/local/bin
 if which uuencode >/dev/null 2>/dev/null ; then :; else apt install sharutils 2>/dev/null >/dev/null; fi
-uudecode << 'KCINCLUDE_EOF' > /usr/local/bin/moving-1-check.sh &&
+uudecode << 'KCINCLUDE_EOF' > /usr/local/bin/step1-check.sh &&
 begin-base64 644 -
 IyEgL2Jpbi9zaAoKY2QgCnRyZWUgLW4gLS1ub3JlcG9ydCAtLWNoYXJzZXQg
 YXNjaWkgfCBzZWQgJ3MvYC9cXC8nID4gL3RtcC8udHJlZS5nb3QKY2F0ID4g
@@ -43,17 +37,25 @@ My9ET0MyIG4nb250IHBhcyBsZSBib24gY29udGVudS4iCiAgICBleGl0IDEK
 ZmkKCmVjaG8gImRvbmUiCg==
 ====
 KCINCLUDE_EOF
-chmod 0755 /usr/local/bin/moving-1-check.sh
-# End of KCINCLUDE moving-1-check.sh
+chmod 0755 /usr/local/bin/step1-check.sh
+# End of KCINCLUDE step1-check.sh
 
 
-if tree > /dev/null ; then
-  echo "tree already installed as asset"
-else
-  rm /usr/local/bin/tree
-  apt-get update
-  apt-get install -y tree
-fi
+## KCINCLUDE step1-setup.sh /usr/local/bin
+uudecode << 'KCINCLUDE_EOF' > /usr/local/bin/step1-setup.sh &&
+begin-base64 644 -
+IyEgL2Jpbi9zaAoKY2QKcm0gLXJmICoKbWtkaXIgLXAgZGlyMS9kaXIyCnBy
+aW50ZiAiVGhpcyBpcyB0aGUgY29udGVudCBvZiBkb2MxLlxuIj4gIGRpcjEv
+ZGlyMi9kb2MxCm1rZGlyIGRpcjMKcHJpbnRmICJUaGlzIGlzIHRoZSBjb250
+ZW50IG9mIGRvYzIuXG4iPiAgZGlyMy9kb2MyCm1rZGlyIHRydWMKdG91Y2gg
+bWFjaGluIHRvdG8K
+====
+KCINCLUDE_EOF
+chmod 0755 /usr/local/bin/step1-setup.sh
+# End of KCINCLUDE step1-setup.sh
+
+
+step1-setup.sh
 
 touch /tmp/.kc_started
 

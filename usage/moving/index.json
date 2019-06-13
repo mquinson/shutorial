@@ -9,7 +9,7 @@
 	"code": "wait-config.sh",
 	"courseData": "moving-1-setup.sh",
 	"solution": "moving-1-sol.sh",
-	"verify": "moving-1-check.sh",
+	"verify": "step1-check.sh",
 	"text": "moving-1.md"
       },
       {
@@ -17,7 +17,7 @@
 	"code": "wait-config.sh",
 	"courseData": "moving-2-setup.sh",
 	"solution": "moving-2-sol.sh",
-	"verify": "moving-2-check.sh",
+	"verify": "step2-check.sh",
 	"text": "moving-2.md"
       },
       {

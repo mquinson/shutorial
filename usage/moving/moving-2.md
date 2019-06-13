@@ -16,8 +16,9 @@ fichiers `pdf` dans le répertoire `print` (que vous devez créer) et
 les fichiers `png` dans le répertoire `image`. 
 
 Comme d'habitude, vous pouvez utiliser la commande
-```moving-2-check.sh```{{execute}} vous permet de lancer le script de
-validation à la main si vous êtes coincé. 
+```step2-check.sh```{{execute}} vous permet de lancer le script de
+validation à la main pour voir le problème. Vous pouvez réinitialiser
+la situation avec ```step2-setup.sh```{{execute}} si vous êtes coincé.
 
 Avouez que pouvoir déplacer autant de fichiers en une seule commande
 est tout de même agréable, non ?

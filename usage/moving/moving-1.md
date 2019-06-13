@@ -57,6 +57,6 @@ préservé.
 
 Coincé? Utilisez la commande ```tree```{{execute}} pour afficher récursivement
 le contenu de tous les répertoires. Vous pouvez aussi exécuter le programme de
-test ```moving-1-check.sh```{{execute}} à la main pour voir le
-problème. Si les choses tournent trop mal, rechargez la page pour
-recommencer du début.
+test ```step1-check.sh```{{execute}} à la main pour voir le
+problème. Si les choses tournent trop mal, réinitialisez tout avec
+```step1-setup.sh```{{execute}} (ou rechargez carrément la page).

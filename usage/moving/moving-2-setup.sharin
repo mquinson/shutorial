@@ -1,24 +1,13 @@
 #! /bin/bash
 
 cd
-rm -rf *
-for suffix in html pdf png ; do
-  for name in `seq 1 30` ; do
-    touch file-`printf "%02d" $name`.$suffix
-  done
-done
-mkdir web
 
 ## KCINSTALL tree tree
 
-## KCINCLUDE moving-2-check.sh /usr/local/bin
+## KCINCLUDE step2-check.sh /usr/local/bin
 
-if tree > /dev/null ; then
-  echo "tree already installed as asset"
-else
-  rm /usr/local/bin/tree
-  apt-get update
-  apt-get install -y tree
-fi
+## KCINCLUDE step2-setup.sh /usr/local/bin
+
+step2-setup.sh
 
 touch /tmp/.kc_started

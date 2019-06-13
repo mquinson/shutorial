@@ -10,20 +10,13 @@ update-locale LANG=fr_FR.UTF-8
 
 
 cd
-rm -rf *
-for suffix in html pdf png ; do
-  for name in `seq 1 30` ; do
-    touch file-`printf "%02d" $name`.$suffix
-  done
-done
-mkdir web
 
 ## KCINSTALL tree tree
 if which tree >/dev/null 2>/dev/null || [ -e tree ] ; then :; else apt install tree 2>/dev/null >/dev/null; fi
 
-## KCINCLUDE moving-2-check.sh /usr/local/bin
+## KCINCLUDE step2-check.sh /usr/local/bin
 if which uuencode >/dev/null 2>/dev/null ; then :; else apt install sharutils 2>/dev/null >/dev/null; fi
-uudecode << 'KCINCLUDE_EOF' > /usr/local/bin/moving-2-check.sh &&
+uudecode << 'KCINCLUDE_EOF' > /usr/local/bin/step2-check.sh &&
 begin-base64 644 -
 IyEgL2Jpbi9zaAoKY2QgCnRyZWUgLW4gLS1ub3JlcG9ydCAtLWNoYXJzZXQg
 YXNjaWkgfCBzZWQgJ3MvYC9cXC8nID4gL3RtcC8udHJlZS5nb3QKY2F0ID4g
@@ -77,17 +70,24 @@ KGEgZ2F1Y2hlOiBjZSBxdWUgdm91cyBhdmV6OyBhIGRyb2l0ZTogY2UgcXUn
 aWwgZmF1dCkiCiAgICBleGl0IDEKZmkKCmVjaG8gImRvbmUiCg==
 ====
 KCINCLUDE_EOF
-chmod 0755 /usr/local/bin/moving-2-check.sh
-# End of KCINCLUDE moving-2-check.sh
+chmod 0755 /usr/local/bin/step2-check.sh
+# End of KCINCLUDE step2-check.sh
 
 
-if tree > /dev/null ; then
-  echo "tree already installed as asset"
-else
-  rm /usr/local/bin/tree
-  apt-get update
-  apt-get install -y tree
-fi
+## KCINCLUDE step2-setup.sh /usr/local/bin
+uudecode << 'KCINCLUDE_EOF' > /usr/local/bin/step2-setup.sh &&
+begin-base64 644 -
+IyEgL2Jpbi9zaAoKY2QgCnJtIC1yZiAqCmZvciBzdWZmaXggaW4gaHRtbCBw
+ZGYgcG5nIDsgZG8KICBmb3IgbmFtZSBpbiBgc2VxIDEgMzBgIDsgZG8KICAg
+IHRvdWNoIGZpbGUtYHByaW50ZiAiJTAyZCIgJG5hbWVgLiRzdWZmaXgKICBk
+b25lCmRvbmUKbWtkaXIgd2ViCg==
+====
+KCINCLUDE_EOF
+chmod 0644 /usr/local/bin/step2-setup.sh
+# End of KCINCLUDE step2-setup.sh
+
+
+step2-setup.sh
 
 touch /tmp/.kc_started
 
