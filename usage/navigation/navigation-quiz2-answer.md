@@ -4,7 +4,8 @@ fichier est mise à l'heure courante.
 
 On peut voir la date de dernière modification des fichiers du
 répertoire courant avec la commande ```ls -l```{{execute}}.
-L'affichage long cd <tt>ls</tt> ajoute de nombreuses informations,
-comme les permissions (qui a le droit de lire ou modifier le fichier
--- on y reviendra), le propriétaire du fichier et son groupe, la
-taille du fichier et donc la date de dernière modification.
+Cela demande l'affichage long à la commande <tt>ls</tt>, ce qui ajoute
+de nombreuses informations comme les permissions (qui a le droit de
+lire ou modifier le fichier -- on y reviendra), le propriétaire du
+fichier et son groupe, la taille du fichier et donc la date de
+dernière modification. 
