@@ -26,17 +26,23 @@ Il s'agit maintenant de créer l'aborescence suivante. Si ce n'est pas fait,
 supprimez également le résultat de vos essais antérieurs.
 
 ```
-📁 dir1
-├── 📁 dir2
-│   └── 🖹 doc1
+📁
+├── 📁 dir1
+│   └── 📁 dir2
+│       └── 🖹 doc1
 └── 📁 dir3
     └── 🖹 doc2
 ```
 
-Les logos sont juste pour l'explication, les noms de fichiers et répertoires ne
-doivent contenir que des lettres et des chiffres dans cet exercice. 
+Les logos sont juste pour l'explication, les noms de fichiers et
+répertoires ne doivent contenir que des lettres et des chiffres dans
+cet exercice. Le répertoire au sommet est l'endroit où commence
+l'exercice (on peut y retourner à tout moment avec la commande
+```cd```{{execute}} sans argument). Il faut donc que les répertoires
+dir1 et dir3 se trouvent cote à cote à la racine de votre
+arborescence.
 
-Coincée? Utilisez la commande ```ls -R```{{execute}} pour afficher
+Coincé? Utilisez la commande ```ls -R```{{execute}} pour afficher
 récursivement le contenu de tous les répertoires. Vous pouvez aussi
 exécuter le programme de test ```navigation-check.sh```{{execute}} à
 la main pour voir le problème. Si les choses sont graves, rechargez la
