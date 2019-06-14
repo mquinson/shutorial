@@ -28,7 +28,12 @@ de se promener dans l'affichage d'un fichier : on peut descendre et
 monter avec page vers le haut/page vers le bas, et quitter avec 'q'.
 
 Pour passer à la suite, il suffit de trouver différents mots de passe,
-répartis dans différents fichiers du répertoire.
+répartis dans différents fichiers du répertoire. ``Ctrl-C`` ne
+fonctionne pas dans le terminal (c'est la séquence pour interrompre un
+programme qui prend du temps). C'est agaçant, mais le terminal
+existait plusieurs décennies avant que certains décident qu'on
+utiliserait ``Ctrl-C`` pour copier. Dans le terminal il faut faire
+``Ctrl-Inser`` pour copier, et ``Shift-Inser`` pour coller.
 
 >>Quel est le contenu du fichier 'mot-de-passe' ?<<
 === poufpouf badaboum

@@ -1,0 +1,20 @@
+{
+  "title": "Chercher des fichiers",
+  "description": "Découvrez la commande 'find'.",
+  "details": {
+    "steps": [
+      {
+        "title": "Recherche",
+	"text": "searching.md",
+	"code": "wait-config.sh",
+	"courseData": "searching-setup.sh"
+      }
+    ]
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}

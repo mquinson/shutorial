@@ -1,5 +1,7 @@
 #! /bin/sh
 
+# TODO: un exo où il faut faire une recherche dans 'less' avec '/'
+
 cat << EOF > fichier
 Ceci est le contenu du fichier dont le nom est "fichier". Il est un peu répétitif.
 Ceci est le contenu du fichier dont le nom est "fichier". Il est un peu répétitif.

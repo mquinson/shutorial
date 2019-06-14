@@ -1,0 +1,1 @@
+../navigation/wait-config.sh

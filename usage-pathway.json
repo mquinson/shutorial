@@ -21,6 +21,11 @@
       "title": "Voir le contenu des fichiers",
       "description": "Découverte des commandes: cat, head, tail, less.",
       "course_id": "viewing"
+    },
+    {
+      "title": "Chercher des fichiers",
+      "description": "Découverte de la commande 'find'.",
+      "course_id": "searching"
     }
   ]
 }
