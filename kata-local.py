@@ -63,6 +63,7 @@ for sharin in os.listdir():
                 else:
                     output.write(line)
             output.write("\necho done > /tmp/.katacoda-finished")
+        os.chmod(basescript, stat.S_IRUSR|stat.S_IWUSR|stat.S_IXUSR) # user rwx
         print("Done")
 
 ### Check the tests in a docker    
