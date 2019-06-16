@@ -17,7 +17,7 @@ Mais grep est bien plus puissant que cela. Il permet de chercher non
 seulement des mots, mais également des motifs avancés comme "un i
 suivi d'un nombre pair de t (ou bien d'un nombre impaire de s), mais
 uniquement si c'est en début de ligne". En informatique, ces motifs
-s'appellent des expressions régulière ("regular expression" ou "regex"
+s'appellent des expressions régulières ("regular expression" ou "regex"
 en anglais), et c'est d'ailleurs de là que vient le nom de grep:
 "Global Regular Expression Print" (affichage d'expressions
 régulières globales). 
@@ -39,7 +39,8 @@ wikipédia](https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re#Utilisa
 
 On trouve 243 fichiers aux noms parfaitement inintéressants, dont l'un
 d'entre eux contient la chaîne 'ici'. Utilisez grep pour trouver
-lequel, et recopier le mot bizarre ci-dessous.
+lequel, et recopier le mot bizarre ci-dessous (avec
+Ctrl-Inser/Shift-Inser à la place de Ctrl-C/Ctrl-V sur ce site web).
 
 >> Mot étrange sur une ligne contenant 'ici' dans aa/* <<
 =~= dewulitavo
@@ -68,6 +69,13 @@ ou dans le message d'aide du programme (```grep --help```{{execute}}).
 
 ### Répéter un motif
 
+Comme indiqué sur wikipédia, on utilise des accolades pour indiquer
+des répétitions de motif. Mais grep demande à ce qu'on écrive ``\{`` au
+lieu de ``{``. À la fin, la regex pour attraper ``hiiiiiiiiii`` sera
+``'hi\{10\}'``. N'oubliez pas les guillemets simples: ``hi\{10\}``
+serait d'abord interprété par le shell qui passerait des choses
+étranges à grep.
+
 Là encore, il est plus facile de tricher que de trouver la bonne
 regex. Soyez fort, persistez!
 
@@ -76,9 +84,15 @@ regex. Soyez fort, persistez!
 
 ### Classes de caractères
 
-On cherche un mot contenant trois voyelles successives (trois fois
-l'une des lettres suivantes: ``aeoiu``), suivies de quelque chose qui
-n'est pas un chiffre.
+On cherche un mot contenant trois voyelles successives, suivies de
+quelque chose qui n'est pas un chiffre. On est obligé de décrire les
+voyelles en extension (il s'agit de l'une des lettres suivantes:
+``aeoiu``), mais on peut décrire les chiffres en intension (un
+caractère entre ``0`` et ``9``).
+
+En grep, il faut bien écrire ``[`` et non ``\[``. Mais c'est toujours
+une bonne idée de protéger ses expressions régulières du shell avec
+des guillemets simples.
 
 >> Trois voyelles consécutives, pas pas suivies d'un chiffre dans ee/* <<
 =~= xerulitapo
@@ -86,6 +100,12 @@ n'est pas un chiffre.
 ### Aller plus loin
 
 Internet regorge de très bonnes ressources pour continuer à vous
-entrainer avec les expressions régulières. Ma favorite est peut-être
-le [mot-croisé des regex](https://regexcrossword.com). C'est un jeu
-très geek, mais plutôt amusant.
+entrainer avec les expressions régulières. La plus surprenante est
+probablement le [mot-croisé des regex](https://regexcrossword.com).
+C'est un jeu très geek plutôt amusant, mais trop difficile à mon goût.
+Face à un jeu comme ça, je cherche plutôt à programmer un solveur
+automatique en brute force. Pas vous ?
+
+Pour apprendre les regex, je préfère [ce jeu](play.inginf.units.it/),
+plus pédagogique. Pas besoin de parler anglais, il suffit de passer
+les pages d'introduction pour arriver au jeu.

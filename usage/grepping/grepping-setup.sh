@@ -52,6 +52,7 @@ echo "Oui, laaaaaa: begutikapo" > `grep --files-with-matches begutikapo dd/*`
 echo "Non, pas laa: xerulitapo" > `grep --files-with-matches xerulitapo ee/*`
 echo "Noon, pas la: beruliraso" > `grep --files-with-matches beruliraso ee/*`
 echo "oui, ici    : xerulitapo" > `grep --files-with-matches xerulitapo ee/*`
+echo "oui42 -> non: bewupikavo" > `grep --files-with-matches bewupikavo ee/*`
 
 for f in `find -type f` ; do
   iconv -f ISO_8859-1 -t utf8 -o /tmp/AZE $f && mv /tmp/AZE $f
