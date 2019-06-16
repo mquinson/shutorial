@@ -26,6 +26,11 @@ for sharin in os.listdir():
                     output.write("dpkg-reconfigure --frontend=noninteractive locales\n")
                     output.write("update-locale LANG=fr_FR.UTF-8\n\n")
                     
+                elif re.match('.*KCCLEAN.*', line):
+                    print("CLEAN")
+                    output.write(line)
+                    output.write("cd; rm -rf *\n")
+                    
                 elif re.match('.*KCINSTALL.*', line):
                     request = re.sub('.*KCINSTALL *','',line).split()
                     if len(request) != 2:
