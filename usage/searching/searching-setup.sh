@@ -9,8 +9,8 @@ dpkg-reconfigure --frontend=noninteractive locales
 update-locale LANG=fr_FR.UTF-8
 
 
-cd
-rm -rf *
+# KCCLEAN
+cd; rm -rf *
 updatedb
 
 # KCINSTALL tree tree
@@ -76,6 +76,11 @@ for a in ddd ; do
 done
 touch timestamp
 echo "Rien d'intéressant dans ce fichier" > ddd/xe/pi/ta/po/zu/pas-la
+
+for f in `find -type f` ; do
+  iconv -f ISO_8859-1 -t utf8 -o /tmp/AZE $f && mv /tmp/AZE $f
+done
+
 sleep 1
 touch ddd/be/ti/ra/so/lu
 echo done > /tmp/.katacoda-finished

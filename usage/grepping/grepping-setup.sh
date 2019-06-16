@@ -53,6 +53,11 @@ echo "Non, pas laa: xerulitapo" > `grep --files-with-matches xerulitapo ee/*`
 echo "Noon, pas la: beruliraso" > `grep --files-with-matches beruliraso ee/*`
 echo "oui, ici    : xerulitapo" > `grep --files-with-matches xerulitapo ee/*`
 
+for f in `find -type f` ; do
+  iconv -f ISO_8859-1 -t utf8 -o /tmp/AZE $f && mv /tmp/AZE $f
+done
+  
+
 #exit 0
 #-------------------------------------------------------------------------
 echo "Sol Q1: "
@@ -74,6 +79,7 @@ grep aaa dd/*
 echo "Sol Q5: "
 echo -n "  "
 grep  \[aeiou\]\[aeiou\]\[aeiou\]  ee/*
+
 
 
 echo done > /tmp/.katacoda-finished
