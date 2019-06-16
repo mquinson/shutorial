@@ -1,0 +1,20 @@
+{
+  "title": "Chercher dans le contenu des fichiers",
+  "description": "Découvrez la commande grep.",
+  "details": {
+    "steps": [
+      {
+        "title": "Grep",
+	"text": "grepping.md",
+	"code": "wait-config.sh",
+	"courseData": "grepping-setup.sh"
+      }
+    ]
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}

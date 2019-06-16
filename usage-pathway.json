@@ -26,6 +26,11 @@
       "title": "Chercher des fichiers",
       "description": "Découverte de la commande 'find'.",
       "course_id": "searching"
+    },
+    {
+      "title": "Fouiller des fichiers",
+      "description": "Découverte de la commande 'grep'.",
+      "course_id": "grepping"
     }
   ]
 }
