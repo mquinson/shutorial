@@ -1,5 +1,6 @@
 #! /bin/bash
 export LANG=fr_FR.UTF-8
+kill -SIGWINCH `echo $$` # pty seems initialized before the web page knows its size (https://www.linusakesson.net/programming/tty/)
 
 bash << 'EOF'
 clear
