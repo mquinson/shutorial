@@ -1,4 +1,4 @@
-Dans la fenêtre à droite, le signe ```>``` s'appelle un *prompt*. C'est ainsi
+Dans la fenêtre à droite, le signe ```$``` s'appelle un *prompt*. C'est ainsi
 que le système vous invite à écrire votre prochaine commande. Essayez de taper
 n'importe quoi (par exemple, la commande ```fgddfssdfg```{{execute}}) : Le
 système vous dira qu'il n'a pas trouvé cette commande.
