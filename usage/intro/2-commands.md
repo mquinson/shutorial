@@ -17,12 +17,14 @@ Marre de taper les lettres de ```free``` à chaque fois ? Utilisez les flèches
 pour retrouver ce que vous venez d'écrire et le modifier avant de refaire
 entrée. 
 
-Vous ne vous souvenez plus des options d'un programme ? Consultez le manuel en
-tapant par exemple ```man free```{{execute}}. Vous pouvez naviguer dans le
-manuel grâce aux flèches. Chercher une chaîne
+Vous ne vous souvenez plus des options d'un programme ? Consultez le
+manuel en tapant par exemple ```man free```{{execute}}. Vous pouvez
+naviguer dans le manuel grâce aux flèches. Chercher une chaîne
 particulière se fait avec ```/``` suivi de la chaîne à chercher, suivi
 de Entrée. Quitter le manuel se fait avec avec la touche ```q```, et
 on voit la liste des commandes du programme d'affichage avec ```h```.
+Si l'affichage devient fou, il est souvent utile de redimensionner la
+fenêtre de votre navigateur web.
 
 La chose importante à retenir avant de continuer, c'est que toutes les lignes
 que vous taperez dans le terminal auront la même syntaxe (la même grammaire). En
