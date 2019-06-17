@@ -27,8 +27,7 @@ Enfin, la commande ```less fichier_long```{{execute}} permet
 de se promener dans l'affichage d'un fichier : la navigation se fait avec
 les mêmes raccourcis que le manuel (le manuel appelle ``less`` en interne).
 Pour rappel : les flèches et page vers le haut/bas permettent de se déplacer
-dans le fichier, 'q' quitte le programme, la recherche se fait avec '/',
-'n' et 'N'.
+dans le fichier, 'q' quitte le programme et on voit l'aide avec 'h'.
 
 Pour passer à la suite, il suffit de trouver différents mots de passe,
 répartis dans différents fichiers du répertoire. ``Ctrl-C`` ne
