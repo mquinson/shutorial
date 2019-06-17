@@ -81,7 +81,6 @@ done
 touch timestamp; touch -m timestamp
 
 sleep 1
-echo "Rien d'intéressant dans ce fichier" > ddd/xe/pi/ta/po/zu/pas-la
-touch -m ddd/be/ti/ra/so/lu
+echo "L'information ici est: xepitapozu." > ddd/xe/pi/ta/po/zu/peut-etre-la
 
 echo done > /tmp/.katacoda-finished

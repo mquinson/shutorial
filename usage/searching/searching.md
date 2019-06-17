@@ -69,4 +69,4 @@ modifié plus récemment que le fichier ``timestamp`` placé à la racine.
 ```cd ~/ddd```{{execute}}
 
 >>Que contient le fichier caché dans 'ddd'?<<<
-=~= betirasolu
+=~= xepitapozu
