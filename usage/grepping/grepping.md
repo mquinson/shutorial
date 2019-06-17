@@ -22,7 +22,7 @@ en anglais), et c'est d'ailleurs de là que vient le nom de grep:
 "Global Regular Expression Print" (affichage d'expressions
 régulières globales). 
 
-La syntaxe des expressions rationnelles fleure bon les années 70 (en
+La syntaxe des expressions régulières fleure bon les années 70 (en
 informatique, cela veut dire que c'est affreusement préhistorique),
 mais la puissance de la chose vaut bien la peine qu'on apprenne un peu
 à s'en servir. En cas de problème, on trouve même des assistants à
