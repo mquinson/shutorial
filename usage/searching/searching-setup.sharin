@@ -45,6 +45,10 @@ for a in ccc ; do
 done
 echo "Bravo, c'était bien là. L'information était: deliravo." > ccc/de/li/ra/vo/peut-etre-la
 
+for f in `find -type f` ; do
+  iconv -f ISO_8859-1 -t utf8 -o /tmp/AZE $f && mv /tmp/AZE $f
+done
+
 # Q4: trouver un fichier plus récent qu'un autre
 for a in ddd ; do 
   for b in de be xe ; do
@@ -64,11 +68,7 @@ for a in ddd ; do
   done
 done
 touch timestamp
+
+sleep 1
 echo "Rien d'intéressant dans ce fichier" > ddd/xe/pi/ta/po/zu/pas-la
-
-for f in `find -type f` ; do
-  iconv -f ISO_8859-1 -t utf8 -o /tmp/AZE $f && mv /tmp/AZE $f
-done
-
-sleep 2
 touch ddd/be/ti/ra/so/lu
