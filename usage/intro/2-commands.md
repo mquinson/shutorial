@@ -18,9 +18,13 @@ pour retrouver ce que vous venez d'écrire et le modifier avant de refaire
 entrée. 
 
 Vous ne vous souvenez plus des options d'un programme ? Consultez le manuel en
-tapant par exemple ```man free```{{execute}}. Vous pouvez chercher une chaîne
-particulière avec ```/``` suivi de la chaîne à chercher, puis quitter le manuel
-avec la touche ```q```. Sur katacoda pour l'instant, le manuel est en anglais
+tapant par exemple ```man free```{{execute}}. Vous pouvez naviguer dans le
+manuel grâce aux flèches. Chercher une chaîne
+particulière se fait avec ```/``` suivi de la chaîne à chercher
+(appuyez sur Entrée pour valider la recherche), puis ```n``` permet de se
+déplacer au prochain résultat (```N``` permet de se déplacer au précédent).
+Quitter le manuel se fait avec avec la touche ```q```.
+Sur katacoda pour l'instant, le manuel est en anglais
 car je n'ai pas encore réussi à configurer le système comme il faut. Sur votre
 ordinateur ce serait en français.
 
