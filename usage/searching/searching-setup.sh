@@ -81,6 +81,7 @@ for f in `find -type f` ; do
   iconv -f ISO_8859-1 -t utf8 -o /tmp/AZE $f && mv /tmp/AZE $f
 done
 
-sleep 1
+sleep 2
 touch ddd/be/ti/ra/so/lu
+
 echo done > /tmp/.katacoda-finished
