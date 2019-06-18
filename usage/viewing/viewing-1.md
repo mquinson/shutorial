@@ -37,6 +37,21 @@ existait plusieurs décennies avant que certains décident qu'on
 utiliserait ``Ctrl-C`` pour copier. Dans le terminal il faut faire
 ``Ctrl-Inser`` pour copier, et ``Shift-Inser`` pour coller.
 
+Bien entendu, il est presque impossible de taper la bonne commande,
+juste du premier coup. On pourrait la copier/coller depuis juste au
+dessus avec Ctrl+Inser et Shift+Inser, mais ce serait affreusement
+lent et frustrant. Il y a bien mieux: on peut retrouver les commandes
+qu'on vient d'écrire simplement avec les flèches haut/bas et les
+modifier. 
+
+En fait, le terminal est un truc de fainéants où tout est fait pour
+vous simplifier la vie, vous allez voir. Vous avez la flème de
+chercher manuellement dans l'historique la ligne où vous utilisez
+``head``? Tapez simplement Ctrl-R pour passer en mode recherche, et
+écrivez ``head``. Le shell va fouiller l'historique pour vous. Essayez
+d'utiliser les flèches pendant/après la recherche ou de refaire Ctrl-R
+en cours de recherche: c'est assez bien fait.
+
 >>Quel est le contenu du fichier 'mot-de-passe' ?<<
 === poufpouf badaboum
 
