@@ -1,7 +1,11 @@
 Nous avons vu quelques commandes pour se déplacer sur le disque et
 pour créer des fichiers et répertoires. Pour ne pas les oublier,
 imprimez le [pense-bête du shell](https://framagit.org/mquinson/C-2nd-language/raw/master/refcard/refcard-shell.pdf?inline=false).
- 
+
+Dans cet exercice, nous allons apprendre à déplacer des fichiers.
+Utilisez la commande ```tree```{{execute}} pour voir la situation
+initiale.
+
 La commande `mv` permet de déplacer (MoVe) des fichiers et
 répertoires. Sa syntaxe est très facile: De base, 
 ```mv toto bidule```{{execute}} permet de renommer le fichier `toto` en `bidule`.
