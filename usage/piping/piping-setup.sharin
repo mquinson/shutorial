@@ -1,0 +1,10 @@
+#! /bin/sh
+
+# KCCLEAN
+
+touch présent
+
+# KCINCLUDE plus.sh /root
+# KCINCLUDE animaux /root
+
+# KCINCLUDE piping-check.sh /usr/local/bin

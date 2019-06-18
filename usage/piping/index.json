@@ -1,0 +1,22 @@
+{
+  "title": "Rediriger les I/O pour combiner des commandes",
+  "description": "Découvrez stdin, stdout et stderr, et apprennez à les rediriger.",
+  "details": {
+    "steps": [
+      {
+        "title": "Rediriger les entrées/sorties",
+	"text": "piping.md",
+	"code": "wait-config.sh",
+	"courseData": "piping-setup.sh",
+	"solution": "piping-sol.sh",
+	"verify": "piping-check.sh"
+      }
+    ]
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}

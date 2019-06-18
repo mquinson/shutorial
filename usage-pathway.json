@@ -31,6 +31,11 @@
       "title": "Fouiller des fichiers",
       "description": "Découverte de la commande 'grep'.",
       "course_id": "grepping"
+    },
+    {
+      "title": "Rediriger les entrées/sorties",
+      "description": "Apprendre à faire de la tuyauterie entre les commandes avec < > >> et |",
+      "course_id": "piping"
     }
   ]
 }
