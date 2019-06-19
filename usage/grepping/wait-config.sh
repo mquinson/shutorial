@@ -16,7 +16,7 @@ for pos in `seq 1 100` ; do
   printf "\b\b\b\b\b\b"
   if [ -e /tmp/.katacoda-finished ] ; then
     rm -f /tmp/.katacoda-finished # So that waiting the next exercise works
-    kill -SIGWINCH $PID # pty seems initialized before the web page knows its size (https://www.linusakesson.net/programming/tty/)
+    kill -SIGWINCH $PPID # pty seems initialized before the web page knows its size (https://www.linusakesson.net/programming/tty/)
     break
   fi
 done
