@@ -1,5 +1,3 @@
-## Combiner des programmes
-
 Jusqu'à présent, nous avons utilisé le terminal pour lancer des
 programmes les uns après les autres, mais ça n'allait pas très loin
 car ces programmes étaient très simples. Mais la puissance du shell ne
@@ -8,11 +6,18 @@ facilité avec laquelle on peut combiner des programmes simples pour
 faire des outils parfaitements adaptés à la situation actuelle.
 
 Le plus souvent, on ne fait même pas un script à proprement parler,
-mais on combine plusieurs programmes sur la même ligne de commande.
-On peut par exemple recompiler un programme, l'exécuter sur plusieurs
+mais on combine plusieurs programmes sur la même ligne de commande. On
+peut par exemple recompiler un programme, l'exécuter sur plusieurs
 fichiers, vérifier que tout s'est bien passé puis effacer les fichiers
 temporaires. Le tout en une seule commande, accessible simplement avec
-flèche vers le haut.
+flèche vers le haut. On trouve même des [collections en
+ligne](https://www.commandlinefu.com/) de commandes shell d'une ligne
+(on appelle ça des *one-liners*). Certaines sont pratiques, d'autres
+au mieux anecdotiques. Toutes sont difficiles à relire et à
+comprendre. D'ailleurs, on n'apprend pas des *one-liner* par coeur, on
+les reconstruit quand on en a besoin. Voyons maintenant comment faire.
+
+## Combiner des programmes
 
 Pour exécuter deux commandes à la suite, il suffit de les séparer par
 ``;`` ```touch temporaire; ls temporaire; rm temporaire```{{execute}}
