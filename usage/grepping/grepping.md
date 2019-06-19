@@ -15,7 +15,7 @@ trouvé séparé par ':' de la ligne complète contenant la chaîne.
 
 Mais grep est bien plus puissant que cela. Il permet de chercher non
 seulement des mots, mais également des motifs avancés comme "un i
-suivi d'un nombre pair de t (ou bien d'un nombre impaire de s), mais
+suivi d'un nombre pair de t (ou bien d'un nombre impair de s), mais
 uniquement si c'est en début de ligne". En informatique, ces motifs
 s'appellent des expressions régulières ("regular expression" ou "regex"
 en anglais), et c'est d'ailleurs de là que vient le nom de grep:
@@ -37,8 +37,8 @@ wikipédia](https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re#Utilisa
 
 ### Chercher un mot
 
-On trouve 243 fichiers aux noms parfaitement inintéressants, dont l'un
-d'entre eux contient la chaîne 'ici'. Utilisez grep pour trouver
+On trouve 243 fichiers aux noms parfaitement inintéressants dans le répertoire
+``aa``. L'un d'entre eux contient la chaîne 'ici'. Utilisez grep pour trouver
 lequel, et recopier le mot bizarre ci-dessous (avec
 Ctrl-Inser/Shift-Inser à la place de Ctrl-C/Ctrl-V sur ce site web).
 
@@ -47,7 +47,8 @@ Ctrl-Inser/Shift-Inser à la place de Ctrl-C/Ctrl-V sur ce site web).
 
 ### Limiter aux mots débutant la ligne
 
-Cette fois, 'ici' est dans deux fichiers et il faut sélectionner la
+Cette fois, dans le répertoire ``bb``,
+'ici' est dans deux fichiers et il faut sélectionner la
 ligne où le motif est placé en début de ligne. Bien sûr, vous pouvez
 grepper 'ici' sans spécifier et choisir à la main lequel des deux
 recopier. Mais rien ne sert de tricher ici: ce n'est pas évalué. Il
@@ -59,7 +60,8 @@ bonne ligne (relisez wikipedia au besoin).
 
 ### Ignorer la casse
 
-Cette fois, on cherche "plutot" sans accent, mais on ne sait pas s'il
+Cette fois, dans le répertoire ``cc``,
+on cherche "plutot" sans accent, mais on ne sait pas s'il
 est écrit en majuscule ou minuscule. Il y a une option pour ignorer la
 casse, comme indiqué sur la page man de grep (```man grep```{{execute}})
 ou dans le message d'aide du programme (```grep --help```{{execute}}).
@@ -94,7 +96,7 @@ En grep, il faut bien écrire ``[`` et non ``\[``. Mais c'est toujours
 une bonne idée de protéger ses expressions régulières du shell avec
 des guillemets simples.
 
->> Trois voyelles consécutives, pas pas suivies d'un chiffre dans ee/* <<
+>> Trois voyelles consécutives, non suivies d'un chiffre dans ee/* <<
 =~= xerulitapo
 
 ### Aller plus loin

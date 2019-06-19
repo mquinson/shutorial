@@ -8,7 +8,7 @@ tourne votre machine virtuelle, ```cal```{{execute}} pour voir le calendrier de
 ce mois, ou encore ```df```{{execute}} ```free```{{execute}} pour voir la place
 libre respectivement sur le disque (df=disk free) ou en mémoire.
 
-Le résultat de free n'est pas très lisible ? Ajoutez l'option ```-k```
+Le résultat de ```free``` n'est pas très lisible ? Ajoutez l'option ```-k```
 pour lui demander de parler en kilo-octets (```date -k```{{execute}}
 avec une espace entre la commande et l'option), ```-m``` pour avoir
 des kilo-octets, ou carrément ```-h``` pour lui dire que vous êtes un

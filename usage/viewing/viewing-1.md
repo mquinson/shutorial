@@ -45,7 +45,7 @@ qu'on vient d'écrire simplement avec les flèches haut/bas et les
 modifier. 
 
 En fait, le terminal est un truc de fainéants où tout est fait pour
-vous simplifier la vie, vous allez voir. Vous avez la flème de
+vous simplifier la vie, vous allez voir. Vous avez la flemme de
 chercher manuellement dans l'historique la ligne où vous utilisez
 ``head``? Tapez simplement Ctrl-R pour passer en mode recherche, et
 écrivez ``head``. Le shell va fouiller l'historique pour vous. Essayez

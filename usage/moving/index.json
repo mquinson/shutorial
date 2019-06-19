@@ -5,7 +5,7 @@
   "details": {
     "steps": [
       {
-        "title": "Déplacer des fichiers et répertoire",
+        "title": "Déplacer des fichiers et répertoires",
 	"code": "wait-config.sh",
 	"courseData": "moving-1-setup.sh",
 	"solution": "moving-1-sol.sh",
