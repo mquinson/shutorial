@@ -16,6 +16,7 @@ arborescence de répertoires. Voici quelques commandes utiles:
   vide). On peut aussi utiliser ```rm -r machin```{{execute}} pour effacer
   récursivement ```machin``` et tout son contenu.
 - ```ls```{{execute}} 
+- ```clear```{{execute}} permet d'effacer l'écran pour nettoyer.
 
 Au besoin, lisez la documentation de ces commandes avec par exemple
 ```man ls```{{execute}} ('q' pour quiter cette aide).
