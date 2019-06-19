@@ -96,11 +96,23 @@ sortie standard (nommée ``stdout``) est celle par défaut. Le symbole
 ``>`` ne redirige que ``stdout`` sans toucher à ka sortie d'erreur
 (nommée ``stderr``), qui continue donc à atterrir sur l'écran.
 Cela permet aux programmes d'indiquer leurs problèmes même quand on a
-redirigé leur sortie standard. Si on le souhaite, on peut rediriger ``stderr`` avec
-``2>`` : ```ls GaBuZoMeu 2> erreur```{{execute}}  (inspectez
-le fichier produit: ```cat erreur```{{execute}} ).  Et bien entendu,
-on peut rediriger l'entrée standard et les deux sorties en même temps.
-La ligne devient un peu longue, mais ça ne pose pas de problème.
+redirigé leur sortie standard. Si on le souhaite, on peut rediriger 
+``stderr`` avec ``2>`` : ```ls GaBuZoMeu 2> erreur```{{execute}}
+(inspectez  le fichier produit: ```cat erreur```{{execute}} ). On peut
+enfi demander à rediriger ``stderr`` dans ``stdout`` avec ``2>&1`` (le
+flux 2 -- stderr -- va dans le flux 1 -- stdout).
+
+Et bien entendu, on peut rediriger l'entrée standard et les deux
+sorties tout en combinant des séquences d'opérations. La ligne devient
+un peu longue, mais ça ne pose pas de problème.
+```ls GaBuZoMeu 2> /dev/null && echo "Le fichier existe" || echo "PROBLÈME!"```{{execute}}
+```ls OK 2>&1 >/dev/null && (echo "Le fichier existe. Son contenu:"; cat < OK) || echo "PROBLÈME!"```{{execute}}
+
+Oui, le résultat final n'est ni très lisible ni même très utile, mais
+c'est un exemple de commande qu'on construit peu à peu lors d'une
+session de travail, pour répondre à un besoin immédiat. Prenez
+cependant le temps de comprendre ce qu'il contient et comment les
+morceaux sont combinés.
 
 ## Tuber des programmes
 
@@ -142,7 +154,7 @@ Vous pouvez lancer le script de validation à la main au besoin:
 On voudrait constituer un fichier nommé ``ligne33`` contenant exactement
 la ligne 33 du fichier ``animaux.ok``. 
 
-Indication: vous aurez besoin des commandes ``head`` et ``tail``.
+*Indication:* vous aurez besoin des commandes ``head`` et ``tail``.
 Quand on ne leur précise pas le fichier à lire, ces commandes lisent
 leur entrée standard. Par défaut, ``head`` affiche les 10 premières
 lignes de ce qu'il lit tandis que ``tail`` en affiche les 10 dernières

@@ -2,7 +2,7 @@
 
 # KCCLEAN
 
-touch OK
+echo "ce fichier est inutile, mais il existe." > OK
 
 # KCINCLUDE plus.sh /root
 # KCINCLUDE animaux /root
