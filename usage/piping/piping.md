@@ -10,11 +10,13 @@ mais on combine plusieurs programmes sur la même ligne de commande. On
 peut par exemple recompiler un programme, l'exécuter sur plusieurs
 fichiers, vérifier que tout s'est bien passé puis effacer les fichiers
 temporaires. Le tout en une seule commande, accessible simplement avec
-flèche vers le haut. On trouve même des [collections en
-ligne](https://www.commandlinefu.com/) de commandes shell d'une ligne
-(on appelle ça des *one-liners*). Certaines sont pratiques, d'autres
-au mieux anecdotiques. Toutes sont difficiles à relire et à
-comprendre. D'ailleurs, on n'apprend pas des *one-liner* par coeur, on
+flèche vers le haut. On trouve même 
+[ici](https://www.commandlinefu.com/) et
+[là](http://www.bashoneliners.com/) des collections de ligne de
+commandes shell d'une seule ligne (on appelle ça des *one-liners*).
+Certaines sont pratiques, d'autres au mieux anecdotiques. Ces lignes
+sont parfois très longues, et toutes sont difficiles à relire et à
+comprendre. D'ailleurs, on n'apprend pas des *one-liner* par cœur, on
 les reconstruit quand on en a besoin. Voyons maintenant comment faire.
 
 ## Combiner des programmes
