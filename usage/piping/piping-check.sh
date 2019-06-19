@@ -3,10 +3,12 @@
 # THIS SCRIPT WAS GENERATED, DO NOT EDIT
 # Real source: piping-check.sharin
 
-(apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null
-sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen
-dpkg-reconfigure --frontend=noninteractive locales
-update-locale LANG=fr_FR.UTF-8
+if grep -q '# fr_FR.UTF-8 UTF-8' /etc/locale.gen ; then
+   apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null
+   sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen
+   dpkg-reconfigure --frontend=noninteractive locales
+   update-locale LANG=fr_FR.UTF-8
+fi
 
 
 if [ -e animaux.ok ] ; then

@@ -3,16 +3,18 @@
 # THIS SCRIPT WAS GENERATED, DO NOT EDIT
 # Real source: piping-setup.sharin
 
-(apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null
-sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen
-dpkg-reconfigure --frontend=noninteractive locales
-update-locale LANG=fr_FR.UTF-8
+if grep -q '# fr_FR.UTF-8 UTF-8' /etc/locale.gen ; then
+   apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null
+   sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen
+   dpkg-reconfigure --frontend=noninteractive locales
+   update-locale LANG=fr_FR.UTF-8
+fi
 
 
 # KCCLEAN
 cd; rm -rf *
 
-touch présent
+touch OK
 
 # KCINCLUDE plus.sh /root
 if which uuencode >/dev/null 2>/dev/null ; then :; else apt install sharutils 2>/dev/null >/dev/null; fi
@@ -138,11 +140,11 @@ J2EgcGFzIGxlIGJvbiBjb250ZW51LiBEaWZmw6lyZW5jZSBjb25zdGF0w6ll
 OiIKICAgIGVjaG8gIiRvdXQiCiAgICBleGl0IDEKICBmaQplbHNlCiAgZWNo
 byAiT3Vwcywgdm91cyBuJ2F2ZXogcGFzIGZhaXQgbGEgcXVlc3Rpb24gMiAo
 bGUgZmljaGllciBsaWduZTMzIGVzdCBpbnRyb3V2YWJsZSkuIgogIGV4aXQg
-MQpmaSAKCmVjaG8gImRvbmUicm0gLWYgL3RtcC8uY21kCgplY2hvIGRvbmUg
-PiAvdG1wLy5rYXRhY29kYS1maW5pc2hlZA==
+MQpmaSAKCmVjaG8gImRvbmUiCnJtIC1mIC90bXAvLmNtZAoKZWNobyBkb25l
+ID4gL3RtcC8ua2F0YWNvZGEtZmluaXNoZWQK
 ====
 KCINCLUDE_EOF
-chmod 0700 /usr/local/bin/piping-check.sh
+chmod 0755 /usr/local/bin/piping-check.sh
 # End of KCINCLUDE piping-check.sh
 
 

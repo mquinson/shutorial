@@ -21,10 +21,12 @@ for sharin in os.listdir():
                 if re.match('#!', line):
                     output.write(line)
                     output.write("\n# THIS SCRIPT WAS GENERATED, DO NOT EDIT\n# Real source: {}\n".format(sharin))
-                    output.write("\n(apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null\n")
-                    output.write("sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen\n")
-                    output.write("dpkg-reconfigure --frontend=noninteractive locales\n")
-                    output.write("update-locale LANG=fr_FR.UTF-8\n\n")
+                    output.write("\nif grep -q '# fr_FR.UTF-8 UTF-8' /etc/locale.gen ; then\n")
+                    output.write("   apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null\n")
+                    output.write("   sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen\n")
+                    output.write("   dpkg-reconfigure --frontend=noninteractive locales\n")
+                    output.write("   update-locale LANG=fr_FR.UTF-8\n")
+                    output.write("fi\n\n")
                     
                 elif re.match('.*KCCLEAN.*', line):
                     print("CLEAN")

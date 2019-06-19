@@ -2,7 +2,7 @@
 
 # KCCLEAN
 
-touch présent
+touch OK
 
 # KCINCLUDE plus.sh /root
 # KCINCLUDE animaux /root

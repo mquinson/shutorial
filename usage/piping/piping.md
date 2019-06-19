@@ -21,12 +21,12 @@ va créer un fichier vide, afficher son nom puis le supprimer.
 Parfois, on mais on ne veut lancer la seconde commande que si la 
 première s'est bien passée. Pour cela, il faut écrire ``&&`` (lu "ET" 
 logique) entre les deux commandes. Comparez le résultat de 
-```ls présent && echo "le fichier existe"```{{execute}} et celui de
+```ls OK && echo "le fichier existe"```{{execute}} et celui de
 ```ls GaBuZoMeu && echo "le fichier existe"```{{execute}}, sachant
 que le premier existe mais pas le second.
 
 À l'inverse, on peut vouloir ne lancer la seconde commande que si la
-première a échoué. ```ls présent && echo "PROBLÈME!"```{{execute}} ou
+première a échoué. ```ls OK && echo "PROBLÈME!"```{{execute}} ou
 ```ls GaBuZoMeu && echo "PROBLÈME!"```{{execute}} 
 
 On peut même grouper des commandes avec des parenthèses: l'ensemble
@@ -70,11 +70,11 @@ On peut même rediriger à la fois l'entrée et la sortie d'un programme
 de la façon suivante: ```./plus.sh < fichier > sortie```{{execute}}
 
 Les redirections peuvent également être utilisée pour faire taire un
-programme un peu trop bavard. Par exemple ```ls -l /```{{execute}}
+programme un peu trop bavard. Par exemple ```ls -lR /```{{execute}}
 demande à afficher la liste complète de tous les fichiers du disque.
 C'est beaucoup, et vous voulez probablement faire ``Ctrl-C`` pour
 l'interrompre avant la fin. Mais si vous faites 
-```ls -l / > sortie```{{execute}}, vous ne voyez plus tout cet
+```ls -lR / > sortie```{{execute}}, vous ne voyez plus tout cet
 affichage agaçant. Si vous voulez juste faire disparaître l'affichage
 sans le sauvegarder sur disque, redirigez la sortie vers le fichier
 ``/dev/null`` qui est une sorte de trou noir où tout ce qui est écrit
@@ -85,14 +85,13 @@ Mais si vous faites ```ls GaBuZoMeu > /dev/null```{{execute}} ou
 verrez quand même le message d'erreur s'afficher. Comment ce message
 a-t-il réussi à s'échapper du trou noir ? C'est qu'en fait, tous les
 programmes ont deux flux de sortie sur lesquels ils peuvent écrire: la
-sortie standard (nommée ``stdout``) est celle par défaut.  Elle est
-redirigée par le symbole ``>``. La sortie d'erreur (nommée ``stderr``)
-n'est pas modifiée par ``>``. Elle continue d'atterrir sur l'écran
-même quand on a redirigé ``stdout`` ailleurs. Cela permet aux
-programmes d'indiquer leurs problèmes même quand on a redirigé leur
-sortie standard. Si on le souhaite, on peut rediriger ``stderr`` avec
-``2>`` : ```ls GaBuZoMeu 2> erreur```{{{execute}}} (inspectez
-le fichier produit: ```cat erreur```{{{execute}}}).  Et bien entendu,
+sortie standard (nommée ``stdout``) est celle par défaut. Le symbole
+``>`` ne redirige que ``stdout`` sans toucher à ka sortie d'erreur
+(nommée ``stderr``), qui continue donc à atterrir sur l'écran.
+Cela permet aux programmes d'indiquer leurs problèmes même quand on a
+redirigé leur sortie standard. Si on le souhaite, on peut rediriger ``stderr`` avec
+``2>`` : ```ls GaBuZoMeu 2> erreur```{{execute}}  (inspectez
+le fichier produit: ```cat erreur```{{execute}} ).  Et bien entendu,
 on peut rediriger l'entrée standard et les deux sorties en même temps.
 La ligne devient un peu longue, mais ça ne pose pas de problème.
 
