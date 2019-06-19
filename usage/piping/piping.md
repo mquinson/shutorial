@@ -10,7 +10,7 @@ mais on combine plusieurs programmes sur la même ligne de commande. On
 peut par exemple recompiler un programme, l'exécuter sur plusieurs
 fichiers, vérifier que tout s'est bien passé puis effacer les fichiers
 temporaires. Le tout en une seule commande, accessible simplement avec
-flèche vers le haut. On trouve même 
+flèche vers le haut. On trouve même
 [ici](https://www.commandlinefu.com/) et
 [là](http://www.bashoneliners.com/) des collections de ligne de
 commandes shell d'une seule ligne (on appelle ça des *one-liners*).
@@ -25,16 +25,16 @@ Pour exécuter deux commandes à la suite, il suffit de les séparer par
 ``;`` ```touch temporaire; ls temporaire; rm temporaire```{{execute}}
 va créer un fichier vide, afficher son nom puis le supprimer.
 
-Parfois, on mais on ne veut lancer la seconde commande que si la 
-première s'est bien passée. Pour cela, il faut écrire ``&&`` (lu "ET" 
-logique) entre les deux commandes. Comparez le résultat de 
+Parfois, on mais on ne veut lancer la seconde commande que si la
+première s'est bien passée. Pour cela, il faut écrire ``&&`` (lu "ET"
+logique) entre les deux commandes. Comparez le résultat de
 ```ls OK && echo "le fichier existe"```{{execute}} et celui de
 ```ls GaBuZoMeu && echo "le fichier existe"```{{execute}}, sachant
 que le premier existe mais pas le second.
 
 À l'inverse, on peut vouloir ne lancer la seconde commande que si la
 première a échoué avec un OU logique. ```ls OK || echo "PROBLÈME!"```{{execute}} ou
-```ls GaBuZoMeu || echo "PROBLÈME!"```{{execute}} 
+```ls GaBuZoMeu || echo "PROBLÈME!"```{{execute}}
 
 On peut même grouper des commandes avec des parenthèses: l'ensemble
 s'est bien passé si la dernière se passe bien.
@@ -44,7 +44,7 @@ s'est bien passé si la dernière se passe bien.
 dans un autre contexte, donc ```(cd /)```{{execute}} ne change pas le
 répertoire courant, seulement celui du contexte entre parenthèses.
 Demandez à ``pwd`` (print working directory) ainsi si vous n'y croyez
-pas: ```(cd / ; echo "changé:"; pwd) ; echo "pas changé:" ; pwd```{{execute}} 
+pas: ```(cd / ; echo "changé:"; pwd) ; echo "pas changé:" ; pwd```{{execute}}
 
 ## Rediriger l'entrée et la sortie
 
@@ -58,8 +58,8 @@ redirigé dans le fichier à droite.
 
 Si on réexécute la première commande ```date > sortie```{{execute}},
 le contenu du fichier ``sortie`` est réécrit. On peut ajouter à la fin
-du fichier au lieu de le remplacer de la façon suivante : 
-```date >> sortie```{{execute}}. 
+du fichier au lieu de le remplacer de la façon suivante :
+```date >> sortie```{{execute}}.
 
 
 On peut également faire le contraire, et demander à un programme de
@@ -67,11 +67,11 @@ lire son entrée dans un fichier. Par exemple, ce répertoire compte un
 petit script permettant de calculer la somme de deux nombres.
 Essayez-le: ```./plus.sh```{{execute}} (l'extension sh signifie qu'il
 est écrit en shell). Au lieu de lire depuis le clavier, on peut faire
-en sorte que ce script lise depuis un fichier. 
+en sorte que ce script lise depuis un fichier.
 
 ```echo 4 6 > fichier```{{execute}} permet de créer le fichier tandis
 que ```./plus.sh < fichier```{{execute}} lance le script en redirigeant
-son entrée standard depuis le fichier. 
+son entrée standard depuis le fichier.
 
 On peut même rediriger à la fois l'entrée et la sortie d'un programme
 de la façon suivante: ```./plus.sh < fichier > sortie```{{execute}}
@@ -80,14 +80,14 @@ Les redirections peuvent également être utilisée pour faire taire un
 programme un peu trop bavard. Par exemple ```ls -lR /usr```{{execute}}
 demande à afficher la liste complète de tous les fichiers du disque.
 C'est beaucoup, et vous voulez probablement faire ``Ctrl-C`` pour
-l'interrompre avant la fin. Mais si vous faites 
+l'interrompre avant la fin. Mais si vous faites
 ```ls -lR /usr > sortie```{{execute}}, vous ne voyez plus tout cet
 affichage agaçant. Si vous voulez juste faire disparaître l'affichage
 sans le sauvegarder sur disque, redirigez la sortie vers le fichier
 ``/dev/null`` qui est une sorte de trou noir où tout ce qui est écrit
 est perdu.
 
-Mais si vous faites ```ls GaBuZoMeu > /dev/null```{{execute}} ou 
+Mais si vous faites ```ls GaBuZoMeu > /dev/null```{{execute}} ou
 ```echo bla bla > fichier ; ./plus.sh < fichier```{{execute}}, vous
 verrez quand même le message d'erreur s'afficher. Comment ce message
 a-t-il réussi à s'échapper du trou noir ? C'est qu'en fait, tous les
@@ -96,7 +96,7 @@ sortie standard (nommée ``stdout``) est celle par défaut. Le symbole
 ``>`` ne redirige que ``stdout`` sans toucher à ka sortie d'erreur
 (nommée ``stderr``), qui continue donc à atterrir sur l'écran.
 Cela permet aux programmes d'indiquer leurs problèmes même quand on a
-redirigé leur sortie standard. Si on le souhaite, on peut rediriger 
+redirigé leur sortie standard. Si on le souhaite, on peut rediriger
 ``stderr`` avec ``2>`` : ```ls GaBuZoMeu 2> erreur```{{execute}}
 (inspectez  le fichier produit: ```cat erreur```{{execute}} ). On peut
 enfi demander à rediriger ``stderr`` dans ``stdout`` avec ``2>&1`` (le
@@ -152,7 +152,7 @@ Vous pouvez lancer le script de validation à la main au besoin:
 ## Exercice 2
 
 On voudrait constituer un fichier nommé ``ligne33`` contenant exactement
-la ligne 33 du fichier ``animaux.ok``. 
+la ligne 33 du fichier ``animaux.ok``.
 
 *Indication:* vous aurez besoin des commandes ``head`` et ``tail``.
 Quand on ne leur précise pas le fichier à lire, ces commandes lisent
