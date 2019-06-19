@@ -58,4 +58,6 @@ else
 fi 
 
 echo "done"
+rm -f /tmp/.cmd
+
 echo done > /tmp/.katacoda-finished

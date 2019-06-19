@@ -90,8 +90,8 @@ for sharin in os.listdir():
                     output.write("# End of KCCOMMAND\n\n")
                 else:
                     output.write(line)
-            output.write("rm -f /tmp/.cmd\n") # Just in case there were some KCCOMMAND
-            output.write("\necho done > /tmp/.katacoda-finished")
+            output.write("\nrm -f /tmp/.cmd\n") # Just in case there were some KCCOMMAND
+            output.write("\necho done > /tmp/.katacoda-finished\n")
         os.chmod(basescript, stat.S_IRUSR|stat.S_IWUSR|stat.S_IXUSR) # user rwx
         print("Done")
 
