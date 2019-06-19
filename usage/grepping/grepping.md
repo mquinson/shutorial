@@ -106,6 +106,6 @@ C'est un jeu très geek plutôt amusant, mais trop difficile à mon goût.
 Face à un jeu comme ça, je cherche plutôt à programmer un solveur
 automatique en brute force. Pas vous ?
 
-Pour apprendre les regex, je préfère [ce jeu](play.inginf.units.it/),
+Pour apprendre les regex, je préfère [ce jeu](http://play.inginf.units.it/),
 plus pédagogique. Pas besoin de parler anglais, il suffit de passer
 les pages d'introduction pour arriver au jeu.
