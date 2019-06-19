@@ -1,9 +1,9 @@
 Jusqu'à présent, nous avons utilisé le terminal pour lancer des
 programmes les uns après les autres, mais ça n'allait pas très loin
-car ces programmes étaient très simples. Mais la puissance du shell ne
+car ces programmes étaient très simples. La puissance du shell ne
 vient pas d'outils de plus en plus perfectionnés, mais plutôt de la
 facilité avec laquelle on peut combiner des programmes simples pour
-faire des outils parfaitements adaptés à la situation actuelle.
+faire des outils parfaitement adaptés à la situation actuelle.
 
 Le plus souvent, on ne fait même pas un script à proprement parler,
 mais on combine plusieurs programmes sur la même ligne de commande. On
@@ -16,7 +16,7 @@ flèche vers le haut. On trouve même
 commandes shell d'une seule ligne (on appelle ça des *one-liners*).
 Certaines sont pratiques, d'autres au mieux anecdotiques. Ces lignes
 sont parfois très longues, et toutes sont difficiles à relire et à
-comprendre. D'ailleurs, on n'apprend pas des *one-liner* par cœur, on
+comprendre. D'ailleurs, on n'apprend pas des *one-liners* par cœur, on
 les reconstruit quand on en a besoin. Voyons maintenant comment faire.
 
 ## Combiner des programmes
@@ -25,7 +25,7 @@ Pour exécuter deux commandes à la suite, il suffit de les séparer par
 ``;`` ```touch temporaire; ls temporaire; rm temporaire```{{execute}}
 va créer un fichier vide, afficher son nom puis le supprimer.
 
-Parfois, on mais on ne veut lancer la seconde commande que si la
+Parfois, on ne veut lancer la seconde commande que si la
 première s'est bien passée. Pour cela, il faut écrire ``&&`` (lu "ET"
 logique) entre les deux commandes. Comparez le résultat de
 ```ls OK && echo "le fichier existe"```{{execute}} et celui de
@@ -40,7 +40,7 @@ On peut même grouper des commandes avec des parenthèses: l'ensemble
 s'est bien passé si la dernière se passe bien.
 ```(ls GaBuZoMeu;ls OK) && echo "le (dernier) fichier existe"```{{execute}}
 
-*Note pour les plus courageux:* Les commandes entre parenthèses s'exécutent
+*Note pour les plus courageux:* les commandes entre parenthèses s'exécutent
 dans un autre contexte, donc ```(cd /)```{{execute}} ne change pas le
 répertoire courant, seulement celui du contexte entre parenthèses.
 Demandez à ``pwd`` (print working directory) ainsi si vous n'y croyez
@@ -78,7 +78,7 @@ de la façon suivante: ```./plus.sh < fichier > sortie```{{execute}}
 
 Les redirections peuvent également être utilisée pour faire taire un
 programme un peu trop bavard. Par exemple ```ls -lR /usr```{{execute}}
-demande à afficher la liste complète de tous les fichiers du disque.
+demande à afficher la liste de beaucoup des fichiers du disque.
 C'est beaucoup, et vous voulez probablement faire ``Ctrl-C`` pour
 l'interrompre avant la fin. Mais si vous faites
 ```ls -lR /usr > sortie```{{execute}}, vous ne voyez plus tout cet
@@ -93,13 +93,13 @@ verrez quand même le message d'erreur s'afficher. Comment ce message
 a-t-il réussi à s'échapper du trou noir ? C'est qu'en fait, tous les
 programmes ont deux flux de sortie sur lesquels ils peuvent écrire: la
 sortie standard (nommée ``stdout``) est celle par défaut. Le symbole
-``>`` ne redirige que ``stdout`` sans toucher à ka sortie d'erreur
+``>`` ne redirige que ``stdout`` sans toucher à la sortie d'erreur
 (nommée ``stderr``), qui continue donc à atterrir sur l'écran.
 Cela permet aux programmes d'indiquer leurs problèmes même quand on a
 redirigé leur sortie standard. Si on le souhaite, on peut rediriger
 ``stderr`` avec ``2>`` : ```ls GaBuZoMeu 2> erreur```{{execute}}
 (inspectez  le fichier produit: ```cat erreur```{{execute}} ). On peut
-enfi demander à rediriger ``stderr`` dans ``stdout`` avec ``2>&1`` (le
+enfin demander à rediriger ``stderr`` dans ``stdout`` avec ``2>&1`` (le
 flux 2 -- stderr -- va dans le flux 1 -- stdout).
 
 Et bien entendu, on peut rediriger l'entrée standard et les deux
