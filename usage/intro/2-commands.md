@@ -41,7 +41,8 @@ paramètres (tous séparés par des espaces).
 Veuillez répondre à ces petites questions pour pouvoir passer à la
 suite. Certaines réponses demandent d'avoir lu le texte ci-dessus,
 mais pour d'autre, il faudra avoir essayé, directement dans la fenêtre
-de droite.
+de droite. Utilisez le bouton "Continuer" tout en bas pour valider vos
+réponses.
 
 >>Quel est l'autre nom de l'invite de commande (le '$' en début de ligne)<<
 (*) prompt
@@ -57,16 +58,22 @@ de droite.
 
 >>Que se passe-t-il si on appelle une commande qui n'existe pas?<<
 ( ) Rien ne se passe.
-(*) On obtient un message d'erreur, puis une autre invite.
 ( ) Cela fait une alerte de sécurité à l'administrateur.
+(*) On obtient un message d'erreur, puis une autre invite.
 ( ) Un nouveau shell démarre.
+
+Que se passe-t-il après la commande suivante: echo 'Bonjour tout le monde!'
+( ) Cela affiche 'Bonjour tout le monde!' (avec les guillemets)
+(*) Cela affiche Bonjour tout le monde! (sans les guillemets)
+( ) Cela affiche un message d'erreur car la commande echo n'existe pas.
+( ) Je n'arrive pas à savoir: je me suis trompé en recopiant car je ne sais pas que Ctrl-Inser et Shift-Inser permettent de copier/coller facilement en shell.
 
 ## Exercice
 
 Sous Unix, l'heure est stoquée en comptant le nombre de seconde depuis
 le premier janvier 1970. La commande ```date``` peut être utilisée
 pour convertir un nombre de secondes en une date lisible. Pour
-convertir l'instant 12345 en date, on utilise 
+convertir l'instant 12345 en date lisible, on utilise 
 ```date --date="@12345"```{{execute}}.
 
 >>En quelle année a eu lieu l'instant 123456789?<<
