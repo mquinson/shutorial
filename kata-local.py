@@ -22,10 +22,10 @@ for sharin in os.listdir():
                     output.write(line)
                     output.write("\n# THIS SCRIPT WAS GENERATED, DO NOT EDIT\n# Real source: {}\n".format(sharin))
                     output.write("\nif grep -q '# fr_FR.UTF-8 UTF-8' /etc/locale.gen ; then\n")
-                    output.write("   apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null\n")
+                    output.write("   (apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null\n")
                     output.write("   sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen\n")
-                    output.write("   dpkg-reconfigure --frontend=noninteractive locales\n")
-                    output.write("   update-locale LANG=fr_FR.UTF-8\n")
+                    output.write("   dpkg-reconfigure --frontend=noninteractive locales  2>/dev/null >/dev/null\n")
+                    output.write("   update-locale LANG=fr_FR.UTF-8 2>/dev/null >/dev/null\n")
                     output.write("fi\n\n")
                     
                 elif re.match('.*KCCLEAN.*', line):
@@ -155,15 +155,6 @@ if 'steps' in main['details']:
             solution="/tmp/katacoda/{}".format(step['solution'])
             verify="/tmp/katacoda/{}".format(step['verify'])
 
-            print("XXXXXXXX\nXXX Step '{}': check that the test really needs the solution\nXXXXXXXX".format(step['title']))
-            cmd="docker run --rm --volume /tmp/katalocal/:/tmp/katacoda kctest sh -c 'cd && /tmp/katacoda/setup_assets && {} && {}' >/dev/null 2>/dev/null".format(setup, verify)
-            print("Exec {}\n".format(cmd))            
-            if subprocess.call(cmd, shell=True):
-                print("XXXXXXXX\nXXX Step '{}': the verification on a blank docker fails as expected.".format(step['title']))
-            else:
-                print("XXXXXXXX\nXXX Step '{}': the verification passes on a blank docker while it should fail! Please fix it".format(step['title']))
-                sys.exit(2)
-                
             print("XXXXXXXX\nXXX Step '{}': check that the solution passes the test\nXXXXXXXX".format(step['title']))
             cmd="docker run --rm --volume /tmp/katalocal/:/tmp/katacoda kctest sh -x -c 'cd && /tmp/katacoda/setup_assets && {} && {} && {}'".format(setup, solution, verify)
             print("Exec {}\n".format(cmd))            
@@ -171,3 +162,14 @@ if 'steps' in main['details']:
                 print("XXXXXXXX\nXXX Step '{}': Verification failed.".format(step['title']))
                 sys.exit(2)
             print("\nXXXXXXXX\nStep '{}': passed.\nXXXXXXXX\n".format(step['title']))
+
+            print("XXXXXXXX\nXXX Step '{}': check that the test really needs the solution\nXXXXXXXX".format(step['title']))
+            cmd="docker run --rm --volume /tmp/katalocal/:/tmp/katacoda kctest sh -c 'cd && /tmp/katacoda/setup_assets && {} && {}'".format(setup, verify)
+            print("Exec {}\n".format(cmd))            
+            if subprocess.call(cmd, shell=True):
+                print("XXXXXXXX\nXXX Step '{}': the verification on a blank docker fails as expected.".format(step['title']))
+            else:
+                print("XXXXXXXX\nXXX Step '{}': the verification passes on a blank docker while it should fail! Please fix it".format(step['title']))
+                sys.exit(2)
+                
+            

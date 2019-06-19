@@ -4,10 +4,10 @@
 # Real source: piping-check.sharin
 
 if grep -q '# fr_FR.UTF-8 UTF-8' /etc/locale.gen ; then
-   apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null
+   (apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null
    sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen
-   dpkg-reconfigure --frontend=noninteractive locales
-   update-locale LANG=fr_FR.UTF-8
+   dpkg-reconfigure --frontend=noninteractive locales  2>/dev/null >/dev/null
+   update-locale LANG=fr_FR.UTF-8 2>/dev/null >/dev/null
 fi
 
 
