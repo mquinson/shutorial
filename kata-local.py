@@ -65,8 +65,32 @@ for sharin in os.listdir():
                     output.write("chmod {} {}/{}\n".format(re.sub('o','',oct(stat.S_IMODE(os.stat(component).st_mode))),
                                                           destdir,os.path.basename(component)))
                     output.write("# End of KCINCLUDE {}\n\n".format(component))
+
+                elif re.match('.*KCCOMMAND.*', line):
+                    cmd = re.sub('.*KCCOMMAND *','',line).split(None, 1)
+                    if len(cmd) != 2 or len(cmd[1])==0:
+                        print("Syntax error in KCCOMMAND (not 2 parameters):\n  {}".format(line))
+                        exit(1)
+                    (var, cmd) = cmd
+
+                    print("COMMAND {}=$({}".format(var, cmd))
+
+                    output.write(line)
+                    if not "sharutils" in installed:
+                        output.write("if which uuencode >/dev/null 2>/dev/null ; then :; else apt install sharutils 2>/dev/null >/dev/null; fi\n")
+                        installed.append("sharutils")
+                        
+                    output.write("uudecode << 'KCCOMMAND_EOF' > /tmp/.cmd &&\n")
+                    encoded = subprocess.run("echo '{}'|uuencode --base64 -".format(cmd), stdout=subprocess.PIPE, shell=True, text=True)
+                    for l in encoded.stdout:
+                        output.write(l)
+                    output.write("KCCOMMAND_EOF\n")
+                    output.write("{}=$(sh /tmp/.cmd)\n".format(var))
+                    
+                    output.write("# End of KCCOMMAND\n\n")
                 else:
                     output.write(line)
+            output.write("rm -f /tmp/.cmd\n") # Just in case there were some KCCOMMAND
             output.write("\necho done > /tmp/.katacoda-finished")
         os.chmod(basescript, stat.S_IRUSR|stat.S_IWUSR|stat.S_IXUSR) # user rwx
         print("Done")
