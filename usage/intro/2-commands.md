@@ -62,7 +62,7 @@ réponses.
 (*) On obtient un message d'erreur, puis une autre invite.
 ( ) Un nouveau shell démarre.
 
-Que se passe-t-il après la commande suivante: echo 'Bonjour tout le monde!'
+>>Que se passe-t-il après la commande suivante: echo 'Bonjour tout le monde!'<<
 ( ) Cela affiche 'Bonjour tout le monde!' (avec les guillemets)
 (*) Cela affiche Bonjour tout le monde! (sans les guillemets)
 ( ) Cela affiche un message d'erreur car la commande echo n'existe pas.
