@@ -1,23 +1,31 @@
-Dans la fenêtre à droite, le signe ```$``` s'appelle un *prompt*. C'est ainsi
-que le système vous invite à écrire votre prochaine commande. Essayez de taper
-n'importe quoi (par exemple, la commande ```fgddfssdfg```{{execute}}) : Le
-système vous dira qu'il n'a pas trouvé cette commande.
+Dans la fenêtre à droite, le signe ```$``` s'appelle un *prompt*.
+C'est ainsi que le système vous invite à écrire votre prochaine
+commande. Essayez de taper n'importe quoi (par exemple, la commande
+```fgddfssdfg```{{execute}}) : Le système vous dira qu'il n'a pas
+trouvé cette commande. Notez que dans katacoda, les boutons noirs
+ressemblant à ```fgddfssdfg```{{execute}} permettent d'écrire leur
+contenu dans le terminal juste en cliquant dessus. Essayez, c'est très
+pratique.
 
+Mais ```fgddfssdfg```{{execute}} ne fonctionne pas, arrêtez d'insister.
 Utilisez plutôt les commandes ```date```{{execute}} pour connaître l'heure là où
 tourne votre machine virtuelle, ```cal```{{execute}} pour voir le calendrier de
-ce mois, ou encore ```df```{{execute}} ```free```{{execute}} pour voir la place
+ce mois, ou encore ```df```{{execute}} ou ```free```{{execute}} pour voir la place
 libre respectivement sur le disque (df=disk free) ou en mémoire.
 
 Le résultat de ```free``` n'est pas très lisible ? Ajoutez l'option ```-k```
 pour lui demander de parler en kilo-octets (```free -k```{{execute}}
 avec une espace entre la commande et l'option), ```-m``` pour avoir
 des kilo-octets, ou carrément ```-h``` pour lui dire que vous êtes un
-humain (et non un script) et que vous voulez la meilleure unité
+humain (et non un programme) et que vous voulez la meilleure unité
 possible. Allez-y, essayez.
 
 Marre de taper les lettres de ```free``` à chaque fois ? Utilisez les flèches
 pour retrouver ce que vous venez d'écrire et le modifier avant de refaire
-entrée. 
+entrée. Vous voulez effacer le mot à gauche du curseur? Esc-Backspace
+est le raccourci que vous cherchez. Il y en a
+[énormément](https://readline.kablamo.org/emacs.html)
+d'[autres](https://github.com/chzyer/readline/blob/master/doc/shortcut.md).
 
 Vous ne vous souvenez plus des options d'un programme ? Consultez le
 manuel en tapant par exemple ```man free```{{execute}}. Vous pouvez
@@ -25,10 +33,24 @@ naviguer dans le manuel grâce aux flèches. Chercher une chaîne
 particulière se fait avec ```/``` suivi de la chaîne à chercher, suivi
 de Entrée. Quitter le manuel se fait avec avec la touche ```q```, et
 on voit la liste des commandes du programme d'affichage avec ```h```.
-Si l'affichage devient fou, il est souvent utile de redimensionner la
-fenêtre de votre navigateur web.
+Si l'affichage devient fou, changer la taille de la fenêtre de votre
+navigateur web réinitialise l'affichage du terminal. 
 
-La chose importante à retenir avant de continuer, c'est que toutes les lignes
+Comment faire pour afficher toute l'année avec ```cal```{{execute}}?
+C'est écrit dans le manuel (```man cal```{{execute}}), mais certes pas
+de façon très compréhensible. Le manuel permet de retrouver ce qu'on
+connaît, mais il faut connaître. Et encore, la page de ``cal`` est
+presque lisible, par rapport par exemple à la liste des raccourcis
+claviers pour du shell, qui est cachée au fond de ```man
+readline```{{execute}}. Les lignes de synopsis (qui indiquent comment
+on peut utiliser la ``cal``) terminent toutes par ``[[month] year]``.
+Les crochets indiquent que cette partie est optionnelle: on peut
+invoquer cal sans aucun paramètre, ou avec un paramètre qui sera
+compris comme l'année, ou avec deux paramètres qui seront compris
+comme le mois puis l'année. Affichez l'année de votre naissance, pour
+voir. Vous êtes né·e un jeudi, vous aussi ?
+
+La chose importante à comprendre pour l'instant, c'est que toutes les lignes
 que vous taperez dans le terminal auront la même syntaxe (la même grammaire). En
 français, les phrases les plus simples sont de la forme ```sujet verbe complément```. 
 En ligne de commande, toutes les phrases sont de la forme
@@ -41,8 +63,7 @@ paramètres (tous séparés par des espaces).
 Veuillez répondre à ces petites questions pour pouvoir passer à la
 suite. Certaines réponses demandent d'avoir lu le texte ci-dessus,
 mais pour d'autre, il faudra avoir essayé, directement dans la fenêtre
-de droite. Utilisez le bouton "Continuer" tout en bas pour valider vos
-réponses.
+de droite. Utilisez le bouton "Continuer" tout en bas pour valider.
 
 >>Quel est l'autre nom de l'invite de commande (le '$' en début de ligne)<<
 (*) prompt
@@ -70,7 +91,7 @@ réponses.
 
 ## Exercice
 
-Sous Unix, l'heure est stoquée en comptant le nombre de seconde depuis
+Sous Unix, l'heure est codée en comptant le nombre de seconde depuis
 le premier janvier 1970. La commande ```date``` peut être utilisée
 pour convertir un nombre de secondes en une date lisible. Pour
 convertir l'instant 12345 en date lisible, on utilise 
