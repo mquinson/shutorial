@@ -21,7 +21,7 @@ for sharin in os.listdir():
                 if re.match('#!', line):
                     output.write(line)
                     output.write("\n# THIS SCRIPT WAS GENERATED, DO NOT EDIT\n# Real source: {}\n".format(sharin))
-                    output.write("\nif grep -q '# fr_FR.UTF-8 UTF-8' /etc/locale.gen ; then\n")
+                    output.write("\nif [ -e /etc/locale.gen ] && grep -q '# fr_FR.UTF-8 UTF-8' /etc/locale.gen ; then\n")
                     output.write("   (apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null\n")
                     output.write("   sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen\n")
                     output.write("   dpkg-reconfigure --frontend=noninteractive locales  2>/dev/null >/dev/null\n")
@@ -82,7 +82,7 @@ for sharin in os.listdir():
                         output.write("if which uuencode >/dev/null 2>/dev/null ; then :; else apt install sharutils 2>/dev/null >/dev/null; fi\n")
                         installed.append("sharutils")
                         
-                    output.write("uudecode << 'KCCOMMAND_EOF' > /tmp/.cmd &&\n")
+                    output.write("uudecode << 'KCCOMMAND_EOF' > /tmp/.cmd\n")
                     encoded = subprocess.run("echo '{}'|uuencode --base64 -".format(cmd), stdout=subprocess.PIPE, shell=True, text=True)
                     for l in encoded.stdout:
                         output.write(l)

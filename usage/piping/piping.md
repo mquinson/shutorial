@@ -26,14 +26,14 @@ logique) entre les deux commandes. Comparez le résultat de
 que le premier existe mais pas le second.
 
 À l'inverse, on peut vouloir ne lancer la seconde commande que si la
-première a échoué. ```ls OK && echo "PROBLÈME!"```{{execute}} ou
-```ls GaBuZoMeu && echo "PROBLÈME!"```{{execute}} 
+première a échoué avec un OU logique. ```ls OK || echo "PROBLÈME!"```{{execute}} ou
+```ls GaBuZoMeu || echo "PROBLÈME!"```{{execute}} 
 
 On peut même grouper des commandes avec des parenthèses: l'ensemble
 s'est bien passé si la dernière se passe bien.
-```(ls GaBuZoMeu;ls présent) && echo "le fichier existe"```{{execute}}
+```(ls GaBuZoMeu;ls OK) && echo "le (dernier) fichier existe"```{{execute}}
 
-Pour les plus courageux: Les commandes entre parenthèses s'exécutent
+*Note pour les plus courageux:* Les commandes entre parenthèses s'exécutent
 dans un autre contexte, donc ```(cd /)```{{execute}} ne change pas le
 répertoire courant, seulement celui du contexte entre parenthèses.
 Demandez à ``pwd`` (print working directory) ainsi si vous n'y croyez
@@ -70,11 +70,11 @@ On peut même rediriger à la fois l'entrée et la sortie d'un programme
 de la façon suivante: ```./plus.sh < fichier > sortie```{{execute}}
 
 Les redirections peuvent également être utilisée pour faire taire un
-programme un peu trop bavard. Par exemple ```ls -lR /```{{execute}}
+programme un peu trop bavard. Par exemple ```ls -lR /usr```{{execute}}
 demande à afficher la liste complète de tous les fichiers du disque.
 C'est beaucoup, et vous voulez probablement faire ``Ctrl-C`` pour
 l'interrompre avant la fin. Mais si vous faites 
-```ls -lR / > sortie```{{execute}}, vous ne voyez plus tout cet
+```ls -lR /usr > sortie```{{execute}}, vous ne voyez plus tout cet
 affichage agaçant. Si vous voulez juste faire disparaître l'affichage
 sans le sauvegarder sur disque, redirigez la sortie vers le fichier
 ``/dev/null`` qui est une sorte de trou noir où tout ce qui est écrit

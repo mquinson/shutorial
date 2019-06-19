@@ -3,7 +3,7 @@
 # THIS SCRIPT WAS GENERATED, DO NOT EDIT
 # Real source: piping-check.sharin
 
-if grep -q '# fr_FR.UTF-8 UTF-8' /etc/locale.gen ; then
+if [ -e /etc/locale.gen ] && grep -q '# fr_FR.UTF-8 UTF-8' /etc/locale.gen ; then
    (apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null
    sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen
    dpkg-reconfigure --frontend=noninteractive locales  2>/dev/null >/dev/null
@@ -14,7 +14,7 @@ fi
 if [ -e animaux.ok ] ; then
   # KCCOMMAND out sort -u animaux | diff -u animaux.ok -
 if which uuencode >/dev/null 2>/dev/null ; then :; else apt install sharutils 2>/dev/null >/dev/null; fi
-uudecode << 'KCCOMMAND_EOF' > /tmp/.cmd &&
+uudecode << 'KCCOMMAND_EOF' > /tmp/.cmd
 begin-base64 644 -
 c29ydCAtdSBhbmltYXV4IHwgZGlmZiAtdSBhbmltYXV4Lm9rIC0KCg==
 ====
@@ -37,7 +37,7 @@ fi
 
 if [ -e ligne33 ] ; then
   # KCCOMMAND out sort -u animaux |head -n 33 |tail -n 1 | diff -u ligne33 -
-uudecode << 'KCCOMMAND_EOF' > /tmp/.cmd &&
+uudecode << 'KCCOMMAND_EOF' > /tmp/.cmd
 begin-base64 644 -
 c29ydCAtdSBhbmltYXV4IHxoZWFkIC1uIDMzIHx0YWlsIC1uIDEgfCBkaWZm
 IC11IGxpZ25lMzMgLQoK
