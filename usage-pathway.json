@@ -36,6 +36,11 @@
       "title": "Rediriger les entrées/sorties",
       "description": "Apprendre à faire de la tuyauterie entre les commandes avec < > >> et |",
       "course_id": "piping"
+    },
+    {
+      "title": "Éditer des flux à la volée",
+      "description": "Découverte de la commande 'sed'.",
+      "course_id": "seding"
     }
   ]
 }

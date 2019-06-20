@@ -1,0 +1,47 @@
+#! /bin/sh
+
+if [ -e deux_ans-sans_o ] ; then
+  # KCCOMMAND out sed 's/o//g' Ce_siecle_avait_deux_ans.txt | diff -u deux_ans-sans_o -
+
+  if [ $? -eq 0 ] ; then
+    echo "Félicitations, la question 1 est réussie."
+  else
+    echo "Oups, votre fichier deux_ans-sans_o n'a pas le bon contenu. Différence constatée:"
+    echo "$out"
+    exit 1    
+  fi
+else
+  echo "Oups, vous n'avez pas fait la question 1 (le fichier deux_ans-sans_o est introuvable)."
+  exit 1
+fi 
+
+if [ -e deux_ans-sans_voyelle ] ; then
+  # KCCOMMAND out (head -n -1 Ce_siecle_avait_deux_ans.txt | sed 's/[aeiouy]//g' ;tail -n 1 Ce_siecle_avait_deux_ans.txt) | diff -u deux_ans-sans_voyelle -
+
+  if [ $? -eq 0 ] ; then
+    echo "Félicitations, la question 2 est réussie."
+  else
+    echo "Oups, votre fichier deux_ans-sans_voyelle n'a pas le bon contenu. Différence constatée:"
+    echo "$out"
+    exit 1
+  fi
+else
+  echo "Oups, vous n'avez pas fait la question 2 (le fichier deux_ans-sans_voyelle est introuvable)."
+  exit 1
+fi 
+
+if [ -e deux_ans-poil_aux_dents ] ; then
+  # KCCOMMAND out sed 's/\([rfv]oi[txs]\)\([,. ;]*\)$/\1 (poil aux doigts)\2/' Ce_siecle_avait_deux_ans.txt|sed 's/\(nee\)\([,. ;]*\)$/\1 (poil au nez)\2/'|sed 's/\(er\)\([,. ;!]*\)$/\1 (poil au nez)\2/' | diff -u deux_ans-poil_aux_dents -
+  if [ $? -eq 0 ] ; then
+    echo "Félicitations, la question 3 est réussie."
+  else
+    echo "Oups, votre fichier deux_ans-poil_aux_dents n'a pas le bon contenu. Différence constatée:"
+    echo "$out"
+    exit 1
+  fi
+else
+  echo "Oups, vous n'avez pas fait la question 3 (le fichier deux_ans-poil_aux_dents est introuvable)."
+  exit 1
+fi 
+
+echo "done"

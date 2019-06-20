@@ -1,0 +1,22 @@
+{
+  "title": "Réécrire des flux à la volée",
+  "description": "Découvrez la commande 'sed'.",
+  "details": {
+    "steps": [
+      {
+        "title": "Rediriger les entrées/sorties",
+	"text": "seding.md",
+	"verify": "seding-check.sh",
+	"code": "wait-config.sh",
+	"courseData": "seding-setup.sh",
+	"solution": "seding-sol.sh"
+      }
+    ]
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}

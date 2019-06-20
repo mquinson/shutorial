@@ -1,0 +1,9 @@
+#! /bin/sh
+
+# KCCLEAN
+
+# KCINCLUDE Ce_siecle_avait_deux_ans.txt /root
+
+chmod -w Ce_siecle_avait_deux_ans.txt 
+
+# KCINCLUDE seding-check.sh /usr/local/bin
