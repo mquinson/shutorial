@@ -77,13 +77,13 @@ for sharin in os.listdir():
 
                     print("COMMAND {}=$({}".format(var, cmd))
 
-                    output.write(line)
+                    output.write("# KCCOMMAND '${}' gets an opaque value\n".format(var))
                     if not "sharutils" in installed:
                         output.write("if which uuencode >/dev/null 2>/dev/null ; then :; else apt install sharutils 2>/dev/null >/dev/null; fi\n")
                         installed.append("sharutils")
                         
                     output.write("uudecode << 'KCCOMMAND_EOF' > /tmp/.cmd\n")
-                    encoded = subprocess.run("echo '{}'|uuencode --base64 -".format(cmd), stdout=subprocess.PIPE, shell=True, text=True)
+                    encoded = subprocess.run("uuencode --base64 -", input=cmd, stdout=subprocess.PIPE, shell=True, text=True)
                     for l in encoded.stdout:
                         output.write(l)
                     output.write("KCCOMMAND_EOF\n")
