@@ -1,3 +1,5 @@
+Message de service: seul le début de cette leçon est terminée pour l'instant -- TODO.
+
 Après grep, nous allons voir dans cette leçon l'autre outil magique de
 la ligne de commande. Il s'agit du programme ``sed``, l'éditeur de
 flux. C'est un filtre qui fait des cherche/remplace avancés sur le
@@ -46,7 +48,7 @@ est plus compréhensible que le manuel, mais ce n'est pas la panacée.
 Quand vous aurez compris, allez améliorer la page de wikipédia, pour
 les prochains.
 
-## Exercice
+# Exercice avec sed
 
 Vous trouverez dans ce répertoire un fichier
 ``Ce_siecle_avait_deux_ans.txt`` contenant un extrait d'un poême de
@@ -78,7 +80,9 @@ rimes à modifier, dont certaines ne s'orthographient pas de la même
 façon, il semble plutôt difficile de réussir à faire toutes les
 transformations en une seule commande ``sed``. Libre à vous de tenter
 le parfait coup de golf en une seule commande pour tout faire, ou
-d'être plus pragmatique en tubant plusieurs commandes d'affilé.
+d'être plus pragmatique en tubant plusieurs commandes d'affilé. Quand
+on a un problème à résoudre dans le shell, il y a toujours plusieurs
+solutions.
 
 Ce qui est sûr, c'est que la ligne va vite devenir trop longue pour
 être agréable. Le mieux est de l'éditer dans un petit éditeur, en
@@ -87,7 +91,7 @@ l'historique. Quand on quite l'éditeur, la nouvelle version de la
 commande est lancée. Décidément, ce shell est agréable à l'usage
 malgré son look.
 
-## En conclusion
+# Aller plus loin avec sed
 
 Nous n'avons fait qu'effleurer les capacités du programme ``sed``.
 Je n'ai malheureusement pas trouvé de jeu en ligne pour vous permettre
@@ -100,6 +104,44 @@ documentation montre comment émuler plusieurs programmes avec des
 scripts sed (```info sed Examples```{{execute}}), et on trouve même
 une [implémentation](https://aurelio.net/projects/sedsokoban/) du jeu
 sokoban écrite en script sed... 
+
+TODO: la suite est en travaux. Je l'ajoute quand même à la version
+publique le temps que mon ordinateur soit définitivement réparée.
+
+# Réécriture de flux mais pas ligne à ligne
+
+``sed`` est très puissant, mais il ne permet pas facilement de traiter
+plus d'une ligne à la fois. Les gourous ``sed`` les plus avancés
+savent faire, mais ce n'est pas la façon la plus simple. Une bonne
+alternative est d'utiliser la commande ``tr``. Elle est plus limitée
+avec les expressions régulières, mais permet de définir simplement des
+translitérations. Dans l'usage le plus simple, on donne une liste de
+lettres à chercher puis une liste de lettre par quoi remplacer chaque
+lettre trouvée. Par exemple 
+```cat Ce_siecle_avait_deux_ans.txt | tr 'a' 'o'```{{execute}}
+affiche le texte en entrée en remplaçant tous les a par des o. 
+```cat Ce_siecle_avait_deux_ans.txt | tr '[a-z]' '[A-Z]'```{{execute}}
+met tout en majuscule.
+```cat Ce_siecle_avait_deux_ans.txt | tr -d ' '```{{execute}}
+supprime tous les espaces (l'option ``-d`` demande la suppression).
+
+# Exercice avec tr 
+
+Vous pouvez refaire les questions 1 et 2 ci-dessus avec ``tr``. 
+
+## Question 4: rot13
+
+Faites un fichier ``deux_ans-rot13`` contenant l'extrait, encodé en
+rot13. Référez-vous à la [page wikipédia
+correspondante](https://fr.wikipedia.org/wiki/ROT13) au besoin. Vous
+veillerez à respecter les majuscules et minuscules dans votre encodage.
+
+[TODO: cette question n'est pas encore corrigée par l'infrastructure]
+
+## Question 5: espaces consécutives (TODO)
+
+## Question 6: Un paragraphe par ligne (TODO)
+
 
 
 Comme d'habitude, le script ```seding-check.sh```{{execute}} vous
