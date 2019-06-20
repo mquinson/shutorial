@@ -12,11 +12,11 @@ fi
 
 
 if [ -e animaux.ok ] ; then
-  # KCCOMMAND out sort -u animaux | diff -u animaux.ok -
+# KCCOMMAND '$out' gets an opaque value
 if which uuencode >/dev/null 2>/dev/null ; then :; else apt install sharutils 2>/dev/null >/dev/null; fi
 uudecode << 'KCCOMMAND_EOF' > /tmp/.cmd
 begin-base64 644 -
-c29ydCAtdSBhbmltYXV4IHwgZGlmZiAtdSBhbmltYXV4Lm9rIC0KCg==
+c29ydCAtdSBhbmltYXV4IHwgZGlmZiAtdSBhbmltYXV4Lm9rIC0K
 ====
 KCCOMMAND_EOF
 out=$(sh /tmp/.cmd)
@@ -36,11 +36,11 @@ else
 fi 
 
 if [ -e ligne33 ] ; then
-  # KCCOMMAND out sort -u animaux |head -n 33 |tail -n 1 | diff -u ligne33 -
+# KCCOMMAND '$out' gets an opaque value
 uudecode << 'KCCOMMAND_EOF' > /tmp/.cmd
 begin-base64 644 -
 c29ydCAtdSBhbmltYXV4IHxoZWFkIC1uIDMzIHx0YWlsIC1uIDEgfCBkaWZm
-IC11IGxpZ25lMzMgLQoK
+IC11IGxpZ25lMzMgLQo=
 ====
 KCCOMMAND_EOF
 out=$(sh /tmp/.cmd)
