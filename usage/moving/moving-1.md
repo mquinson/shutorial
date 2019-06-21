@@ -26,7 +26,8 @@ répertoire `truc`. Vérifiez l'état actuel avec ```tree```{{execute}}.
 
 La commande `mv`, comme beaucoup d'autres, accepte beaucoup de
 paramètres intéressants. Par exemple `mv -i [paramètres habituels]`
-passe en mode interactif: vous devez confirmer chaque opération.
+passe en mode interactif: vous devez confirmer chaque opération qui écrase
+un fichier existant.
 Consultez le manuel de cette commande en tapant
 ```man mv```{{execute}}.
 
