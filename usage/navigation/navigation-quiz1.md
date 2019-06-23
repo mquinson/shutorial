@@ -11,7 +11,7 @@ et à faire des essais dans le terminal.
 [*] rm -r bidule
 [ ] rmdir bidule
 
-(2 questions au total)
+(plusieurs réponses possibles)
 
 Pour ne pas vous divulgâcher l'exercice, essayez de répondre avant
 d'afficher les réponses.

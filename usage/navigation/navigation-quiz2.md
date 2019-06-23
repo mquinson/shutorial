@@ -9,7 +9,5 @@ et à faire des essais dans le terminal.
 ( ) Non, cette commande ne sert qu'à créer de nouveaux fichiers.
 (*) Oui, cela va changer sa date de dernière modification.
 
-(2 questions au total)
-
 Pour ne pas vous divulgâcher l'exercice, essayez de répondre avant
 d'afficher les réponses.
