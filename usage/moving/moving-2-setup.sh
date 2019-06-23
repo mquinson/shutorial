@@ -3,10 +3,12 @@
 # THIS SCRIPT WAS GENERATED, DO NOT EDIT
 # Real source: moving-2-setup.sharin
 
-(apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null
-sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen
-dpkg-reconfigure --frontend=noninteractive locales
-update-locale LANG=fr_FR.UTF-8
+if [ -e /etc/locale.gen ] && grep -q '# fr_FR.UTF-8 UTF-8' /etc/locale.gen ; then
+   (apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null
+   sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen
+   dpkg-reconfigure --frontend=noninteractive locales  2>/dev/null >/dev/null
+   update-locale LANG=fr_FR.UTF-8 2>/dev/null >/dev/null
+fi
 
 
 cd
@@ -90,5 +92,7 @@ chmod 0755 /usr/local/bin/step2-setup.sh
 step2-setup.sh
 
 touch /tmp/.kc_started
+
+rm -f /tmp/.cmd
 
 echo done > /tmp/.katacoda-finished

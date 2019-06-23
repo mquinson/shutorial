@@ -3,14 +3,16 @@
 # THIS SCRIPT WAS GENERATED, DO NOT EDIT
 # Real source: searching-setup.sharin
 
-(apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null
-sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen
-dpkg-reconfigure --frontend=noninteractive locales
-update-locale LANG=fr_FR.UTF-8
+if [ -e /etc/locale.gen ] && grep -q '# fr_FR.UTF-8 UTF-8' /etc/locale.gen ; then
+   (apt update; apt -y install locales manpages-fr) 2>/dev/null >/dev/null
+   sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen
+   dpkg-reconfigure --frontend=noninteractive locales  2>/dev/null >/dev/null
+   update-locale LANG=fr_FR.UTF-8 2>/dev/null >/dev/null
+fi
 
 
 # KCCLEAN
-cd; rm -rf *
+cd; if [ "x$PWD" = "x/root" ] ; then rm -rf * ; fi
 updatedb
 
 # KCINSTALL tree tree
@@ -29,9 +31,6 @@ for a in aaa bbb ccc ddd ; do
     done
   done
 done
-
-# Example de recherche de fichier 'pas-la'
-echo "Zut, on m'a trouvé." > ddd/be/li/ka/so/zu/pas-la
 
 # Q1: trouver un fichier de nom "ici"
 echo "Bravo, vous avez trouvé le fichier. L'information cherchée est: depikapolu." > aaa/de/pi/ka/po/lu/ici
@@ -85,5 +84,7 @@ touch timestamp; touch -m timestamp
 
 sleep 1
 echo "L'information ici est: xepitapozu." > ddd/xe/pi/ta/po/zu/peut-etre-la
+
+rm -f /tmp/.cmd
 
 echo done > /tmp/.katacoda-finished

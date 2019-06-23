@@ -12,7 +12,7 @@ fi
 
 
 # KCCLEAN
-cd; rm -rf *
+cd; if [ "x$PWD" = "x/root" ] ; then rm -rf * ; fi
 
 # KCINCLUDE Ce_siecle_avait_deux_ans.txt /root
 if which uuencode >/dev/null 2>/dev/null ; then :; else apt install sharutils 2>/dev/null >/dev/null; fi
@@ -121,7 +121,7 @@ ZSkuIgogIGV4aXQgMQpmaSAKCmVjaG8gImRvbmUiCnJtIC1mIC90bXAvLmNt
 ZAoKZWNobyBkb25lID4gL3RtcC8ua2F0YWNvZGEtZmluaXNoZWQK
 ====
 KCINCLUDE_EOF
-chmod 0755 /usr/local/bin/seding-check.sh
+chmod 0700 /usr/local/bin/seding-check.sh
 # End of KCINCLUDE seding-check.sh
 
 

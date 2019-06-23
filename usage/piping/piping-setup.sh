@@ -12,7 +12,7 @@ fi
 
 
 # KCCLEAN
-cd; rm -rf *
+cd; if [ "x$PWD" = "x/root" ] ; then rm -rf * ; fi
 
 echo "ce fichier est inutile, mais il existe." > OK
 
