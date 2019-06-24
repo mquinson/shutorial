@@ -88,7 +88,58 @@ else
   exit 1
 fi 
 
+if [ -e deux_ans-rot13 ] ; then
+# KCCOMMAND '$out' gets an opaque value
+uudecode << 'KCCOMMAND_EOF' > /tmp/.cmd
+begin-base64 644 -
+dHIgW2EtekEtWl0gW24temEtbU4tWkEtTV0gPENlX3NpZWNsZV9hdmFpdF9k
+ZXV4X2Fucy50eHQgfCBkaWZmIC11IGRldXhfYW5zLXJvdDEzIC0K
+====
+KCCOMMAND_EOF
+out=$(sh /tmp/.cmd)
+# End of KCCOMMAND
+
+  if [ $? -eq 0 ] ; then
+    echo "Félicitations, la question 4 est réussie."
+  else
+    echo "Oups, votre fichier deux_ans-rot13 n'a pas le bon contenu. Différence constatée:"
+    echo "$out"
+    exit 1
+  fi
+else
+  echo "Oups, vous n'avez pas fait la question 4 (le fichier deux_ans-rot13 est introuvable)."
+  exit 1
+fi 
+
+
+if [ -e 7_lignes.txt ] ; then
+# KCCOMMAND '$out' gets an opaque value
+uudecode << 'KCCOMMAND_EOF' > /tmp/.cmd
+begin-base64 644 -
+Y2F0ICJTZXB0IGQndW4gY291cC50eHQiIHwgdHIgJ1xuJyAnOSd8c2VkIC1l
+ICdzLzk5L1xuL2cnIC1lICdzLzkgL1xuIC9nJyAtZSAncy85JC9cbi8nIC1l
+ICdzLzkvIC9nJyAtZSAncy9cKFtbOmFsbnVtOl0sLl0gXCkgKi9cMS9nJyB8
+IGRpZmYgLXUgN19saWduZXMudHh0IC0K
+====
+KCCOMMAND_EOF
+out=$(sh /tmp/.cmd)
+# End of KCCOMMAND
+
+  if [ $? -eq 0 ] ; then
+    echo "Félicitations, la question 5 est réussie."
+  else
+    echo "Oups, votre fichier 7_lignes.txt n'a pas le bon contenu. Différence constatée:"
+    echo "$out"
+    exit 1
+  fi
+else
+  echo "Oups, vous n'avez pas fait la question 5 (le fichier 7_lignes.txt est introuvable)."
+  exit 1
+fi 
+
+
 echo "done"
+
 rm -f /tmp/.cmd
 
 echo done > /tmp/.katacoda-finished
