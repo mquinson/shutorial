@@ -1,5 +1,3 @@
-Message de service: seul le début de cette leçon est terminée pour l'instant -- TODO.
-
 Après grep, nous allons voir dans cette leçon l'autre outil magique de
 la ligne de commande. Il s'agit du programme ``sed``, l'éditeur de
 flux. C'est un filtre qui fait des cherche/remplace avancés sur le
@@ -105,9 +103,6 @@ scripts sed (```info sed Examples```{{execute}}), et on trouve même
 une [implémentation](https://aurelio.net/projects/sedsokoban/) du jeu
 sokoban écrite en script sed... 
 
-TODO: la suite est en travaux. Je l'ajoute quand même à la version
-publique le temps que mon ordinateur soit définitivement réparée.
-
 # Réécriture de flux mais pas ligne à ligne
 
 ``sed`` est très puissant, mais il ne permet pas facilement de traiter
@@ -127,7 +122,7 @@ supprime tous les espaces (l'option ``-d`` demande la suppression).
 
 # Exercice avec tr 
 
-Vous pouvez refaire les questions 1 et 2 ci-dessus avec ``tr``. 
+Vous pouvez refaire les questions 1 et 2 ci-dessus avec ``tr``.
 
 ## Question 4: rot13
 
@@ -136,11 +131,40 @@ rot13. Référez-vous à la [page wikipédia
 correspondante](https://fr.wikipedia.org/wiki/ROT13) au besoin. Vous
 veillerez à respecter les majuscules et minuscules dans votre encodage.
 
-[TODO: cette question n'est pas encore corrigée par l'infrastructure]
+## Question 5: Un paragraphe par ligne
 
-## Question 5: espaces consécutives (TODO)
+Le fichier ``Sept d'un coup.txt`` contient le résumé d'un compte de
+Grimm, tel que rapporté par Wikipédia. La mise en page de ce fichier
+est justifiée au fer droit, mais on voudrait écrire un paragraphe par
+ligne pour bénéficier de la mise en page automatique à l'affichage.
 
-## Question 6: Un paragraphe par ligne (TODO)
+La première difficulté est que ce nom de fichier n'est pas très
+pratique dans le terminal. Il y a des espaces, qui d'habitude séparent
+les paramètres, et un guillemet (``'``) qui a également une
+signification particulière pour le shell. Il faut protéger ce nom
+quand on l'utilise en ligne de commande. Fort heureusement, la
+complétion automatique peut se charger de cette protection : tapez par
+exemple ``cat Sept`` puis appuyez sur la touche Tabulation. Voilà. Ces
+caractères rendent ce nom utilisable en shell. Le plus simple est
+d'éviter les caractères bizares dans les noms des fichiers qu'on
+manipule dans le shell.
+
+Faites maintenant un fichier ``7_lignes.txt`` contenant ce texte avec
+chaque paragraphe placé sur une seule ligne. Il ne faut pas toucher
+aux deux dernières lignes, qui ne font pas partie du texte mais
+indiquent plutôt la source de ce texte. Le fichier produit doit donc
+faire 7 lignes: 5 paragraphes, et 2 lignes inchangées en dessous du
+texte. Faites également en sorte pour que les espaces consécutives
+soient remplacées par une seule espace. Sur les deux dernières lignes,
+il faut même supprimer toute espace placée avant le texte.
+
+Comme précédement, si votre commande devient trop compliquée à
+modifier dans le terminal, tapez ``Ctrl-x Ctrl-e`` pour l'éditer dans
+un vrai éditeur. Cet outil s'appelle nano, et il est assez pratique
+pour commencer. C'est fou mais les adeptes de la ligne de commande
+adorent s'écharper sur le choix de l'éditeur de texte. Mais vous
+pouvez garder ``nano`` tant que vous ne savez pas si vous êtes faits
+pour ``vim`` ou ``emacs``.
 
 
 

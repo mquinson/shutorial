@@ -7,3 +7,6 @@
 chmod -w Ce_siecle_avait_deux_ans.txt 
 
 # KCINCLUDE seding-check.sh /usr/local/bin
+# KCINCLUDE Sept_dun_coup.txt /root
+
+mv Sept_dun_coup.txt "Sept d'un coup.txt"

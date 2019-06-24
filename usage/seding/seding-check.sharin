@@ -44,4 +44,34 @@ else
   exit 1
 fi 
 
+if [ -e deux_ans-rot13 ] ; then
+  # KCCOMMAND out tr [a-zA-Z] [n-za-mN-ZA-M] <Ce_siecle_avait_deux_ans.txt | diff -u deux_ans-rot13 -
+  if [ $? -eq 0 ] ; then
+    echo "Félicitations, la question 4 est réussie."
+  else
+    echo "Oups, votre fichier deux_ans-rot13 n'a pas le bon contenu. Différence constatée:"
+    echo "$out"
+    exit 1
+  fi
+else
+  echo "Oups, vous n'avez pas fait la question 4 (le fichier deux_ans-rot13 est introuvable)."
+  exit 1
+fi 
+
+
+if [ -e 7_lignes.txt ] ; then
+  # KCCOMMAND out cat "Sept d'un coup.txt" | tr '\n' '9'|sed -e 's/99/\n/g' -e 's/9 /\n /g' -e 's/9$/\n/' -e 's/9/ /g' -e 's/\([[:alnum:],.] \) */\1/g' | diff -u 7_lignes.txt -
+  if [ $? -eq 0 ] ; then
+    echo "Félicitations, la question 5 est réussie."
+  else
+    echo "Oups, votre fichier 7_lignes.txt n'a pas le bon contenu. Différence constatée:"
+    echo "$out"
+    exit 1
+  fi
+else
+  echo "Oups, vous n'avez pas fait la question 5 (le fichier 7_lignes.txt est introuvable)."
+  exit 1
+fi 
+
+
 echo "done"
