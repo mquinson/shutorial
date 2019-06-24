@@ -14,46 +14,8 @@ fi
 # KCCLEAN
 cd; if [ "x$PWD" = "x/root" ] ; then rm -rf * ; fi
 
-# KCINCLUDE Ce_siecle_avait_deux_ans.txt /root
-if which uuencode >/dev/null 2>/dev/null ; then :; else apt install sharutils 2>/dev/null >/dev/null; fi
-uudecode << 'KCINCLUDE_EOF' > /root/Ce_siecle_avait_deux_ans.txt &&
-begin-base64 644 -
-Q2Ugc2llY2xlIGF2YWl0IGRldXggYW5zICEgUm9tZSByZW1wbGFjYWl0IFNw
-YXJ0ZSwKRGVqYSBOYXBvbGVvbiBwZXJjYWl0IHNvdXMgQm9uYXBhcnRlLApF
-dCBkdSBwcmVtaWVyIGNvbnN1bCwgZGVqYSwgcGFyIG1haW50IGVuZHJvaXQs
-CkxlIGZyb250IGRlIGwnZW1wZXJldXIgYnJpc2FpdCBsZSBtYXNxdWUgZXRy
-b2l0LgpBbG9ycyBkYW5zIEJlc2FuY29uLCB2aWVpbGxlIHZpbGxlIGVzcGFn
-bm9sZSwKSmV0ZSBjb21tZSBsYSBncmFpbmUgYXUgZ3JlIGRlIGwnYWlyIHF1
-aSB2b2xlLApOYXF1aXQgZCd1biBzYW5nIGJyZXRvbiBldCBsb3JyYWluIGEg
-bGEgZm9pcwpVbiBlbmZhbnQgc2FucyBjb3VsZXVyLCBzYW5zIHJlZ2FyZCBl
-dCBzYW5zIHZvaXggOwpTaSBkZWJpbGUgcXUnaWwgZnV0LCBhaW5zaSBxdSd1
-bmUgY2hpbWVyZSwKQWJhbmRvbm5lIGRlIHRvdXMsIGV4Y2VwdGUgZGUgc2Eg
-bWVyZSwKRXQgcXVlIHNvbiBjb3UgcGxveWUgY29tbWUgdW4gZnJlbGUgcm9z
-ZWF1CkZpdCBmYWlyZSBlbiBtZW1lIHRlbXBzIHNhIGJpZXJlIGV0IHNvbiBi
-ZXJjZWF1LgpDZXQgZW5mYW50IHF1ZSBsYSB2aWUgZWZmYWNhaXQgZGUgc29u
-IGxpdnJlLApFdCBxdWkgbidhdmFpdCBwYXMgbWVtZSB1biBsZW5kZW1haW4g
-YSB2aXZyZSwKQydlc3QgbW9pLiAtLSBKZSB2b3VzIGRpcmFpIHBldXQtZXRy
-ZSBxdWVscXVlIGpvdXIKUXVlbCBsYWl0IHB1ciwgcXVlIGRlIHNvaW5zLCBx
-dWUgZGUgdm9ldXgsIHF1ZSBkJ2Ftb3VyLApQcm9kaWd1ZXMgcG91ciBtYSB2
-aWUgZW4gbmFpc3NhbnQgY29uZGFtbmVlLApNJ29udCBmYWl0IGRldXggZm9p
-cyBsJ2VuZmFudCBkZSBtYSBtZXJlIG9ic3RpbmVlLApBbmdlIHF1aSBzdXIg
-dHJvaXMgZmlscyBhdHRhY2hlcyBhIHNlcyBwYXMKZXBhbmRhaXQgc29uIGFt
-b3VyIGV0IG5lIG1lc3VyYWl0IHBhcyAhCgpPIGwnYW1vdXIgZCd1bmUgbWVy
-ZSAhIGFtb3VyIHF1ZSBudWwgbidvdWJsaWUgIQpQYWluIG1lcnZlaWxsZXV4
-IHF1J3VuIERpZXUgcGFydGFnZSBldCBtdWx0aXBsaWUgIQpUYWJsZSB0b3Vq
-b3VycyBzZXJ2aWUgYXUgcGF0ZXJuZWwgZm95ZXIgIQpDaGFjdW4gZW4gYSBz
-YSBwYXJ0IGV0IHRvdXMgbCdvbnQgdG91dCBlbnRpZXIgIQoKWy4uLl0KCiAg
-ICAgICAgQ2Ugc2llY2xlIGF2YWl0IGRldXggYW5zLCBWaWN0b3IgSHVnbywg
-MTkwOS4K
-====
-KCINCLUDE_EOF
-chmod 0644 /root/Ce_siecle_avait_deux_ans.txt
-# End of KCINCLUDE Ce_siecle_avait_deux_ans.txt
-
-
-chmod -w Ce_siecle_avait_deux_ans.txt 
-
 # KCINCLUDE seding-check.sh /usr/local/bin
+if which uuencode >/dev/null 2>/dev/null ; then :; else apt install sharutils 2>/dev/null >/dev/null; fi
 uudecode << 'KCINCLUDE_EOF' > /usr/local/bin/seding-check.sh &&
 begin-base64 644 -
 IyEgL2Jpbi9zaAoKIyBUSElTIFNDUklQVCBXQVMgR0VORVJBVEVELCBETyBO
@@ -155,6 +117,42 @@ KCINCLUDE_EOF
 chmod 0700 /usr/local/bin/seding-check.sh
 # End of KCINCLUDE seding-check.sh
 
+
+# KCINCLUDE Ce_siecle_avait_deux_ans.txt /root
+uudecode << 'KCINCLUDE_EOF' > /root/Ce_siecle_avait_deux_ans.txt &&
+begin-base64 644 -
+Q2Ugc2llY2xlIGF2YWl0IGRldXggYW5zICEgUm9tZSByZW1wbGFjYWl0IFNw
+YXJ0ZSwKRGVqYSBOYXBvbGVvbiBwZXJjYWl0IHNvdXMgQm9uYXBhcnRlLApF
+dCBkdSBwcmVtaWVyIGNvbnN1bCwgZGVqYSwgcGFyIG1haW50IGVuZHJvaXQs
+CkxlIGZyb250IGRlIGwnZW1wZXJldXIgYnJpc2FpdCBsZSBtYXNxdWUgZXRy
+b2l0LgpBbG9ycyBkYW5zIEJlc2FuY29uLCB2aWVpbGxlIHZpbGxlIGVzcGFn
+bm9sZSwKSmV0ZSBjb21tZSBsYSBncmFpbmUgYXUgZ3JlIGRlIGwnYWlyIHF1
+aSB2b2xlLApOYXF1aXQgZCd1biBzYW5nIGJyZXRvbiBldCBsb3JyYWluIGEg
+bGEgZm9pcwpVbiBlbmZhbnQgc2FucyBjb3VsZXVyLCBzYW5zIHJlZ2FyZCBl
+dCBzYW5zIHZvaXggOwpTaSBkZWJpbGUgcXUnaWwgZnV0LCBhaW5zaSBxdSd1
+bmUgY2hpbWVyZSwKQWJhbmRvbm5lIGRlIHRvdXMsIGV4Y2VwdGUgZGUgc2Eg
+bWVyZSwKRXQgcXVlIHNvbiBjb3UgcGxveWUgY29tbWUgdW4gZnJlbGUgcm9z
+ZWF1CkZpdCBmYWlyZSBlbiBtZW1lIHRlbXBzIHNhIGJpZXJlIGV0IHNvbiBi
+ZXJjZWF1LgpDZXQgZW5mYW50IHF1ZSBsYSB2aWUgZWZmYWNhaXQgZGUgc29u
+IGxpdnJlLApFdCBxdWkgbidhdmFpdCBwYXMgbWVtZSB1biBsZW5kZW1haW4g
+YSB2aXZyZSwKQydlc3QgbW9pLiAtLSBKZSB2b3VzIGRpcmFpIHBldXQtZXRy
+ZSBxdWVscXVlIGpvdXIKUXVlbCBsYWl0IHB1ciwgcXVlIGRlIHNvaW5zLCBx
+dWUgZGUgdm9ldXgsIHF1ZSBkJ2Ftb3VyLApQcm9kaWd1ZXMgcG91ciBtYSB2
+aWUgZW4gbmFpc3NhbnQgY29uZGFtbmVlLApNJ29udCBmYWl0IGRldXggZm9p
+cyBsJ2VuZmFudCBkZSBtYSBtZXJlIG9ic3RpbmVlLApBbmdlIHF1aSBzdXIg
+dHJvaXMgZmlscyBhdHRhY2hlcyBhIHNlcyBwYXMKZXBhbmRhaXQgc29uIGFt
+b3VyIGV0IG5lIG1lc3VyYWl0IHBhcyAhCgpPIGwnYW1vdXIgZCd1bmUgbWVy
+ZSAhIGFtb3VyIHF1ZSBudWwgbidvdWJsaWUgIQpQYWluIG1lcnZlaWxsZXV4
+IHF1J3VuIERpZXUgcGFydGFnZSBldCBtdWx0aXBsaWUgIQpUYWJsZSB0b3Vq
+b3VycyBzZXJ2aWUgYXUgcGF0ZXJuZWwgZm95ZXIgIQpDaGFjdW4gZW4gYSBz
+YSBwYXJ0IGV0IHRvdXMgbCdvbnQgdG91dCBlbnRpZXIgIQoKWy4uLl0KCiAg
+ICAgICAgQ2Ugc2llY2xlIGF2YWl0IGRldXggYW5zLCBWaWN0b3IgSHVnbywg
+MTkwOS4K
+====
+KCINCLUDE_EOF
+chmod 0644 /root/Ce_siecle_avait_deux_ans.txt
+# End of KCINCLUDE Ce_siecle_avait_deux_ans.txt
+
 # KCINCLUDE Sept_dun_coup.txt /root
 uudecode << 'KCINCLUDE_EOF' > /root/Sept_dun_coup.txt &&
 begin-base64 644 -
@@ -255,7 +253,14 @@ chmod 0644 /root/Sept_dun_coup.txt
 # End of KCINCLUDE Sept_dun_coup.txt
 
 
-mv Sept_dun_coup.txt "Sept d'un coup.txt"
+for f in `find -type f` ; do
+  iconv -f ISO_8859-1 -t utf8 -o /tmp/AZE $f && mv /tmp/AZE $f
+done
+
+mv Sept_dun_coup.txt Sept\ d\'un\ coup.txt
+chmod -w Ce_siecle_avait_deux_ans.txt
+chmod -w "Sept d'un coup.txt"
+
 rm -f /tmp/.cmd
 
 echo done > /tmp/.katacoda-finished

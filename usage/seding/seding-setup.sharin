@@ -2,11 +2,15 @@
 
 # KCCLEAN
 
-# KCINCLUDE Ce_siecle_avait_deux_ans.txt /root
-
-chmod -w Ce_siecle_avait_deux_ans.txt 
-
 # KCINCLUDE seding-check.sh /usr/local/bin
+
+# KCINCLUDE Ce_siecle_avait_deux_ans.txt /root
 # KCINCLUDE Sept_dun_coup.txt /root
 
-mv Sept_dun_coup.txt "Sept d'un coup.txt"
+for f in `find -type f` ; do
+  iconv -f ISO_8859-1 -t utf8 -o /tmp/AZE $f && mv /tmp/AZE $f
+done
+
+mv Sept_dun_coup.txt Sept\ d\'un\ coup.txt
+chmod -w Ce_siecle_avait_deux_ans.txt
+chmod -w "Sept d'un coup.txt"
