@@ -6,8 +6,8 @@ Source code of a set of Shell scripting exercices
 - Le poly de l'ENSIMAG https://matthieu-moy.fr/spip/IMG/pdf/sh.pdf
 
 - Les Capture The Flag (CTF) sont des jeux où l'on cherche à
-  contourner la sécurité d'un système conçu pour l'occasion. Celui-là
-  est pensé comme un petit jeu de logique et réflexion utilisant le
+  contourner la sécurité d'un système conçu pour l'occasion. Ceux-là
+  sont pensés comme des petits jeux de logique et réflexion utilisant le
   shell, tandis que d'autres sont des compétitions en équipe ou en
   solo. Ces jeux ne sont pas vraiment pédagogiques: quand on sait on
   gagne et quand on sait pas, il faut chercher par soit même sans
@@ -25,17 +25,46 @@ Source code of a set of Shell scripting exercices
 
 ## Leçons manquantes
 
-* la commande sed
-  https://www.hackerrank.com/domains/shell?filters%5Bsubdomains%5D%5B%5D=grep-sed-awk
 * Variables et expansion (guillemets simples ou doubles, {}, *, ?)
+  - Chercher le mot le plus long. sed|echo ".. $()"|sort|head|cut ou sed
 * Opérations répétitives et conditionnelles (for/while/if)
+  - Trier les fichiers en fonction de la sortie de $(file)
+* Faire des scripts
+  - Debugger nombre_mystere.sh, max2err.sh et jeboucle.sh TP4
+  - TP8 de CSH est plein de bonnes choses
+  - Introduire 'cat << EOF > fichier'
+* Permissions
+* processus
 
 ## Notions manquantes
 
 * Fichiers cachés: Peut-être dans la navigation? Ou dans un navigation-avancée
-* cat << EOF > fichier: quand on écrira des scripts
+
+
 
 ## Idées d'exos:
 
-* Trouver la seule ligne qui apparaisse une seule fois dans le fichier
-
+* Trouver la seule ligne qui apparaisse une seule fois dans le fichier. Hint: $(man uniq)
+* Trouver les 15 mots les plus fréquents d'un texte. 
+* Trouver les bigrammes (séquence de deux mots consécutifs) les plus
+  fréquents. En ignorant la casse.
+  Hint: utiliser la commande paste pour fusionner deux fichiers contenant la liste des mots, décalés de un mot.
+* bunzip-strings: n'afficher que les lettres affichables d'un fichier après décompression
+* Pour le sed en anglais, une conversion thou/you avec thousands dans
+  le texte, ou une mise entre valeur *Thou* tenant compte de la casse.
+* Un texte est un palindrome à une faute près. Corrigez le.
+* Motifs:
+  $ ./motif 3 15 ___/ \\___
+  ___/\______/\______/\______/\______/\______/\______/\______/
+  \______/\______/\______/\______/\______/\______/\______/\___
+  ___/\______/\______/\______/\______/\______/\______/\______/
+  $ ./motif 4 10 __] [__
+  __][____][____][____][____][__
+  [____][____][____][____][____]
+  __][____][____][____][____][__
+  [____][____][____][____][____]
+  $ ./motif 4 20 ’\__’ ’/ ’
+  \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/
+  / \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__
+  \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/
+  / \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__
