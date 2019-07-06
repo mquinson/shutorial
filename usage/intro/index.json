@@ -5,13 +5,9 @@
     "steps": [
       {
         "title": "Le terminal ??? À quoi ça sert ?",
-        "text": "1-intro.md",
+        "text": "intro.md",
 	"code": "wait-config.sh",
 	"courseData": "intro-setup.sh"
-      },
-      {
-        "title": "Premières commandes",
-        "text": "2-commands.md"
       }
     ],
     "finish": { 

@@ -1,3 +1,42 @@
+Il s'agit d'une fenêtre noire (le plus souvent) dans laquelle on peut
+interagir avec le système d'exploitation directement en mode texte. Le
+terminal rend en gros les mêmes services que votre navigateur de
+fichiers : on peut se déplacer sur le disque, consulter le contenu des
+répertoires, exécuter des programmes et déplacer des fichiers. Mais on
+le fait au clavier, presque sans la souris.
+
+Ce n'est pas très attirant à priori, mais cette approche est très puissante. Au
+lieu de simplement double-cliquer sur un programme, on peut passer des
+paramètres avancés simplement en les écrivant après le nom du programme à
+exécuter. Pour sélectionner les fichiers, on a des moyens beaucoup plus précis
+qu'un simple glissé-lâché dans une zone. Les programmes se combinent très bien,
+et on peut même faire des scripts très facilement. Alors c'est vrai, il faut
+taper les choses, mais en fait, le terminal regorge de trucs de fainéants pour
+taper moins. Il y a un vrai risque pour que vous *appréciez* ce système après
+l'avoir découvert.
+
+Marre de passer des heures à cliquer sur vos fichiers pour convertir vos bmp en
+gif, ou pour renommer les photos de vos dernières vacances ? Quand vous saurez
+vous servir du shell, tout ceci ne sera plus qu'un mauvais souvenir.
+
+# Qu'est ce que cet environnement "Katacoda" ?
+
+Katacoda permet de faire des exercices interactifs en ligne de commande depuis
+une simple page web. La zone noire à droite n'est pas un émulateur, mais bien un
+vrai terminal, connecté à une machine virtuelle s'exécutant quelque part sur
+internet. Tout se passe exactement comme si vous utilisiez le terminal qui vient
+avec votre ordinateur.
+
+On pourrait effectivement tout faire dans un terminal local, mais ce
+serait moins pratique. Katacoda permet de faire des exercices
+autocorrigés, et vous ne pouvez rien casser dans l'environnement
+virtuel. Si vous effacez des fichiers importants de votre ordinateur,
+le réparer peut s'avérer difficile. Mais si vous endommagez le système
+utilisé ici, il suffit de recharger la page de votre navigateur pour
+rebooter. Toutes vos modifications sont alors annulées.
+
+# Premières commandes
+
 Dans la fenêtre à droite, le signe ```$``` s'appelle un *prompt*.
 C'est ainsi que le système vous invite à écrire votre prochaine
 commande. Essayez de taper n'importe quoi (par exemple, la commande
@@ -109,3 +148,4 @@ convertir l'instant 12345 en date lisible, on utilise
 Notez que si vous cliquez sur "Continuer" ci-dessous, toutes les
 réponses justes sont entourées de vert pour vous permettre de voir ce
 qu'il vous reste à faire.
+
