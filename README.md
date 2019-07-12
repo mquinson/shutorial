@@ -20,7 +20,20 @@ Source code of a set of Shell scripting exercices
   C'est vieux, mais c'est pas mal et surtout c'est en français.
 
   https://www.tuteurs.ens.fr/unix/shell/index.html
-  
+
+## En anglais
+
+La liste suivante n'est pas particulièrement triée.
+
+- Livre en ligne: http://linuxcommand.org/tlcl.php
+- Un script commenté qui explique tout en 10mn: https://learnxinyminutes.com/docs/bash/
+- Un exerciseur en node.js à exécuter en local:
+  https://github.com/denysdovhan/learnyoubash
+  https://github.com/denysdovhan/bash-handbook
+- Des tutos et exercices: http://www.ee.surrey.ac.uk/Teaching/Unix/
+- Des ptits tutos: https://www.learnshell.org/en/Variables
+- Collections de liens vers des tutos: https://www.cyberciti.biz/tips/linux-unix-commands-cheat-sheets.html
+
 # TODO
 
 ## Leçons manquantes
@@ -54,6 +67,7 @@ Source code of a set of Shell scripting exercices
   le texte, ou une mise entre valeur *Thou* tenant compte de la casse.
 * Un texte est un palindrome à une faute près. Corrigez le.
 * Motifs:
+```
   $ ./motif 3 15 ___/ \\___
   ___/\______/\______/\______/\______/\______/\______/\______/
   \______/\______/\______/\______/\______/\______/\______/\___
@@ -68,3 +82,4 @@ Source code of a set of Shell scripting exercices
   / \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__
   \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/
   / \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__
+```OA
