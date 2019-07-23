@@ -25,6 +25,7 @@ Source code of a set of Shell scripting exercices
 
 La liste suivante n'est pas particulièrement triée.
 
+- Liste de ressources: https://www3.nd.edu/~pbui/teaching/cse.20289.sp19/
 - Livre en ligne: http://linuxcommand.org/tlcl.php
 - Un script commenté qui explique tout en 10mn: https://learnxinyminutes.com/docs/bash/
 - Un exerciseur en node.js à exécuter en local:
