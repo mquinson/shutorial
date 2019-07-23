@@ -31,7 +31,7 @@ for sharin in os.listdir():
                 elif re.match('.*KCCLEAN.*', line):
                     print("CLEAN")
                     output.write(line)
-                    output.write("cd; if [ \"x$PWD\" = \"x/root\" ] ; then rm -rf * ; fi\n")
+                    output.write("cd; if [ \"x$PWD\" = \"x/root\" ] ; then mkdir .archive ; mv * .archive ; fi\n")
                     
                 elif re.match('.*KCINSTALL.*', line):
                     request = re.sub('.*KCINSTALL *','',line).split()

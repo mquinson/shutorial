@@ -12,7 +12,7 @@ fi
 
 
 # KCCLEAN
-cd; if [ "x$PWD" = "x/root" ] ; then rm -rf * ; fi
+cd; if [ "x$PWD" = "x/root" ] ; then mkdir .archive ; mv * .archive ; fi
 
 # KCINCLUDE seding-check.sh /usr/local/bin
 if which uuencode >/dev/null 2>/dev/null ; then :; else apt install sharutils 2>/dev/null >/dev/null; fi

@@ -12,7 +12,7 @@ fi
 
 
 # KCCLEAN
-cd; if [ "x$PWD" = "x/root" ] ; then rm -rf * ; fi
+cd; if [ "x$PWD" = "x/root" ] ; then mkdir .archive ; mv * .archive ; fi
 updatedb
 
 # KCINSTALL tree tree
@@ -31,6 +31,7 @@ for a in aaa bbb ccc ddd ; do
     done
   done
 done
+touch ddd/de/li/ka/so/zu/pas-la
 
 # Q1: trouver un fichier de nom "ici"
 echo "Bravo, vous avez trouvé le fichier. L'information cherchée est: depikapolu." > aaa/de/pi/ka/po/lu/ici

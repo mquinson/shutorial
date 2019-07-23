@@ -12,7 +12,7 @@ fi
 
 
 # KCCLEAN
-cd; if [ "x$PWD" = "x/root" ] ; then rm -rf * ; fi
+cd; if [ "x$PWD" = "x/root" ] ; then mkdir .archive ; mv * .archive ; fi
 
 for dir in aa bb cc dd ee ; do
   rm -rf $dir
