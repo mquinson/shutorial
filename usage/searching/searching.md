@@ -71,6 +71,11 @@ connecteurs logiques ``-and`` et ``-or``.
 
 Cette fois, il y a une multitude de fichier, et il faut utiliser celui
 modifié plus récemment que le fichier ``timestamp`` placé à la racine.
+Notez que c'est bien la date de dernière modification qui compte.
+Chaque fichier a trois dates: dernier accès, dernière modification du
+contenu et dernier changement des méta-données (permissions,
+propriétaire, etc). Faites ```stat ddd```{execute} pour voir plus 
+d'informations sur ce répertoire que nécessaire.
 
 ```cd ~/ddd```{{execute}}
 
