@@ -27,23 +27,23 @@ for sharin in os.listdir():
                     output.write("   dpkg-reconfigure --frontend=noninteractive locales  2>/dev/null >/dev/null\n")
                     output.write("   update-locale LANG=fr_FR.UTF-8 2>/dev/null >/dev/null\n")
                     output.write("fi\n\n")
-                    
+
                 elif re.match('.*KCCLEAN.*', line):
                     print("CLEAN")
                     output.write(line)
                     output.write("cd; if [ \"x$PWD\" = \"x/root\" ] ; then mkdir .archive ; mv * .archive ; fi\n")
-                    
+
                 elif re.match('.*KCINSTALL.*', line):
                     request = re.sub('.*KCINSTALL *','',line).split()
                     if len(request) != 2:
                         print("Syntax error in KCINSTALL (not 2 parameters):\n  {}".format(line))
-                        exit(1)                    
+                        exit(1)
                     (cmd, pkg) = request
                     print("INSTALL {} if {} not found".format(pkg,cmd))
                     output.write(line)
                     output.write("if which {} >/dev/null 2>/dev/null || [ -e {} ] ; then :; else apt install {} 2>/dev/null >/dev/null; fi\n".format(cmd,cmd,pkg))
                     installed.append(pkg)
-                    
+
                 elif re.match('.*KCINCLUDE.*', line):
                     cmd = re.sub('.*KCINCLUDE *','',line).split()
                     if len(cmd) != 2:
@@ -58,7 +58,7 @@ for sharin in os.listdir():
                     if not "sharutils" in installed:
                         output.write("if which uuencode >/dev/null 2>/dev/null ; then :; else apt install sharutils 2>/dev/null >/dev/null; fi\n")
                         installed.append("sharutils")
-                        
+
                     output.write("uudecode << 'KCINCLUDE_EOF' > {}/{} &&\n".format(destdir,os.path.basename(component)))
                     encoded = subprocess.run("uuencode --base64 - < {}".format(component), stdout=subprocess.PIPE, shell=True, text=True)
                     for l in encoded.stdout:
@@ -81,14 +81,14 @@ for sharin in os.listdir():
                     if not "sharutils" in installed:
                         output.write("if which uuencode >/dev/null 2>/dev/null ; then :; else apt install sharutils 2>/dev/null >/dev/null; fi\n")
                         installed.append("sharutils")
-                        
+
                     output.write("uudecode << 'KCCOMMAND_EOF' > /tmp/.cmd\n")
                     encoded = subprocess.run("uuencode --base64 -", input=cmd, stdout=subprocess.PIPE, shell=True, text=True)
                     for l in encoded.stdout:
                         output.write(l)
                     output.write("KCCOMMAND_EOF\n")
                     output.write("{}=$(sh /tmp/.cmd)\n".format(var))
-                    
+
                     output.write("# End of KCCOMMAND\n\n")
                 else:
                     output.write(line)
@@ -97,7 +97,7 @@ for sharin in os.listdir():
         os.chmod(basescript, stat.S_IRUSR|stat.S_IWUSR|stat.S_IXUSR) # user rwx
         print("Done")
 
-### Check the tests in a docker    
+### Check the tests in a docker
 with open('index.json') as data_file:
     main = json.load(data_file)
 
@@ -109,10 +109,10 @@ if not ('details' in main):
     print("Your index.json does not contain a 'details' section. I'm puzzled.")
     print(main)
     os.exit(1)
-    
+
 subprocess.call("echo '#! /bin/sh -x' > /tmp/katalocal/setup_assets", shell=True)
 subprocess.call("echo 'cd /tmp/katacoda' >> /tmp/katalocal/setup_assets", shell=True)
-            
+
 if 'assets' in main['details']:
     for host in main['details']['assets']:
         for asset in main['details']['assets'][host]:
@@ -141,15 +141,15 @@ if 'steps' in main['details']:
                 print("Step '{}': {} (solution script) not found. Please fix it.".format(step['title'], step['solution']))
                 sys.exit(1)
             print("Step {}: Prepare to check it (found both verify and solution scripts)".format(step['title']))
-            
+
             # Install the scripts in position
-            for key in 'verify', 'solution', 'courseData': 
+            for key in 'verify', 'solution', 'courseData':
                 if key in step: # courseData is optional
                     dst_name = '/tmp/katalocal/{}'.format(step[key])
                     shutil.copyfile(step[key], dst_name)
                     os.chmod(dst_name, stat.S_IRUSR|stat.S_IWUSR|stat.S_IXUSR) # user rwx
-            
-            setup="true"            
+
+            setup="true"
             if 'courseData' in step:
                 setup="/tmp/katacoda/{}".format(step['courseData'])
             solution="/tmp/katacoda/{}".format(step['solution'])
@@ -157,7 +157,7 @@ if 'steps' in main['details']:
 
             print("XXXXXXXX\nXXX Step '{}': check that the solution passes the test\nXXXXXXXX".format(step['title']))
             cmd="docker run --rm --volume /tmp/katalocal/:/tmp/katacoda kctest sh -x -c 'cd && /tmp/katacoda/setup_assets && {} && {} && {}'".format(setup, solution, verify)
-            print("Exec {}\n".format(cmd))            
+            print("Exec {}\n".format(cmd))
             if subprocess.call(cmd, shell=True):
                 print("XXXXXXXX\nXXX Step '{}': Verification failed.".format(step['title']))
                 sys.exit(2)
@@ -165,11 +165,10 @@ if 'steps' in main['details']:
 
             print("XXXXXXXX\nXXX Step '{}': check that the test really needs the solution\nXXXXXXXX".format(step['title']))
             cmd="docker run --rm --volume /tmp/katalocal/:/tmp/katacoda kctest sh -c 'cd && /tmp/katacoda/setup_assets && {} && {}'".format(setup, verify)
-            print("Exec {}\n".format(cmd))            
+            print("Exec {}\n".format(cmd))
             if subprocess.call(cmd, shell=True):
                 print("XXXXXXXX\nXXX Step '{}': the verification on a blank docker fails as expected.".format(step['title']))
             else:
                 print("XXXXXXXX\nXXX Step '{}': the verification passes on a blank docker while it should fail! Please fix it".format(step['title']))
                 sys.exit(2)
-                
-            
+
