@@ -41,6 +41,7 @@ La liste suivante n'est pas particulièrement triée.
 
 * Variables et expansion (guillemets simples ou doubles, {}, *, ?)
   - Chercher le mot le plus long. sed|echo ".. $()"|sort|head|cut ou sed
+  - Environnement
 * Opérations répétitives et conditionnelles (for/while/if)
   - Trier les fichiers en fonction de la sortie de $(file)
 * Faire des scripts
@@ -48,7 +49,7 @@ La liste suivante n'est pas particulièrement triée.
   - TP8 de CSH est plein de bonnes choses
   - Introduire 'cat << EOF > fichier'
 * Permissions
-* processus
+* processus et jobs
 
 ## Notions manquantes
 
