@@ -111,3 +111,6 @@ automatique en brute force. Pas vous ?
 Pour apprendre les regex, je préfère [ce jeu](http://play.inginf.units.it/),
 plus pédagogique. Pas besoin de parler anglais, il suffit de passer
 les pages d'introduction pour arriver au jeu.
+
+Cet [outil de visualisation des regex](https://jex.im/regulex/) me
+semble également très pédagogique.
