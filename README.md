@@ -34,6 +34,8 @@ La liste suivante n'est pas particulièrement triée.
 - Des tutos et exercices: http://www.ee.surrey.ac.uk/Teaching/Unix/
 - Des ptits tutos: https://www.learnshell.org/en/Variables
 - Collections de liens vers des tutos: https://www.cyberciti.biz/tips/linux-unix-commands-cheat-sheets.html
+- Un outil pour voir les différents bouts d'une commande shell, et la
+  doc de chaque bout: https://explainshell.com/
 
 # TODO
 
