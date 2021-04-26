@@ -4,8 +4,8 @@ import json
 import shutil, os, sys, stat, subprocess, re
 
 ### Check the index.json syntax
-if subprocess.call("jsonlint-py3 index.json", shell=True):
-    print("Please fix your json sytax")
+if subprocess.call("jsonlint index.json", shell=True):
+    print("Please fix your json sytax (or install python3-demjson).")
     exit(1)
 
 ### Recompile the shar files
@@ -156,7 +156,7 @@ if 'steps' in main['details']:
             verify="/tmp/katacoda/{}".format(step['verify'])
 
             print("XXXXXXXX\nXXX Step '{}': check that the solution passes the test\nXXXXXXXX".format(step['title']))
-            cmd="docker run --rm --volume /tmp/katalocal/:/tmp/katacoda kctest sh -x -c 'cd && /tmp/katacoda/setup_assets && {} && {} && {}'".format(setup, solution, verify)
+            cmd="sudo docker run --rm --volume /tmp/katalocal/:/tmp/katacoda kctest sh -x -c 'cd && /tmp/katacoda/setup_assets && {} && {} && {}'".format(setup, solution, verify)
             print("Exec {}\n".format(cmd))
             if subprocess.call(cmd, shell=True):
                 print("XXXXXXXX\nXXX Step '{}': Verification failed.".format(step['title']))
@@ -164,7 +164,7 @@ if 'steps' in main['details']:
             print("\nXXXXXXXX\nStep '{}': passed.\nXXXXXXXX\n".format(step['title']))
 
             print("XXXXXXXX\nXXX Step '{}': check that the test really needs the solution\nXXXXXXXX".format(step['title']))
-            cmd="docker run --rm --volume /tmp/katalocal/:/tmp/katacoda kctest sh -c 'cd && /tmp/katacoda/setup_assets && {} && {}'".format(setup, verify)
+            cmd="sudo docker run --rm --volume /tmp/katalocal/:/tmp/katacoda kctest sh -c 'cd && /tmp/katacoda/setup_assets && {} && {}'".format(setup, verify)
             print("Exec {}\n".format(cmd))
             if subprocess.call(cmd, shell=True):
                 print("XXXXXXXX\nXXX Step '{}': the verification on a blank docker fails as expected.".format(step['title']))
