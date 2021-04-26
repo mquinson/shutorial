@@ -35,6 +35,12 @@ le réparer peut s'avérer difficile. Mais si vous endommagez le système
 utilisé ici, il suffit de recharger la page de votre navigateur pour
 rebooter. Toutes vos modifications sont alors annulées.
 
+**Si Katacoda fonctionne mal pour vous,** j'en suis désolé. Je n'ai
+aucun contrôle sur les évolutions de cet outil, qui cassent parfois
+mes exercices. Je tente de corriger quand je peux, mais vous pouvez
+aussi utiliser [la version CoCalc](https://github.com/UGLimusic/decouverte_shell)
+de ces exercices. Merci à Fred Leleu pour la conversion.
+
 # Premières commandes
 
 Dans la fenêtre à droite, le signe ```$``` s'appelle un *prompt*.

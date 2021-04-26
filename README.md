@@ -1,6 +1,15 @@
 # shell-exercises
 Source code of a set of Shell scripting exercices
 
+# Katacoda ne marche plus vraiment
+
+Je ne sais pas exactement ce qu'ils ont changé pour que les exos ne
+marchent plus, c'est assez pénible. Le plus simple me semble être de
+prendre [cette version](https://github.com/UGLimusic/decouverte_shell)
+qui utilise [CoCalc](https://cocalc.com/) à la place de Katacoda.
+Merci à Fred Leleu pour la conversion des exercices pour cette
+nouvelle plate-forme.
+
 # Aller plus loin:
 
 - Le poly de l'ENSIMAG https://matthieu-moy.fr/spip/IMG/pdf/sh.pdf
@@ -86,4 +95,4 @@ La liste suivante n'est pas particulièrement triée.
   / \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__
   \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/
   / \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__
-```OA
+```
