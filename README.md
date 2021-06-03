@@ -34,6 +34,7 @@ nouvelle plate-forme.
 
 La liste suivante n'est pas particulièrement triée.
 
+- Des comics expliquant énormément de petites choses: https://jvns.ca/
 - Liste de ressources: https://www3.nd.edu/~pbui/teaching/cse.20289.sp19/
 - Livre en ligne: http://linuxcommand.org/tlcl.php
 - Un script commenté qui explique tout en 10mn: https://learnxinyminutes.com/docs/bash/
