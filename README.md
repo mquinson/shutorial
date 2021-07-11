@@ -8,7 +8,8 @@ marchent plus, c'est assez pénible. Le plus simple me semble être de
 prendre [cette version](https://github.com/UGLimusic/decouverte_shell)
 qui utilise [CoCalc](https://cocalc.com/) à la place de Katacoda.
 Merci à Fred Leleu pour la conversion des exercices pour cette
-nouvelle plate-forme.
+nouvelle plate-forme. Voir aussi plus bas pour des réflexions sur la
+technique.
 
 # Aller plus loin:
 
@@ -49,6 +50,11 @@ La liste suivante n'est pas particulièrement triée.
 
 # TODO
 
+Ce qui suit est mon fichier de notes perso. Je vous le montre sans
+oser espérer qu'il vous sera utile, mais c'est plus simple pour moi de
+le mettre là plutôt que le perdre sur mon disque. Si vous voulez
+ajouter des trucs, n'hésitez pas à me contacter.
+
 ## Leçons manquantes
 
 * Variables et expansion (guillemets simples ou doubles, {}, *, ?)
@@ -66,7 +72,6 @@ La liste suivante n'est pas particulièrement triée.
 ## Notions manquantes
 
 * Fichiers cachés: Peut-être dans la navigation? Ou dans un navigation-avancée
-
 
 
 ## Idées d'exos:
@@ -97,3 +102,17 @@ La liste suivante n'est pas particulièrement triée.
   \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/
   / \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__/ \__
 ```
+
+
+## Idées pour remplacer Katacoda
+
+- https://github.com/play-with-docker/play-with-docker: Solution de
+  Docker-in-docker pour permettre aux apprenants de jouer avec Docker.
+  Y'a un site live, mais j'imagine que c'est surtout pour de
+  l'auto-hébergement où l'apprenant lance ça sur son ordi perso (pas
+  sûr).
+
+- https://github.com/freeCompilerCamp/freecompilercamp.github.io: Ils
+  construisent sur Play-with-Docker, et ils font un
+  Play-with-compiler, où on peut déployer son compilo favori pour
+  jouer. Objectif pédagogique affiché, et publications scientifiques.
