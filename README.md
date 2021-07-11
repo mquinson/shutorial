@@ -48,7 +48,7 @@ La liste suivante n'est pas particulièrement triée.
 - Un outil pour voir les différents bouts d'une commande shell, et la
   doc de chaque bout: https://explainshell.com/
 
-# TODO
+# TODO
 
 Ce qui suit est mon fichier de notes perso. Je vous le montre sans
 oser espérer qu'il vous sera utile, mais c'est plus simple pour moi de
