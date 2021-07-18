@@ -25,7 +25,10 @@ technique.
 
   http://overthewire.org/wargames/bandit/ un vieux CTF autour du shell (en anglais)
   https://www.root-me.org/ un site collaboratif proposant de très nombreux CTF (en français). 
-  
+
+- Un autre système avec le même objectif, que je n'ai pas encore
+  regardé de près. https://github.com/phyver/GameShell
+
 - L'aide à UNIX écrite pour les élèves de l'ENS Paris au siècle passé.
   C'est vieux, mais c'est pas mal et surtout c'est en français.
 
