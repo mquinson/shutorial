@@ -50,6 +50,8 @@ La liste suivante n'est pas particulièrement triée.
 - Collections de liens vers des tutos: https://www.cyberciti.biz/tips/linux-unix-commands-cheat-sheets.html
 - Un outil pour voir les différents bouts d'une commande shell, et la
   doc de chaque bout: https://explainshell.com/
+- https://linuxjourney.com/lesson/the-shell 
+- http://linuxcommand.org/
 
 # TODO
 
