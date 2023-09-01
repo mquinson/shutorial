@@ -49,9 +49,9 @@ squashfs_build() {
     sudo bash -c 'sed "s/^      //" >> /srv/shutorial/basedir//etc/bash.bashrc' <<EOF
         # Addition for shutorial
         if [ "\$color_prompt" = yes ]; then
-           PS1="\[\033[01;32m\]SHuToRiaL\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]> "
+           PS1="\[\033[01;32m\]SHuToRiaL\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $ "
 	 else
-	   PS1="SHuToRiaL:\w> "
+	   PS1="SHuToRiaL:\w $ "
        fi
        cd
        echo "Welcome to the shutorial. Type 'shtrl goal' to see the goal of your mission."

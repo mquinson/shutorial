@@ -59,7 +59,7 @@ you an shell invite as follows:
 ```
 Welcome to the shutorial. Type 'shtrl goal' to see the goal of your mission.
 
-SHuToRiaL:~> 
+SHuToRiaL:~ $
 
 ```
 
