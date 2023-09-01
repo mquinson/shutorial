@@ -1,9 +1,8 @@
 #! /bin/sh
 
 # Existing functions:
-#  squashfs_build : do build /srv/shutorial/debian-stable.squashfs 
+#  squashfs_build : do build /usr/lib/shutorial/debian-stable.squashfs 
 #  squashfs_ensure: Make sure that the squashfs exists, and create it if not
-#  schroot_ensure : Make sure that schroot is configured
 
 squashfs_build() {
     # Config: check the language to use
@@ -14,10 +13,10 @@ squashfs_build() {
     lang=`echo $LANG|sed 's/_.*$//'`
 
     # First, clean previous attempts and create the base directory
-    sudo rm -rf /srv/shutorial/basedir
-    sudo mkdir -p /srv/shutorial
+    sudo rm -rf /usr/lib/shutorial/basedir
+    sudo mkdir -p /usr/lib/shutorial
 
-    # 1. Prepare the chroot base directory in /srv/shutorial/basedir
+    # 1. Prepare the chroot base directory in /usr/lib/shutorial/basedir
     sudo mmdebstrap --variant=essential \
       --include=less,nano,tree,man-db,manpages,manpages-dev,manpages-fr,manpages-fr-dev,locales,bash,bash-completion,passwd,sudo \
       --setup-hook='mkdir -p "$1/bin"' \
@@ -39,14 +38,14 @@ squashfs_build() {
       --customize-hook='chroot "$1" passwd --delete root' \
       --customize-hook='echo shutorial > "$1/etc/hostname"' \
       --customize-hook='echo "127.0.0.1 localhost host" > "$1/etc/hosts"' \
-      stable /srv/shutorial/basedir
+      stable /usr/lib/shutorial/basedir
 
 #    --customize-hook='chroot "$1" mandb' \
 #    --dpkgopt='path-exclude=/usr/lib/*/gconv/*' \
 #    --dpkgopt='path-exclude=/usr/lib/locale/*' \
 
     # 2. Further configure the environment
-    sudo bash -c 'sed "s/^      //" >> /srv/shutorial/basedir//etc/bash.bashrc' <<EOF
+    sudo bash -c 'sed "s/^      //" >> /usr/lib/shutorial/basedir//etc/bash.bashrc' <<EOF
         # Addition for shutorial
         if [ "\$color_prompt" = yes ]; then
            PS1="\[\033[01;32m\]SHuToRiaL\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $ "
@@ -59,7 +58,7 @@ squashfs_build() {
 EOF
 
     # 3. Build a squashfs out of that basedir (and remove the basedir)
-    cd /srv/shutorial/
+    cd /usr/lib/shutorial/
     sudo rm -f debian-stable.squashfs
     sudo mksquashfs basedir debian-stable.squashfs -comp xz
     sudo chown root:root debian-stable.squashfs
@@ -67,17 +66,8 @@ EOF
 }
 
 squashfs_ensure() {
-    if [ ! -e  /srv/shutorial/debian-stable.squashfs ] ; then
+    if [ ! -e  /usr/lib/shutorial/debian-stable.squashfs ] ; then
         squashfs_build  
-    fi
-}
-
-schroot_ensure() {
-    if test -e /etc/schroot/chroot.d/shutorial.conf ; then 
-        echo "schroot config file in position -- good"
-    else
-        sudo cp shutorial.conf /etc/schroot/chroot.d
-	sudo chown root /etc/schroot/chroot.d/shutorial.conf
     fi
 }
 
