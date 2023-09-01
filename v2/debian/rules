@@ -1,0 +1,37 @@
+#!/usr/bin/make -f
+
+# See debhelper(7) (uncomment to enable).
+# Output every command that modifies files on the build system.
+export DH_VERBOSE = 1
+
+
+# See FEATURE AREAS in dpkg-buildflags(1).
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+# See ENVIRONMENT in dpkg-buildflags(1).
+# Package maintainers to append CFLAGS.
+#export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+# Package maintainers to append LDFLAGS.
+#export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+
+%:
+	dh $@
+
+
+override_dh_auto_configure:
+	# Nothing to configure
+
+override_dh_auto_build:
+	./compiler.py
+
+override_dh_auto_install:
+	mkdir -p debian/tmp//usr/share/shutorial
+	cp -r site debian/tmp//usr/share/shutorial
+	
+	mkdir -p debian/tmp//etc/schroot/chroot.d/
+	cp shutorial.conf debian/tmp//etc/schroot/chroot.d/
+
+	mkdir -p debian/tmp//usr/bin
+	cp shutorial.sh debian/tmp//usr/bin/shutorial
+	

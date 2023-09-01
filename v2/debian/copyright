@@ -1,0 +1,20 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: https://github.com/mquinson/shutorial
+Upstream-Name: shutorial
+Upstream-Contact: Martin Quinson <mquinson@debian.org>
+
+Files:
+ *
+Copyright:
+ 2023 (c) Martin Quinson.
+License: GPL-3+
+ On Debian systems, the complete text of the GNU General
+ Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
+
+Files:
+ debian/*
+Copyright:
+ 2023 Martin Quinson <mquinson@debian.org>
+License: GPL-3+
+ On Debian systems, the complete text of the GNU General
+ Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".

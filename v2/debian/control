@@ -1,0 +1,26 @@
+Source: shutorial
+Section: education
+Priority: optional
+Maintainer: Martin Quinson <mquinson@debian.org>
+Rules-Requires-Root: no
+Build-Depends:
+ debhelper-compat (= 13),
+Standards-Version: 4.6.2
+Homepage: https://github.com/mquinson/shutorial
+#Vcs-Browser: https://salsa.debian.org/debian/shutorial
+#Vcs-Git: https://salsa.debian.org/debian/shutorial.git
+
+Package: shutorial
+Architecture: all
+Depends:
+ ${misc:Depends},
+Description: Educational exerciser to teach the shell
+ Shutorial is an exerciser to teach the arcane of the UNIX command
+ line and the shell in practice. It comes as a set of progressive
+ exercises that you can take in a chroot.
+ .
+ Note that this software is currently under heavy development AND
+ THIS IS NOT READY FOR USE YET. This code needs to be run as sudo, and
+ it's potentially dangerous.
+ .
+ DO NOT USE IF YOU DON'T FULLY UNDERSTAND HOW IT WORKS.

@@ -112,6 +112,6 @@ EOF
 
 # Let's go!
 
-squashfs_ensure # Make sure that we have an existing squashfs
-schroot_ensure  # Make sure that schroot is configured
+#squashfs_ensure # Make sure that we have an existing squashfs
+#schroot_ensure  # Make sure that schroot is configured
 schroot_run     # Enter the schroot
