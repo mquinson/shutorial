@@ -1,4 +1,9 @@
-# Qu'est ce que le shell
+# Bienvenus dans le shutorial, le tutoriel shell.
+
+Cet outil va vous aider à prendre le shell en main par la pratique.
+Cette première leçon commence par un peu de lecture. 
+
+## Qu'est ce que le shell
 
 Il s'agit d'une fenêtre noire (le plus souvent) dans laquelle on peut
 interagir avec le système d'exploitation directement en mode texte. Le
@@ -23,29 +28,28 @@ dernières vacances ? Fatigués des webapps bardées de publicités pour
 regrouper vos pdfs en un seul fichier ? Quand vous saurez vous servir
 du shell, tout ceci ne sera plus qu'un mauvais souvenir.
 
-# Qu'est ce que cet environnement "Shutorial" ?
+## Qu'est ce que ce "shutorial" ?
 
 Le shutorial (shell tutorial) permet de faire des exercices
 interactifs en ligne de commande. Normalement, si vous lisez ce texte,
 c'est que vous avez démarré le premier exercice en ligne de commande
 puis que vous avez cliqué sur le lien proposé pour lire l'énoncé. Si
-ce n'est pas le cas, ouvrez un terminal puis tapez ```shtrl run
+ce n'est pas le cas, ouvrez un terminal puis tapez ```shutorial run
 intro``` dans la fenêtre qui s'ouvre.
 
-Le shutorial propose donc plusieurs exercices à faire dans le terminal
-pour apprendre pas-à-pas le fonctionnement de cet environnement. À
-chaque fois, vous devrez faire des manipulations dans le terminal
-et/ou résoudre des quizz dans la page web.
+Dans chaque exercice, vous aurez des manipulations à réaliser dans le
+terminal, et des quizz à compléter dans la page web correspondante.
 
-Faites bien attention à faire les manipulations dans l'environnement
+Attention! Ne lancez les commandes demandées que dans l'environnement
 du shutorial et non dans votre environnement de travail habituel, car
 les manipulations de certains exercices pourraient endommager votre
-système si vous vous trompez. Pour reconnaître, remarquez que tous
-terminaux du shutoriel commencent par la chaîne de caractères
-```SHuToRiaL:~ $ ``` Si votre terminal affiche autre chose, ne tapez
-pas les commandes du shutorial !
+système si vous vous trompez. 
 
-# Premières commandes
+Pour reconnaître, remarquez que tous terminaux du shutoriel commencent
+par la chaîne de caractères ```SHuToRiaL:~ $ ``` Si votre terminal
+affiche autre chose, ne tapez pas les commandes du shutorial !
+
+## Premières commandes
 
 La chaîne ```SHuToRiaL:~ $``` affichée par le terminal du shutorial
 s'appelle un *prompt*.  C'est ainsi que le système vous invite à
@@ -159,6 +163,6 @@ convertir l'instant 12345 en date lisible, on utilise
     - R:= 2361
 
 Notez que si vous cliquez sur "Check" ci-dessous, toutes les réponses
-fauses apparaîtront en rougepour vous permettre de voir ce qu'il vous
+fausses apparaîtront en rouge pour vous permettre de voir ce qu'il vous
 reste à faire.
 
