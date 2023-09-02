@@ -1,21 +1,50 @@
 #! /bin/sh
 
-schroot_run() {
-    echo "Preparing the schroot"
-    session=$(schroot --chroot shutorial --begin-session)
+case "$1" in
+   run)
+      exo=$2
+      if [ -z "$exo" -o ! -e "/usr/share/shutorial/usage/$exo/" ] ; then
+        echo "Please select an exercise from the following list:"
+	sed 's/^/  /' /usr/share/shutorial/usage/exercises.list
+	echo
+	echo "For example, to start the first exercise from this list, simply type:"
+	echo "  shutorial run intro"
+	exit 1
+      fi
 
-#    cp src/shtrl.sh "/var/run/schroot/mount/${session}/usr/bin/shtrl"
-#    chmod 755 "/var/run/schroot/mount/${session}/usr/bin/shtrl"
+      user=$(id -un)
+
+      echo "Entering the schroot"
+      session=$(schroot --chroot shutorial --begin-session)
+      echo "echo 'Please open /usr/share/shutorial/usage/$exo/goal.html in your browser to see the exercise (use Ctrl-Insert in place of Ctrl-C on need).'" >> "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
+      echo "echo 'When you are done, simply press Ctrl-D to exit the shutorial.'" >> "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
+      echo "echo " >> "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
 
 #    mkdir -p "/var/run/schroot/mount/${session}/usr/share/shtrl/"
 
-    echo "The schroot is reading. Entering."
-    schroot --run -c $session -d /home/$user -- bash --login
+      schroot --run -c $session -d /home/$user -- bash --login
+      schroot --end-session -c $session
+      echo "The session is terminating. Cleaning up."
+    ;;
 
-    schroot --end-session -c $session
-    echo "The session is terminating. Cleaning up."
-}
+    prune-sessions)
+       echo "Ending all shutorial sessions..."
+       for session in /run/schroot/mount/shutorial-* ; do
+         if [ -e $session ] ; then
+           s=`basename $session`
+	   echo "  ending session $s"
+           schroot -c $s --end-session
+	 else
+	   echo "  no pending session found."
+	 fi
+       done
+       echo "Done."
+    ;;
+    *)
+        echo "Usage:" >&2
+	echo " shutorial run [exercise]   # Run the specified exercise" >&2
+	echo " shutorial prune-sessions   # End all shutorial sessions (warning, ongoing sessions will be terminated too)" >&2
+        exit 1
+    ;;
+esac
 
-# Let's go!
-
-schroot_run     # Enter the schroot

@@ -67,7 +67,7 @@ EOF
       echo "Create /home/$user within the squashfs"
       group=`groups $user | sed 's/^[^:]*: //' | cut -d' ' -f1`
       mkdir -p /usr/lib/shutorial/basedir//home/$user
-      echo "export LANG=$LANG" > /usr/lib/shutorial/basedir//home/$user/.bashrc
+      echo "export LANG=$LANG" > /usr/lib/shutorial/basedir//home/$user/.bash_profile
       chown -R $user:$group /usr/lib/shutorial/basedir//home/$user
     done
 
@@ -95,19 +95,6 @@ case "$1" in
     remove-squashfs)
        echo "Removing the shutorial squahfs."
        rm -rf /usr/lib/shutorial/debian-stable.squashfs
-    ;;
-    prune-sessions)
-       echo "Ending all shutorial sessions..."
-       for session in /run/schroot/mount/shutorial-* ; do
-         if [ -e $session ] ; then
-           s=`basename $session`
-  	   echo "  ending session $s"
-           schroot -c $s --end-session
-	 else 
-	   echo "  no pending session found."
-	 fi
-       done
-       echo "Done."
     ;;
     *)
         echo "Usage:" >&2

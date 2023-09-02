@@ -1,5 +1,7 @@
 VERSION=0.2
-all: dist
+all:
+	./compiler.py
+	@cd exo; for f in `find -name '*.list'` ; do echo "Copying $$f over"; cp $$f ../site/$$f ; done
 
 dist-dir:
 	rm -rf shutorial-$(VERSION) ; mkdir shutorial-$(VERSION)
@@ -19,7 +21,7 @@ debian: dist-dir
 
 install:
 	mkdir -p $(DESTDIR)/usr/share/shutorial
-	cp -r site $(DESTDIR)/usr/share/shutorial
+	cp -r site/* $(DESTDIR)/usr/share/shutorial
 
 	mkdir -p $(DESTDIR)/etc/schroot/chroot.d/
 	# Configure schroot to allow every human users to use the shutorial
