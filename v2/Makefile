@@ -6,7 +6,7 @@ all:
 dist-dir:
 	rm -rf shutorial-$(VERSION) ; mkdir shutorial-$(VERSION)
 	cp -r app compiler.py distros exo  Makefile  README.md requirements.txt shutorial.conf\
-              shutorial.sh shutorial-admin.sh src shutorial-$(VERSION)
+              shutorial.sh shutorial-admin.sh shutorial-$(VERSION)
 	$(MAKE) -C shutorial-$(VERSION) clean
 
 dist-tgz: dist-dir
@@ -35,7 +35,7 @@ install:
 	cp shutorial-admin.sh $(DESTDIR)/usr/sbin/shutorial-admin
 
 clean:
-	rm -rf shutorial-$(VERSION) shutorial_$(VERSION)*
+	rm -rf site shutorial-$(VERSION) shutorial_$(VERSION)*
 	find -name __pycache__ | xargs rm -rf
 	find -name '*~' | xargs rm -rf
 
