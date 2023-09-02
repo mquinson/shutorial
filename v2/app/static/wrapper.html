@@ -7,7 +7,7 @@
         body {
             font-family: sans-serif;
         }
-        code, pre {
+        code {
             font-family: monospace;
             background-color: black;
             color: white;
@@ -15,6 +15,16 @@
             border: solid LightGrey;
             white-space: nowrap;	    
         }
+	pre {
+            background-color: black;
+            color: white;
+	}
+	pre code {
+            font-family: monospace;
+            white-space: pre;
+            padding: 0px;
+            border: none;
+	}
         h1 code,
         h2 code,
         h3 code,
@@ -29,6 +39,9 @@
         table {
         @extend .table;
         }
+	tg-feedback {
+	  visible: false;
+	}
     </style>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="

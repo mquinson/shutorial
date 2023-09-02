@@ -59,8 +59,9 @@ $(function(){
     function showScore(correct, total) {
         var score = (correct / total).toFixed(2) * 100;
         var msgClass = 'alert-danger';
-        if (score >= 70) {
+        if (score >= 99) {
             msgClass = 'alert-success';
+	    $('#tg-feedback').addClass(msgClass).show();
         } else if (score >= 50) {
             msgClass = 'alert-warning';
         }
