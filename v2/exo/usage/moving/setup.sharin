@@ -1,0 +1,17 @@
+#! /bin/bash
+
+if [ ! -e /usr/lib/shutorial/bin ] ; then
+  echo "This command is dangerous to execute out of the shutorial environment. Stop being foolish and get some sleep. Now."
+  exit 1
+fi
+
+cd
+rm -rf *
+mkdir -p dir1/dir2
+printf "This is the content of doc1.\n">  dir1/dir2/doc1
+mkdir dir3
+printf "This is the content of doc2.\n">  dir3/doc2
+mkdir truc
+touch machin toto
+
+# SHTRL_INCLUDE shtrl-check.sh /usr/lib/shutorial/bin

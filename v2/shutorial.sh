@@ -20,12 +20,13 @@ case "$1" in
       # Some exercises need a setup script (it's automatically removed from the chroot after execution)
       if [ -e "/usr/share/shutorial/usage/$exo/setup.sh" ] ; then
         cp /usr/share/shutorial/usage/$exo/setup.sh /var/run/schroot/mount/${session}/usr/lib/shutorial/bin/
-        echo "eval /usr/lib/shutorial/bin/setup.sh" >>  "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
-	echo "rm   /usr/lib/shutorial/bin/setup.sh" >>  "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"	
+        echo "sh /usr/lib/shutorial/bin/setup.sh" >>  "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
+	echo "rm /usr/lib/shutorial/bin/setup.sh" >>  "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"	
       fi
       
       # Tell the user what to do on login
-      echo "echo 'Please open /usr/share/shutorial/usage/$exo/goal.html in your browser to see the exercise (use Ctrl-Insert in place of Ctrl-C on need).'" >> "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
+      firefox "/usr/share/shutorial/usage/$exo/goal.html"&
+      echo "echo 'Please open /usr/share/shutorial/usage/$exo/goal.html in your browser if it was not automatically done (use Ctrl-Insert in place of Ctrl-C on need).'" >> "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
       echo "echo 'When you are done, simply press Ctrl-D to exit the shutorial.'" >> "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
       echo "echo " >> "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
 

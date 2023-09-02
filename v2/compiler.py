@@ -85,7 +85,7 @@ def compile_sharin(outfile_name: str, sharin_name:str, script_template: str) -> 
 
             output.write("# End of SHTRL_COMMAND\n\n")
         else:
-            output.write(line)
+            output.write(f"{line}\n")
       output.write("\nrm -f /tmp/.cmd\n") # Just in case there were some SHTRL_COMMAND
     os.chmod(outfile_name, stat.S_IRUSR|stat.S_IWUSR|stat.S_IXUSR) # user rwx
     print(f"wrote into {outfile_name}.")
