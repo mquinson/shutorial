@@ -22,7 +22,10 @@ install:
 	cp -r site $(DESTDIR)/usr/share/shutorial
 
 	mkdir -p $(DESTDIR)/etc/schroot/chroot.d/
-	cp shutorial.conf $(DESTDIR)/etc/schroot/chroot.d/
+	# Configure schroot to allow every human users to use the shutorial
+	for user in `getent passwd $$(ls /home) | sed 's/:.*//'` ; do users="$$user,$$users"; done; \
+	  users=`echo $$users | sed 's/,$$//'`; \
+	  cat shutorial.conf | sed 's/^#users.*$$/users='"$$users/" > $(DESTDIR)/etc/schroot/chroot.d/shutorial.conf
 
 	mkdir -p $(DESTDIR)/usr/bin
 	cp shutorial.sh $(DESTDIR)/usr/bin/shutorial

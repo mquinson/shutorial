@@ -58,7 +58,7 @@ squashfs_build() {
 	   PS1="SHuToRiaL:\w $ "
        fi
        cd
-       echo "Welcome to the shutorial. Type 'shtrl goal' to see the goal of your mission."
+       echo "Welcome to the shutorial."
        echo
 EOF
 
