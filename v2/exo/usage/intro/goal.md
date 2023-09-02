@@ -166,3 +166,11 @@ Notez que si vous cliquez sur "Check" ci-dessous, toutes les réponses
 fausses apparaîtront en rouge pour vous permettre de voir ce qu'il vous
 reste à faire.
 
+<div id="tg-feedback" class="alert" role="alert" style="display: none">
+
+Bravo! Vous fini cet exercice. Passez au suivant en tapant
+```shutorial run navigation``` dans le terminal. Vous pouvez fermer
+cette fenêtre.
+
+</div>
+

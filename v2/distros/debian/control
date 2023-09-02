@@ -9,6 +9,7 @@ Build-Depends:
  python3-markdown,
  python3-markupsafe,
  python3-jinja2,
+ sharutils,
 Standards-Version: 4.6.2
 Homepage: https://github.com/mquinson/shutorial
 #Vcs-Browser: https://salsa.debian.org/debian/shutorial

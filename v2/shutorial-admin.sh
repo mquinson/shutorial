@@ -23,7 +23,7 @@ squashfs_build() {
 
     # 1. Prepare the chroot base directory in /usr/lib/shutorial/basedir
     mmdebstrap --variant=essential \
-      --include=less,nano,tree,man-db,manpages,manpages-dev,manpages-fr,manpages-fr-dev,locales,bash,bash-completion,passwd,sudo \
+      --include=less,nano,tree,man-db,manpages,manpages-dev,manpages-fr,manpages-fr-dev,locales,bash,bash-completion,passwd,sharutils \
       --setup-hook='mkdir -p "$1/bin"' \
       --setup-hook='echo root:x:0:0:root:/root:/bin/sh > "$1/etc/passwd"' \
       --setup-hook='printf "root:x:0:\nmail:x:8:\nutmp:x:43:\n" > "$1/etc/group"' \
@@ -62,12 +62,17 @@ squashfs_build() {
        echo
 EOF
 
+    # Create a directory in which the exercises can add binaries (such as setup and check scripts)
+    mkdir -p /usr/lib/shutorial/basedir//usr/lib/shutorial/bin
+    chmod 777 /usr/lib/shutorial/basedir//usr/lib/shutorial/bin
+    
     # Create a home directory for every user that could log in
     for user in `getent passwd $(ls /home) | sed 's/:.*//'` ; do
       echo "Create /home/$user within the squashfs"
       group=`groups $user | sed 's/^[^:]*: //' | cut -d' ' -f1`
       mkdir -p /usr/lib/shutorial/basedir//home/$user
       echo "export LANG=$LANG" > /usr/lib/shutorial/basedir//home/$user/.bash_profile
+      echo "export PATH=\$PATH:/usr/lib/shutorial/bin" >> /usr/lib/shutorial/basedir//home/$user/.bash_profile
       chown -R $user:$group /usr/lib/shutorial/basedir//home/$user
     done
 

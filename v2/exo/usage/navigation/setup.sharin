@@ -1,0 +1,4 @@
+#! /bin/sh
+
+# SHTRL_INCLUDE shtrl-check.sh /usr/lib/shutorial/bin
+
