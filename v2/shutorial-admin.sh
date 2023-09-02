@@ -67,10 +67,26 @@ EOF
 
 squashfs_ensure() {
     if [ ! -e  /usr/lib/shutorial/debian-stable.squashfs ] ; then
-        squashfs_build  
+        echo "XX Rebuild the missing /usr/lib/shutorial/debian-stable.squashfs"
+        squashfs_build
     fi
 }
 
-#squashfs_ensure # Make sure that we have an existing squashfs
-#schroot_ensure  # Make sure that schroot is configured
-schroot_run     # Enter the schroot
+case "$1" in
+    rebuild)
+       echo "XX Creating the squahfs"
+       squashfs_build
+    ;;
+    ensure)
+       squashfs_ensure
+    ;;
+    remove)
+       echo "Removing the squahfs"
+       rm -rf /usr/lib/shutorial/debian-stable.squashfs
+    ;;
+    
+    *)
+        echo "Usage: shutorial-admin [ensure|rebuild|remove]" >&2
+        exit 1
+    ;;
+esac

@@ -24,14 +24,4 @@ override_dh_auto_configure:
 
 override_dh_auto_build:
 	./compiler.py
-
-override_dh_auto_install:
-	mkdir -p debian/tmp//usr/share/shutorial
-	cp -r site debian/tmp//usr/share/shutorial
-	
-	mkdir -p debian/tmp//etc/schroot/chroot.d/
-	cp shutorial.conf debian/tmp//etc/schroot/chroot.d/
-
-	mkdir -p debian/tmp//usr/bin
-	cp shutorial.sh debian/tmp//usr/bin/shutorial
 	

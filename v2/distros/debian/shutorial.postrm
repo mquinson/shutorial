@@ -20,10 +20,15 @@ set -e
 
 
 case "$1" in
-    purge|remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+    purge|remove|failed-upgrade|abort-install|abort-upgrade|disappear)
       if [ -e /usr/lib/shutorial/debian-stable.squashfs ] ; then
+        echo "Cleaning the shutorial squashfs"
         rm /usr/lib/shutorial/debian-stable.squashfs
       fi
+    ;;
+    
+    upgrade)
+      # No need to remove the squashfs on upgrade
     ;;
 
     *)
