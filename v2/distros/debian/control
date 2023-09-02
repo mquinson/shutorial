@@ -5,6 +5,10 @@ Maintainer: Martin Quinson <mquinson@debian.org>
 Rules-Requires-Root: no
 Build-Depends:
  debhelper-compat (= 13),
+ python3,
+ python3-markdown,
+ python3-markupsafe,
+ python3-jinja2,
 Standards-Version: 4.6.2
 Homepage: https://github.com/mquinson/shutorial
 #Vcs-Browser: https://salsa.debian.org/debian/shutorial
@@ -14,6 +18,8 @@ Package: shutorial
 Architecture: all
 Depends:
  ${misc:Depends},
+ mmdebstrap,
+ schroot,
 Description: Educational exerciser to teach the shell
  Shutorial is an exerciser to teach the arcane of the UNIX command
  line and the shell in practice. It comes as a set of progressive
