@@ -19,7 +19,7 @@ set -e
 
 case "$1" in
     configure)
-       /usr/sbin/shutorial-admin ensure
+       /usr/sbin/shutorial-admin ensure-squashfs
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

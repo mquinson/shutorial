@@ -1,8 +1,13 @@
 #! /bin/sh
 
-# Existing functions:
-#  squashfs_build : do build /usr/lib/shutorial/debian-stable.squashfs 
-#  squashfs_ensure: Make sure that the squashfs exists, and create it if not
+# Shutorial admin tool. 
+
+# Existing commands:
+#  ensure: Make sure that the squashfs exists, and create it if not
+#  build:  Do build /usr/lib/shutorial/debian-stable.squashfs 
+#  remove: Remove the squashfs
+
+#  prune: end all shutorial sessions
 
 squashfs_build() {
     # Config: check the language to use
@@ -57,6 +62,15 @@ squashfs_build() {
        echo
 EOF
 
+    # Create a home directory for every user that could log in
+    for user in `getent passwd $(ls /home) | sed 's/:.*//'` ; do
+      echo "Create /home/$user within the squashfs"
+      group=`groups $user | sed 's/^[^:]*: //' | cut -d' ' -f1`
+      mkdir -p /usr/lib/shutorial/basedir//home/$user
+      echo "export LANG=$LANG" > /usr/lib/shutorial/basedir//home/$user/.bashrc
+      chown -R $user:$group /usr/lib/shutorial/basedir//home/$user
+    done
+
     # 3. Build a squashfs out of that basedir (and remove the basedir)
     cd /usr/lib/shutorial/
     rm -f debian-stable.squashfs
@@ -65,28 +79,42 @@ EOF
     rm -rf basedir
 }
 
-squashfs_ensure() {
-    if [ ! -e  /usr/lib/shutorial/debian-stable.squashfs ] ; then
-        echo "XX Rebuild the missing /usr/lib/shutorial/debian-stable.squashfs"
-        squashfs_build
-    fi
-}
-
 case "$1" in
-    rebuild)
-       echo "XX Creating the squahfs"
+    rebuild-squashfs)
+       echo "Rebuild the shutorial squahfs."
        squashfs_build
     ;;
-    ensure)
-       squashfs_ensure
+    ensure-squashfs)
+       if [ -e  /usr/lib/shutorial/debian-stable.squashfs ] ; then
+           echo "The shutorial squashfs already exists. Good."
+       else
+           echo "Rebuild the missing shutorial squashfs."
+	   squashfs_build
+       fi
     ;;
-    remove)
-       echo "Removing the squahfs"
+    remove-squashfs)
+       echo "Removing the shutorial squahfs."
        rm -rf /usr/lib/shutorial/debian-stable.squashfs
     ;;
-    
+    prune-sessions)
+       echo "Ending all shutorial sessions..."
+       for session in /run/schroot/mount/shutorial-* ; do
+         if [ -e $session ] ; then
+           s=`basename $session`
+  	   echo "  ending session $s"
+           schroot -c $s --end-session
+	 else 
+	   echo "  no pending session found."
+	 fi
+       done
+       echo "Done."
+    ;;
     *)
-        echo "Usage: shutorial-admin [ensure|rebuild|remove]" >&2
+        echo "Usage:" >&2
+        echo " shutorial-admin ensure-squashfs  # Make sure that the squashfs exists" >&2
+	echo " shutorial-admin rebuild-squashfs # Build the squashfs even if it already exists" >&2
+	echo " shutorial-admin remove-squashfs  # Erase the squashfs if it exists" >&2
+	echo " shutorial-admin prune-sessions   # End all shutorial sessions (warning, used sessions will be terminated too)" >&2
         exit 1
     ;;
 esac

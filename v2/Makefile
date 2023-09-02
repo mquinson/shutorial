@@ -3,7 +3,8 @@ all: dist
 
 dist-dir:
 	rm -rf shutorial-$(VERSION) ; mkdir shutorial-$(VERSION)
-	cp -r app compiler.py distros exo  Makefile  README.md requirements.txt shutorial.conf shutorial.sh shutorial-admin.sh src shutorial-$(VERSION)
+	cp -r app compiler.py distros exo  Makefile  README.md requirements.txt shutorial.conf\
+              shutorial.sh shutorial-admin.sh src shutorial-$(VERSION)
 	$(MAKE) -C shutorial-$(VERSION) clean
 
 dist-tgz: dist-dir
