@@ -25,6 +25,12 @@ for now.
 Typing `make debian` from the main directory will build a debian
 package that you can then install with `dpkg -i shutorial_*deb`.
 
+You may need to install the build dependencies for this to work:
+
+```
+sudo apt install debhelper-compat python3 python3-markdown python3-markupsafe python3-jinja2 sharutils
+```
+
 Note that this code is still rather young. You probably don't want to
 install it on a shared computer before reading this whole page, and at
 least glancing over the source code. I believe that it's safe to use
