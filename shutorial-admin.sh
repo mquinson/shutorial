@@ -106,7 +106,7 @@ case "$1" in
 	done
 	users=`echo $users | sed 's/,$//'`
 	echo "Giving access to the schroot to the following users: $users."
-	sed -i 's/^#? *users.*$/users='"$users/" /etc/schroot/chroot.d/shutorial.conf
+	sed -i 's/^[# ]*users.*$/users='"$users/" /etc/schroot/chroot.d/shutorial.conf
     ;;
     *)
         echo "Usage:" >&2
