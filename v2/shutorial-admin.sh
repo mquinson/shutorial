@@ -21,7 +21,7 @@ squashfs_build() {
 
     # 1. Prepare the chroot base directory in /usr/lib/shutorial/basedir
     mmdebstrap --variant=essential \
-      --include=less,nano,tree,man-db,manpages,manpages-dev,manpages-fr,manpages-fr-dev,locales,bash,bash-completion,passwd,sharutils \
+      --include=less,nano,tree,man-db,manpages,manpages-dev,manpages-fr,manpages-fr-dev,locales,bash,bash-completion,passwd,sharutils,locate \
       --setup-hook='mkdir -p "$1/bin"' \
       --setup-hook='echo root:x:0:0:root:/root:/bin/sh > "$1/etc/passwd"' \
       --setup-hook='printf "root:x:0:\nmail:x:8:\nutmp:x:43:\n" > "$1/etc/group"' \
@@ -38,6 +38,7 @@ squashfs_build() {
       --customize-hook='echo "'$LANG' UTF-8" >> $1/etc/locale.gen' \
       --customize-hook='chroot "$1" locale-gen' \
       --customize-hook='echo '$LANG' > $1/etc/default/locale' \
+      --customize-hook='chroot "$1" updatedb' \
       --customize-hook='chroot "$1" passwd --delete root' \
       --customize-hook='echo shutorial > "$1/etc/hostname"' \
       --customize-hook='echo "127.0.0.1 localhost host" > "$1/etc/hosts"' \

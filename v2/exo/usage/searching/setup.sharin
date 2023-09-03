@@ -1,0 +1,65 @@
+#! /bin/sh
+
+for a in aaa bbb ccc ddd ; do 
+  for b in de be xe ; do
+    for c in ti li pi ; do
+      for d in ka ta ra ; do
+        for e in po so vo ; do
+	  for f in mu lu zu ; do 
+ 	    mkdir -p $a/$b/$c/$d/$e/$f
+	  done
+	done
+      done
+    done
+  done
+done
+touch ddd/de/li/ka/so/zu/pas-la
+
+# Q1: trouver un fichier de nom "ici"
+echo "Bravo, vous avez trouvé le fichier. L'information cherchée est: depikapolu." > aaa/de/pi/ka/po/lu/ici
+
+# Q2: trouver un fichier dont on ignore le nom (find -type f)
+echo "Bravo, c'était bien là. L'information était: bepitasolu." > bbb/be/pi/ta/so/lu/fichier_perdu
+
+# Q3: trouver un fichier non vide (find -type f -and -not -size 0)
+for a in ccc ; do 
+  for b in de be xe ; do
+    for c in ti li pi ; do
+      for d in ka ta ra ; do
+        for e in po so vo ; do
+	  for f in mu lu zu ; do
+ 	    # Des répertoires vides pour géner la recherche
+	    mkdir -p $a/$b/$c/$d/$e/$f
+	  done
+	  touch $a/$b/$c/$d/$e/peut-etre-la
+	done
+        touch $a/$b/$c/$d/peut-etre-la
+      done
+      touch $a/$b/$c/peut-etre-la
+    done
+    touch $a/$b/peut-etre-la
+  done
+done
+echo "Bravo, c'était bien là. L'information était: deliravo." > ccc/de/li/ra/vo/peut-etre-la
+
+# Q4: trouver un fichier plus récent qu'un autre
+for a in ddd ; do 
+  for b in de be xe ; do
+    for c in ti li pi ; do
+      for d in ka ta ra ; do
+        for e in po so vo ; do
+	  for f in mu lu zu ; do
+	    echo "L'information ici est: ${b}${c}${d}${e}${f}." > $a/$b/$c/$d/$e/$f/peut-etre-la
+	  done
+	  echo "L'information ici est: ${b}${c}${d}${e}." > $a/$b/$c/$d/$e/peut-etre-la
+	done
+	echo "L'information ici est: ${b}${c}${d}." > $a/$b/$c/$d/peut-etre-la
+      done
+      echo "L'information ici est: ${b}${c}." > $a/$b/$c/peut-etre-la
+    done
+    echo "L'information ici est: ${b}." > $a/$b/peut-etre-la
+  done
+done
+touch ddd/timestamp; touch -m ddd/timestamp
+echo "L'information ici est: xepitapozu." > ddd/xe/pi/ta/po/zu/peut-etre-la
+touch --date="now + 1 second" ddd/xe/pi/ta/po/zu/peut-etre-la
