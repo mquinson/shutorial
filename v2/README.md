@@ -174,6 +174,9 @@ the root access to operate. It takes the following sub-commands:
  * `shutorial-admin rebuild-squashfs`: Rebuilds the squashfs even if it
    already exists.
  * `shutorial-admin remove-squashfs`: Removes the squashfs from disk.
+ * `shutorial-admin schroot-users`: Modifies the schroot config file
+    so that every human users of the machine can connect to the
+    shutorial.
 
 The `compile.sh` is used at build time and not installed. It compiles
 the markdown assignments to HTML static pages, and the `setup.sharin`
@@ -209,8 +212,8 @@ SHuToRiaL:~ $
 
 One comon error is that schroot complains that you are not allowed to
 run this chroot. You need to add your user name to
-`/etc/schroot/chroot.d/shutorial.conf` This should be covered by the
-Debian package, but who knows.
+`/etc/schroot/chroot.d/shutorial.conf` This can be done automatically
+by re-running `shutorial-admin schroot-users`.
 
 ## Security concern
 

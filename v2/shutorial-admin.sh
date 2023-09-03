@@ -99,11 +99,20 @@ case "$1" in
        echo "Removing the shutorial squahfs."
        rm -rf /usr/lib/shutorial/debian-stable.squashfs
     ;;
+    schroot-users)
+	for user in `getent passwd $(ls /home) | sed 's/:.*//'` ; do 
+	  users="$user,$users"
+	done
+	users=`echo $users | sed 's/,$//'`
+	echo "Giving access to the schroot to the following users: $users."
+	sed -i 's/^#? *users.*$/users='"$users/" /etc/schroot/chroot.d/shutorial.conf
+    ;;
     *)
         echo "Usage:" >&2
         echo " shutorial-admin ensure-squashfs  # Make sure that the squashfs exists" >&2
 	echo " shutorial-admin rebuild-squashfs # Build the squashfs even if it already exists" >&2
 	echo " shutorial-admin remove-squashfs  # Erase the squashfs if it exists" >&2
+	echo " shutorial-admin schroot-users    # Configure schroot to allow every users to connect" >&2
         exit 1
     ;;
 esac
