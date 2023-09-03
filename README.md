@@ -75,6 +75,13 @@ More lessons are planned, on writing script files, using shell loops
 and other such constructs. But I should probably improve the
 infrastructure to translate the material before adding more exercises.
 
+## License
+
+2023 Copyright Martin Quinson.
+
+This tool is provided under the [GPLv3 license](LICENSE), or any
+higher version of the GPL license.
+
 # How does it work?
 
 ## Overview
@@ -262,11 +269,3 @@ constitute any priviledge escalation either.
 
 Of course, if you see any concern with this code, please submit a bug
 report.
-
-# License
-
-2023 Copyright Martin Quinson.
-
-This tool is provided under the GPLv3 license (found under
-/usr/share/common-licenses/GPL-3 on your disk), or any higher version
-of the GPL license.
