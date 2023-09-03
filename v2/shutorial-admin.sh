@@ -3,11 +3,9 @@
 # Shutorial admin tool. 
 
 # Existing commands:
-#  ensure: Make sure that the squashfs exists, and create it if not
-#  build:  Do build /usr/lib/shutorial/debian-stable.squashfs 
-#  remove: Remove the squashfs
-
-#  prune: end all shutorial sessions
+#  ensure-squashfs: Make sure that the squashfs exists, and create it if not
+#  build-squashfs:  Do build /usr/lib/shutorial/debian-stable.squashfs 
+#  remove-squashfs: Remove the squashfs
 
 squashfs_build() {
     # Config: check the language to use
@@ -106,7 +104,6 @@ case "$1" in
         echo " shutorial-admin ensure-squashfs  # Make sure that the squashfs exists" >&2
 	echo " shutorial-admin rebuild-squashfs # Build the squashfs even if it already exists" >&2
 	echo " shutorial-admin remove-squashfs  # Erase the squashfs if it exists" >&2
-	echo " shutorial-admin prune-sessions   # End all shutorial sessions (warning, used sessions will be terminated too)" >&2
         exit 1
     ;;
 esac
