@@ -33,7 +33,32 @@ un fichier existant.
 Consultez le manuel de cette commande en tapant
 ```man mv```.
 
-# Au travail
+## Quizz
+
+Voici un petit questionnaire pour commencer. Si vous avez des doutes,
+n'hésitez pas à lire la documentation en ligne avec `man <commande>`
+et à faire des essais dans le terminal.
+
+
+1. Comment renommer le répertoire 'rep1' en 'rep2'?
+    - ( ) cp rep1 rep2
+    - ( ) ls rep1 rep2
+    - (x) mv rep1 rep2
+    - ( ) mkdir -p rep1 rep2
+
+2. Que fait la commande 'cd' sans paramètre?
+    - ( ) Rien.
+    - (x) Le shell retourne dans le répertoire de départ de l'utilisateur.
+    - ( ) Cela remonte d'un niveau dans l'arborescence des répertoires.
+    - ( ) Cela retourne dans le dernier répertoire visité avant celui là.
+
+3. Que fait la commande 'cd -' (avec un tiret comme paramètre)?
+    - ( ) Rien.
+    - ( ) Le shell retourne dans le répertoire de départ de l'utilisateur.
+    - ( ) Cela remonte d'un niveau dans l'arborescence des répertoires.
+    - (x) Cela retourne dans le dernier répertoire visité avant celui là.
+
+## Au travail
 
 Si vous effacez les quelques répertoires et fichiers en trop (avec
 ```rm -r truc/``` et companie), vous devriez avoir une arborescence
@@ -73,8 +98,8 @@ l'exercice avec ```shutorial run moving```.
 
 <div id="tg-feedback" class="alert" role="alert" style="display: none">
 
-Bravo! Vous avez réussi à recréer l'arborescence demandée. Vous pouvez
-passer à l'exercice suivant avec la commande ```shutorial run
-viewing```. Vous pouvez fermer cette fenêtre.
+Bravo! Vous avez terminé cet exercice. Vous pouvez passer à l'exercice
+suivant avec la commande ```shutorial run globbing```. Vous pouvez
+fermer cette fenêtre.
 
 </div>
