@@ -26,8 +26,9 @@ Description: Educational exerciser to teach the shell
  line and the shell in practice. It comes as a set of progressive
  exercises that you can take in a chroot.
  .
- Note that this software is currently under heavy development AND
- THIS IS NOT READY FOR USE YET. This code needs to be run as sudo, and
- it's potentially dangerous.
+ Note that this software is currently under development. Only three
+ exercises are provided so far, from the dozen of planned ones.
  .
- DO NOT USE IF YOU DON'T FULLY UNDERSTAND HOW IT WORKS.
+ This package SHOULD be safe, and I think I got every cases covered to
+ avoid priviledge escalation, but I would not advise to install this
+ package on a shared machine.
