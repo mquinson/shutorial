@@ -35,9 +35,9 @@ Consultez le manuel de cette commande en tapant
 
 # Au travail
 
-Si vous effacez le répertoire truc (```rm -r truc/```),
-vous devriez avoir une arborescence très proche de ce que vous aviez
-à la fin de l'exercice précédent:
+Si vous effacez les quelques répertoires et fichiers en trop (avec
+```rm -r truc/``` et companie), vous devriez avoir une arborescence
+très proche de ce que vous aviez à la fin de l'exercice précédent:
 
 
      📁
@@ -59,9 +59,22 @@ préservé.
      └── 📁 DIR3
          └── 🖹 DOC2
 
-Coincé? Utilisez la commande ```tree``` pour afficher récursivement
-le contenu de tous les répertoires. Vous pouvez aussi exécuter le programme de
-test ```shtrl-check.sh``` à la main pour voir le
-problème. Si les choses tournent trop mal, recommencez l'exercice en
-sortant du shutorial (Ctrl-D ou ```exit```) avant de relancer
-l'exercice du début avec ```shutorial run moving```.
+Lorsque vous pensez avoir terminé, lancez la commande
+```shtrl-check```. Si vous avez réussi, cette commande vous donnera un
+code secret à taper dans la boite ci-dessus pour continuer. 
+
+1. Quel est le code de victoire de cet exercice, tel qu'affiché par ```shtrl-check```?
+    - R:= 2f199f5e73061ab23be958ac89d3fc1c232885f2
+
+Coincé? Utilisez la commande ```ls -R``` ou ```tree``` pour afficher récursivement
+le contenu de tous les répertoires.  Si les choses sont graves,
+relancez l'exercice en tapant Ctrl-D dans le terminal et en relançant
+l'exercice avec ```shutorial run moving```.
+
+<div id="tg-feedback" class="alert" role="alert" style="display: none">
+
+Bravo! Vous avez réussi à recréer l'arborescence demandée. Vous pouvez
+passer à l'exercice suivant avec la commande ```shutorial run
+viewing```. Vous pouvez fermer cette fenêtre.
+
+</div>

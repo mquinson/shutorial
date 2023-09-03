@@ -46,13 +46,13 @@ Lorsque vous pensez avoir terminé, lancez la commande
 ```shtrl-check```. Si vous avez réussi, cette commande vous donnera un
 code secret à taper dans la boite ci-dessus pour continuer. 
 
-1. Quel est le code de victoire de cet exercice?
+1. Quel est le code de victoire de cet exercice, tel qu'affiché par ```shtrl-check```?
     - R:= 274515f130b1ad50f4b2de325dd0781d59e2116c
 
-Coincé? Utilisez la commande ```ls -R``` pour afficher récursivement
-le contenu de tous les répertoires.  Si les choses sont graves,
-relancez l'exercice en tapant Ctrl-D dans le terminal et en relançant
-l'exercice avec ```shutorial run navigation```.
+Coincé? Utilisez la commande ```ls -R``` ou ```tree```pour afficher
+récursivement le contenu de tous les répertoires.  Si les choses sont
+graves, relancez l'exercice en tapant Ctrl-D dans le terminal et en
+relançant l'exercice avec ```shutorial run navigation```.
 
 <div id="tg-feedback" class="alert" role="alert" style="display: none">
 
