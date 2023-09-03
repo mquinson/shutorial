@@ -66,11 +66,11 @@ process of converting my existing material. It should improve soon.
 - navigation: Creating files and directories (introducting pwd, ls, mkdir, rmdir, rm, cd, touch).
 - moving: Moving files (introducting mv).
 - globbing: Selecting many files together.
+- viewing: Seeing files' content (introducting cat, head, tail, less)
 
 Here are the lessons that I have in the older format but still need to
 be converted:
 
-- viewing: Seeing files' content (introducting cat, head, tail, less)
 - searching: Searching files (introducting find)
 - grepping: Crawling files (introducting grep)
 - piping: Redirecting I/O (introducting < > >> and |)

@@ -2,3 +2,4 @@ intro      -- Introduction
 navigation -- Créer et effacer des fichiers et répertoires
 moving     -- Déplacer des fichiers
 globbing   -- Manipuler de nombreux fichiers à la fois
+viewing    -- Explorer le contenu des fichiers
