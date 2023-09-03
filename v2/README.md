@@ -187,8 +187,8 @@ parameter.
 
 schroot is configured in  `/etc/schroot/setup.d/shutorial.conf`. This
 file is customized upon Debian installation to allow every human users
-to connect to the shutorial. If you add new users, you should purge
-and reinstall the package. Yep, that's suboptimal.
+to connect to the shutorial. If you add new users, simply re-run
+`shutorial-admin schroot-users`.
 
 ## Technical details
 
@@ -215,6 +215,8 @@ run this chroot. You need to add your user name to
 `/etc/schroot/chroot.d/shutorial.conf` This can be done automatically
 by re-running `shutorial-admin schroot-users`.
 
+Please report any other problem that you may encounter.
+
 ## Security concern
 
 First of all, notice that this is a rather young and dangerous code.
@@ -239,7 +241,7 @@ compress it on disk, etc. The image is built from Debian stable, which
 is safe. This script is executed automatically upon package
 installation.
 
-The overlay mounting by schroot should be safe too: The user become
+The overlay mounting by schroot should be safe too: The user becomes
 herself within the chroot, with no extra priviledge. For example, I
 get connected as mquinson within the chroot, with the exact same
 priviledges that I have out of the chroot. So, I cannot leverage this
