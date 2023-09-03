@@ -59,7 +59,7 @@ no shell course anyway :)
 
 ## Provided exercises 
 
-Here is the list of exercises for now:
+Here is the list of exercises:
 
 - intro: Introduction to the concept of shell, and the gramar of a command line. 
 - navigation: Creating files and directories (introducting pwd, ls, mkdir, rmdir, rm, cd, touch).
@@ -68,11 +68,11 @@ Here is the list of exercises for now:
 - viewing: Seeing files' content (introducting cat, head, tail, less).
 - searching: Searching files (introducting locate and find).
 - grepping: Crawling files (introducting grep).
+- piping: Redirecting I/O (introducting < > >> and |)
 
 Here are the lessons that I have in the older format but still need to
 be converted:
 
-- piping: Redirecting I/O (introducting < > >> and |)
 - seding: Editing streams on the fly (introducting sed)
 
 More lessons are planned, on writing script files, using shell loops

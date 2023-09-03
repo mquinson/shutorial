@@ -42,27 +42,37 @@ def compile_sharin(outfile_name: str, sharin_name:str, script_template: str) -> 
             output.write(line)
             output.write("\n# THIS SCRIPT WAS GENERATED, DO NOT EDIT\n# Real source: {}\n".format(sharin_name))
 
-        elif re.match('.*KCCLEAN.*', line) or re.match('.*KCINSTALL.*', line):
+        elif re.match('.*KCCLEAN.*', line) or re.match('.*KCINSTALL.*', line) or re.match('# KC.*', line):
             print(f"Invalid line: {line}")
             exit(1)
 
         elif re.match('.*SHTRL_INCLUDE.*', line):
             cmd = re.sub('.*SHTRL_INCLUDE *','',line).split()
-            if len(cmd) != 2:
-                print("Syntax error in SHTRL_INCLUDE (not 2 parameters):\n  {}".format(line))
+            if len(cmd) == 2:
+                (component, destdir) = cmd
+                destname = os.path.basename(component)
+            elif len(cmd) == 3:
+                (component, destdir, destname) = cmd
+            else:
+                print("Syntax error in SHTRL_INCLUDE (accepts 2 or 3 parameters):\n  {}".format(line))
                 exit(1)
-            (component, destdir) = cmd
+
+#            print(f"Does {Path(outfile_name).parent/component} exists? {os.path.exists(Path(outfile_name).parent/component)}")
             if not os.path.exists(component) and os.path.exists(Path(sharin_name).parent/component):
                 component=Path(sharin_name).parent/component
+            if not os.path.exists(component) and os.path.exists(Path(outfile_name).parent/component):
+                component=Path(outfile_name).parent/component
+
             assert os.path.exists(component), "Component {} of {} not found".format(component, outfile_name)
 
+#            print(f"destdir:{destdir} destname:{destname}")
             output.write(f"{line}\n")
-            output.write("uudecode << 'SHTRL_INCLUDE_EOF' > {}/{} &&\n".format(destdir,os.path.basename(component)))
+            output.write("uudecode << 'SHTRL_INCLUDE_EOF' > {}/{} &&\n".format(destdir,destname))
             encoded = subprocess.run("uuencode --base64 - < {}".format(component), stdout=subprocess.PIPE, shell=True, text=True)
             for l in encoded.stdout:
                 output.write(l)
             output.write("SHTRL_INCLUDE_EOF\n")
-            output.write("chmod {} {}/{}\n".format(re.sub('o','',oct(stat.S_IMODE(os.stat(component).st_mode))), destdir,os.path.basename(component)))
+            output.write("chmod {} {}/{}\n".format(re.sub('o','',oct(stat.S_IMODE(os.stat(component).st_mode))), destdir,destname))
             output.write("# End of SHTRL_INCLUDE {}\n\n".format(component))
 
         elif re.match('.*SHTRL_COMMAND.*', line):
@@ -72,7 +82,7 @@ def compile_sharin(outfile_name: str, sharin_name:str, script_template: str) -> 
                 exit(1)
             (var, cmd) = cmd
 
-            print("COMMAND {}=$({}".format(var, cmd))
+#            print("COMMAND {}=$({}".format(var, cmd))
 
             output.write("# SHTRL_COMMAND '${}' gets an opaque value\n".format(var))
 

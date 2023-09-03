@@ -1,0 +1,35 @@
+#! /bin/sh
+
+if [ -e animaux.ok ] ; then
+  # SHTRL_COMMAND out sort -u animaux | diff -u animaux.ok -
+
+  if [ $? -eq 0 ] ; then
+    echo "Félicitations, la question 1 est réussie."
+  else
+    echo "Oups, votre fichier animaux.ok n'a pas le bon contenu. Différence constatée:"
+    echo "$out"
+    exit 1    
+  fi
+else
+  echo "Oups, vous n'avez pas fait la question 1 (le fichier animaux.ok est introuvable)."
+  exit 1
+fi 
+
+if [ -e ligne33 ] ; then
+  # SHTRL_COMMAND out sort -u animaux |head -n 33 |tail -n 1 | diff -u ligne33 -
+
+  if [ $? -eq 0 ] ; then
+    echo "Félicitations, la question 2 est réussie."
+  else
+    echo "Oups, votre fichier ligne33 n'a pas le bon contenu. Différence constatée:"
+    echo "$out"
+    exit 1
+  fi
+else
+  echo "Oups, vous n'avez pas fait la question 2 (le fichier ligne33 est introuvable)."
+  exit 1
+fi 
+
+echo -n "Bravo, vous avez réussi. Le code de victoire de cet exercise est le suivant : "
+cat animaux.ok ligne33 | sha1sum - | cut -d' ' -f1
+
