@@ -98,9 +98,8 @@ falloir la traiter à part, avec une séquence de commandes séparée.
 
 Cette question est d'un humour potache déplorable, j'en suis désolé.
 Il s'agit de faire un fichier nommé ``deux_ans-poil_aux_dents``, en
-complétant chaque vers par "(poil aux dents)", "(poil aux doigts)" ou
-"(poil au nez)" quand cela s'applique. Si. Désolé. Pourtant j'aime ce
-poème.
+complétant chaque vers par "(poil aux dents)", "(poil aux doigts)",
+"(poil au nez)" ou "(poils aux guiboles)" quand cela s'applique. Si. Désolé.
 
 Bien sûr, la modification ne doit porter que sur le dernier son de
 chaque ligne, avant les signes de ponctuation. Comme il y a plusieurs
@@ -203,4 +202,4 @@ différence entre le texte que vous avez produit et ce qui était
 attendu.
 
 1. Quel est le code de victoire de cet exercice, tel qu'affiché par ```shtrl-check```?
-    - R:= 26eb5d330a1b4632d7ebcf320ef7398cd731b5e5
+    - R:= 7b050f10f86034b7bf2a884a281843a88e9a0c92
