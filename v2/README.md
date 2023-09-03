@@ -25,6 +25,12 @@ for now.
 Typing `make debian` from the main directory will build a debian
 package that you can then install with `dpkg -i shutorial_*deb`.
 
+Note that this code is still rather young. You probably don't want to
+install it on a shared computer before reading this whole page, and at
+least glancing over the source code. I believe that it's safe to use
+this tool, but it uses mechanisms that can hurt when shooting in your
+foot.
+
 ## Running
 
 Once installed, you only need to type `shutorial run intro` in a
