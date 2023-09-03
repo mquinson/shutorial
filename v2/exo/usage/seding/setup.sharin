@@ -1,0 +1,10 @@
+#! /bin/sh
+
+# SHTRL_INCLUDE 00-shtrl-check.sh /usr/lib/shutorial/bin shtrl-check
+
+# SHTRL_INCLUDE Ce_siecle_avait_deux_ans.txt .
+# SHTRL_INCLUDE Sept_dun_coup.txt .
+
+mv Sept_dun_coup.txt Sept\ d\'un\ coup.txt
+chmod -w Ce_siecle_avait_deux_ans.txt
+chmod -w "Sept d'un coup.txt"

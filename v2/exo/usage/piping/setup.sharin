@@ -10,4 +10,4 @@ echo "ce fichier est inutile, mais il existe." > OK
 # SHTRL_INCLUDE plus.sh .
 # SHTRL_INCLUDE animaux .
 
-# SHTRL_INCLUDE shtrl-check.sh /usr/lib/shutorial/bin shtrl-check
+# SHTRL_INCLUDE 00-shtrl-check.sh /usr/lib/shutorial/bin shtrl-check

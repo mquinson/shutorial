@@ -120,7 +120,7 @@ if __name__ == "__main__":
                 render_html(f"{outfile}html", f.read())
 
     print("-" * 50 + "\nCompile the sharin scripts\n")
-    for file_name in Path('exo').rglob('*.sharin'):
+    for file_name in sorted(Path('exo').rglob('*.sharin')):
         if not file_name.name.startswith('.#'): # Pass emacs temp files
             target = Path('site')/file_name.relative_to("exo/")
             if not target.parent.exists():

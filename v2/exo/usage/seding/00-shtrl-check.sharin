@@ -1,0 +1,69 @@
+#! /bin/sh
+
+if [ ! -e deux_ans-sans_o ] ; then
+  echo "Oups, vous n'avez pas fait la question 1 (le fichier deux_ans-sans_o est introuvable)."
+  exit 1
+fi 
+# SHTRL_COMMAND out sed 's/o//g' Ce_siecle_avait_deux_ans.txt | diff -u deux_ans-sans_o -
+if [ $? -eq 0 ] ; then
+  echo "Félicitations, la question 1 est réussie."
+else
+  echo "Oups, votre fichier deux_ans-sans_o n'a pas le bon contenu. Différence constatée:"
+  echo "$out"
+  exit 1    
+fi
+
+if [ ! -e deux_ans-sans_voyelle ] ; then
+  echo "Oups, vous n'avez pas fait la question 2 (le fichier deux_ans-sans_voyelle est introuvable)."
+  exit 1
+fi 
+# SHTRL_COMMAND out (head -n -1 Ce_siecle_avait_deux_ans.txt | sed 's/[aeiouy]//g' ;tail -n 1 Ce_siecle_avait_deux_ans.txt) | diff -u deux_ans-sans_voyelle -
+if [ $? -eq 0 ] ; then
+  echo "Félicitations, la question 2 est réussie."
+else
+  echo "Oups, votre fichier deux_ans-sans_voyelle n'a pas le bon contenu. Différence constatée:"
+  echo "$out"
+  exit 1
+fi
+
+if [ ! -e deux_ans-poil_aux_dents ] ; then
+  echo "Oups, vous n'avez pas fait la question 3 (le fichier deux_ans-poil_aux_dents est introuvable)."
+  exit 1
+fi 
+# SHTRL_COMMAND out sed 's/\([rfv]oi[txs]\)\([,. ;]*\)$/\1 (poil aux doigts)\2/' Ce_siecle_avait_deux_ans.txt|sed 's/\(nee\)\([,. ;]*\)$/\1 (poil au nez)\2/'|sed 's/\(er\)\([,. ;!]*\)$/\1 (poil au nez)\2/' | diff -u deux_ans-poil_aux_dents -
+if [ $? -eq 0 ] ; then
+  echo "Félicitations, la question 3 est réussie."
+else
+  echo "Oups, votre fichier deux_ans-poil_aux_dents n'a pas le bon contenu. Différence constatée:"
+  echo "$out"
+  exit 1
+fi
+
+if [ ! -e deux_ans-rot13 ] ; then
+  echo "Oups, vous n'avez pas fait la question 4 (le fichier deux_ans-rot13 est introuvable)."
+  exit 1
+fi 
+# SHTRL_COMMAND out tr [a-zA-Z] [n-za-mN-ZA-M] <Ce_siecle_avait_deux_ans.txt | diff -u deux_ans-rot13 -
+if [ $? -eq 0 ] ; then
+  echo "Félicitations, la question 4 est réussie."
+else
+  echo "Oups, votre fichier deux_ans-rot13 n'a pas le bon contenu. Différence constatée:"
+  echo "$out"
+  exit 1
+fi
+
+if [ ! -e 7_lignes.txt ] ; then
+  echo "Oups, vous n'avez pas fait la question 5 (le fichier 7_lignes.txt est introuvable)."
+  exit 1
+fi
+# SHTRL_COMMAND out cat "Sept d'un coup.txt" | tr '\n' '9'|sed -e 's/99/\n/g' -e 's/9 /\n /g' -e 's/9$/\n/' -e 's/9/ /g' -e 's/\([[:alnum:],.] \) */\1/g' | diff -u 7_lignes.txt -
+if [ $? -eq 0 ] ; then
+  echo "Félicitations, la question 5 est réussie."
+else
+  echo "Oups, votre fichier 7_lignes.txt n'a pas le bon contenu. Différence constatée:"
+  echo "$out"
+  exit 1
+fi
+
+echo -n "Bravo, vous avez réussi. Le code de victoire de cet exercise est le suivant : "
+cat deux_ans-sans_o deux_ans-sans_voyelle deux_ans-poil_aux_dents deux_ans-rot13 7_lignes.txt | sha1sum | cut -d' ' -f1

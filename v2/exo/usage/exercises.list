@@ -6,3 +6,4 @@ viewing    -- Explorer le contenu des fichiers
 searching  -- Chercher des fichiers
 grepping   -- Fouiller des fichiers
 piping     -- Rediriger les entrée/sorties
+seding     -- Éditer les flux à la volée

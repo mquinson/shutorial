@@ -69,14 +69,11 @@ Here is the list of exercises:
 - searching: Searching files (introducting locate and find).
 - grepping: Crawling files (introducting grep).
 - piping: Redirecting I/O (introducting < > >> and |)
-
-Here are the lessons that I have in the older format but still need to
-be converted:
-
 - seding: Editing streams on the fly (introducting sed)
 
 More lessons are planned, on writing script files, using shell loops
-and other such constructs. But I'm not there yet.
+and other such constructs. But I should probably improve the
+infrastructure to translate the material before adding more exercises.
 
 # How does it work?
 
