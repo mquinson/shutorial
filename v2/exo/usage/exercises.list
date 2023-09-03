@@ -4,3 +4,4 @@ moving     -- Déplacer des fichiers
 globbing   -- Manipuler de nombreux fichiers à la fois
 viewing    -- Explorer le contenu des fichiers
 searching  -- Chercher des fichiers
+grepping   -- Fouiller des fichiers
