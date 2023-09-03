@@ -5,7 +5,7 @@ all:
 
 dist-dir:
 	rm -rf shutorial-$(VERSION) ; mkdir shutorial-$(VERSION)
-	cp -r app compiler.py distros exo  Makefile  README.md requirements.txt shutorial.conf\
+	cp -r app compiler.py distros exo  Makefile  README.md requirements.txt etc\
               shutorial.sh shutorial-admin.sh shutorial-$(VERSION)
 	$(MAKE) -C shutorial-$(VERSION) clean
 
@@ -24,7 +24,8 @@ install:
 	cp -r site/* $(DESTDIR)/usr/share/shutorial
 
 	mkdir -p $(DESTDIR)/etc/schroot/chroot.d/
-	cp shutorial.conf $(DESTDIR)/etc/schroot/chroot.d/
+	cp etc/shutorial.conf $(DESTDIR)/etc/schroot/chroot.d/
+	cp -r etc/shutorial $(DESTDIR)/etc/schroot/
 
 	mkdir -p $(DESTDIR)/usr/bin
 	cp shutorial.sh $(DESTDIR)/usr/bin/shutorial
