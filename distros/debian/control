@@ -21,6 +21,7 @@ Depends:
  ${misc:Depends},
  mmdebstrap,
  schroot,
+ squashfs-tools,
 Description: Educational exerciser to teach the shell
  Shutorial is an exerciser to teach the arcane of the UNIX command
  line and the shell in practice. It comes as a set of progressive
