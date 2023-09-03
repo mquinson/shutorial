@@ -1,0 +1,1 @@
+mv *.html web; mkdir print images images2 ; mv *.pdf print/ ; mv *[02468].png images2 ; mv *[13579].png images

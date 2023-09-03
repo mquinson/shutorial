@@ -1,0 +1,113 @@
+#! /bin/sh
+
+cd 
+tree -n --noreport --charset ascii | sed 's/`/\\/' > /tmp/.tree.got
+cat > /tmp/.tree.expect <<EOF
+.
+|-- images
+|   |-- file-01.png
+|   |-- file-03.png
+|   |-- file-05.png
+|   |-- file-07.png
+|   |-- file-09.png
+|   |-- file-11.png
+|   |-- file-13.png
+|   |-- file-15.png
+|   |-- file-17.png
+|   |-- file-19.png
+|   |-- file-21.png
+|   |-- file-23.png
+|   |-- file-25.png
+|   |-- file-27.png
+|   \-- file-29.png
+|-- images2
+|   |-- file-02.png
+|   |-- file-04.png
+|   |-- file-06.png
+|   |-- file-08.png
+|   |-- file-10.png
+|   |-- file-12.png
+|   |-- file-14.png
+|   |-- file-16.png
+|   |-- file-18.png
+|   |-- file-20.png
+|   |-- file-22.png
+|   |-- file-24.png
+|   |-- file-26.png
+|   |-- file-28.png
+|   \-- file-30.png
+|-- print
+|   |-- file-01.pdf
+|   |-- file-02.pdf
+|   |-- file-03.pdf
+|   |-- file-04.pdf
+|   |-- file-05.pdf
+|   |-- file-06.pdf
+|   |-- file-07.pdf
+|   |-- file-08.pdf
+|   |-- file-09.pdf
+|   |-- file-10.pdf
+|   |-- file-11.pdf
+|   |-- file-12.pdf
+|   |-- file-13.pdf
+|   |-- file-14.pdf
+|   |-- file-15.pdf
+|   |-- file-16.pdf
+|   |-- file-17.pdf
+|   |-- file-18.pdf
+|   |-- file-19.pdf
+|   |-- file-20.pdf
+|   |-- file-21.pdf
+|   |-- file-22.pdf
+|   |-- file-23.pdf
+|   |-- file-24.pdf
+|   |-- file-25.pdf
+|   |-- file-26.pdf
+|   |-- file-27.pdf
+|   |-- file-28.pdf
+|   |-- file-29.pdf
+|   \-- file-30.pdf
+\-- web
+    |-- file-01.html
+    |-- file-02.html
+    |-- file-03.html
+    |-- file-04.html
+    |-- file-05.html
+    |-- file-06.html
+    |-- file-07.html
+    |-- file-08.html
+    |-- file-09.html
+    |-- file-10.html
+    |-- file-11.html
+    |-- file-12.html
+    |-- file-13.html
+    |-- file-14.html
+    |-- file-15.html
+    |-- file-16.html
+    |-- file-17.html
+    |-- file-18.html
+    |-- file-19.html
+    |-- file-20.html
+    |-- file-21.html
+    |-- file-22.html
+    |-- file-23.html
+    |-- file-24.html
+    |-- file-25.html
+    |-- file-26.html
+    |-- file-27.html
+    |-- file-28.html
+    |-- file-29.html
+    \-- file-30.html
+EOF
+
+###################
+
+if ! cmp /tmp/.tree.got /tmp/.tree.expect ; then
+    diff -y /tmp/.tree.got /tmp/.tree.expect
+    echo "Erreur: on dirait que vous n'avez la bonne arborescence (a gauche: ce que vous avez; a droite: ce qu'il faut)"
+    exit 1
+fi
+
+echo -n "Bravo, vous avez réussi. Le code de victoire de cet exercise est le suivant : "
+sha1sum /tmp/.tree.got | cut -d' ' -f1
+

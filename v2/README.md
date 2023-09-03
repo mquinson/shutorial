@@ -65,6 +65,7 @@ process of converting my existing material. It should improve soon.
 - intro: Introduction to the concept of shell, and the gramar of a command line. 
 - navigation: Creating files and directories (introducting pwd, ls, mkdir, rmdir, rm, cd, touch).
 - moving: Moving files (introducting mv).
+- globbing: Selecting many files together.
 
 Here are the lessons that I have in the older format but still need to
 be converted:
