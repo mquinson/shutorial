@@ -20,9 +20,16 @@ for now.
 
 # How to use it?
 
+## Installation
+
+Typing `make debian` from the main directory will build a debian
+package that you can then install with `dpkg -i shutorial_*deb`.
+
+## Running
+
 Once installed, you only need to type `shutorial run intro` in a
 terminal to start the first exercise. The terminal will enter the
-shutorial environment, and a web page will be opened with the
+shutorial environment, and a web page will pop up with the
 assignment explanation. Just follow the instructions from there.
 
 ## Limitations
@@ -144,7 +151,7 @@ SHTRL_INCLUDE_EOF
 chmod 0755 /usr/lib/shutorial/bin/shtrl-check.sh
 ```
 
-## Main scripts
+## Main scripts
 
 Three scripts are used to get the shutorial working.
 
@@ -170,11 +177,12 @@ the root access to operate. It takes the following sub-commands:
 
 The `compile.sh` is used at build time and not installed. It compiles
 the markdown assignments to HTML static pages, and the `setup.sharin`
-script templates into `setup.sh` scripts.
+script templates into `setup.sh` scripts. It does not take any
+parameter.
 
 ## Other configuration
 
-schroot is configured in  `/etc/schroot/setup.d/shutorial.conf̀ . This
+schroot is configured in  `/etc/schroot/setup.d/shutorial.conf`. This
 file is customized upon Debian installation to allow every human users
 to connect to the shutorial. If you add new users, you should purge
 and reinstall the package. Yep, that's suboptimal.
@@ -216,16 +224,17 @@ The security model is that this tool should be run on your private
 machine, where you already have the priviledges. **I would not install
 this tool on a shared machine or on the network of a school.** It's
 not that it's known to be vulnerable to anything, but rather that
-given its complexity, it's probably too young to be trusted.
+given its relative complexity, it's probably too young to be trusted.
 
 That being said, I think that it should be rather difficult to achieve
 any priviledge escalation with this tool.
 
 `shutorial-admin` contains every operation needing root access, and
-you should execute it as sudo. The content of this script should be
-rather straightforward and hopefully safe: create a chroot, compress
-it on disk. The image is built from Debian stable, which is safe.
-This script is executed automatically upon package installation.
+you should execute it as sudo or such. The content of this script
+should be rather straightforward and hopefully safe: create a chroot,
+compress it on disk, etc. The image is built from Debian stable, which
+is safe. This script is executed automatically upon package
+installation.
 
 The overlay mounting by schroot should be safe too: The user become
 herself within the chroot, with no extra priviledge. For example, I
@@ -239,6 +248,17 @@ from outside of the chroot.
 At some point, I'd like to provide exercises requesting the root
 access within the chroot (for example for some sysadmin exercises, or
 for a package building tutorial), but I plan to implement this using
-sudo. schroot makes it easy to give the sudo access with the chroot to
-users who are already sudo out of the box. So that should not
+sudo. schroot makes it easy to give the sudo access within the chroot
+to users who are already sudo out of the box. So that should not
 constitute any priviledge escalation either.
+
+Of course, if you see any concern with this code, please submit a bug
+report.
+
+# License
+
+2023 Copyright Martin Quinson.
+
+This tool is provided under the GPLv3 license (found under
+/usr/share/common-licenses/GPL-3 on your disk), or any higher version
+of the GPL license.
