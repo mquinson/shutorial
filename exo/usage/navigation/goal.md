@@ -3,22 +3,23 @@
 Comme avec les autres systèmes d'exploitation, Linux range les fichiers dans une
 arborescence de répertoires. Voici quelques commandes utiles:
 
-- ```pwd``` savoir où on est sur le disque (Print Working Directory)
-- ```mkdir machin``` créer un nouveau répertoire nommé machin
-- ```ls``` lister les fichiers et répertoires du répertoire courant
-- ```cd machin``` entrer dans le répertoire machin (Change Directory)
-- ```pwd``` affiche
-- ```cd ..``` aller dans le répertoire "..", c'est-à-dire un étage plus haut
-- ```pwd``` 
+- ```pwd``` savoir où on est sur le disque (Print Working Directory).
+- ```mkdir machin``` créer un nouveau répertoire nommé machin.
+- ```ls``` lister les fichiers et répertoires du répertoire courant.
+- ```cd machin``` entrer dans le répertoire machin (Change Directory).
+- ```cd ..``` aller dans le répertoire "..", c'est-à-dire un étage
+  plus haut dans l'arborescence. Le répertoire "." est un alias pour
+  le répertoire courant, celui affiché par ```pwd```.
 - ```touch bidule``` créer un fichier vide nommé bidule (ou change sa date d'accès si le fichier existe)
-- ```ls``` 
 - ```rm bidule``` effacer le fichier bidule. Attention, c'est une opération irréversible.
-- ```ls``` 
 - ```rmdir machin``` effacer le répertoire machin (il faut qu'il soit
   vide). On peut aussi utiliser ```rm -r machin``` pour effacer
   récursivement ```machin``` et tout son contenu.
-- ```ls``` 
 - ```clear``` permet d'effacer l'écran pour nettoyer.
+
+Pour commencez, essayez d'exécuter ces commandes dans le terminal du
+shutorial, et affichez le répertoire courant après chacune (avec
+```pwd```) ainsi que le contenu de ce répertoire (avec ```ls```).
 
 Au besoin, lisez la documentation de ces commandes avec par exemple
 ```man ls``` ('q' pour quiter cette aide).
