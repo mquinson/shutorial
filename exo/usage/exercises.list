@@ -3,6 +3,7 @@ navigation -- Créer et effacer des fichiers et répertoires
 moving     -- Déplacer des fichiers
 globbing   -- Manipuler de nombreux fichiers à la fois
 viewing    -- Explorer le contenu des fichiers
+editing    -- Éditer les fichiers en ligne de commande
 searching  -- Chercher des fichiers
 grepping   -- Fouiller des fichiers
 piping     -- Rediriger les entrée/sorties

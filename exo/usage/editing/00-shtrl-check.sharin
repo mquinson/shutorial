@@ -1,0 +1,15 @@
+#! /bin/sh
+
+# SHTRL_INCLUDE STATE /tmp/ .want
+sed -i "s/C'est en cours/C'est fini/" /tmp/.want
+
+if ! cmp ~/STATE /tmp/.want ; then
+    diff -y ~/STATE /tmp/.want
+    echo "Erreur: on dirait que votre fichier n'a pas le bon contenu (à gauche: ce que vous avez; à droite: ce qu'il faut)"
+    rm /tmp/.want
+    exit 1
+fi
+
+echo -n "Bravo, vous avez réussi. Le code de victoire de cet exercise est le suivant : "
+sha1sum /tmp/.want | cut -d' ' -f1
+rm /tmp/.want

@@ -72,6 +72,7 @@ Here is the list of exercises:
 - moving: Moving files (introducting mv).
 - globbing: Selecting many files together.
 - viewing: Seeing files' content (introducting cat, head, tail, less).
+- editing: Editing files (introducting nano, vi and emacs).
 - searching: Searching files (introducting locate and find).
 - grepping: Crawling files (introducting grep).
 - piping: Redirecting I/O (introducting < > >> and |)

@@ -1,0 +1,6 @@
+#! /bin/sh
+
+
+# SHTRL_INCLUDE 00-shtrl-check.sh /usr/lib/shutorial/bin shtrl-check
+# SHTRL_INCLUDE STATE .
+
