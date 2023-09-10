@@ -74,7 +74,7 @@ ajouter des trucs, n'hésitez pas à me contacter.
   - Debugger nombre_mystere.sh, max2err.sh et jeboucle.sh TP4
   - TP8 de CSH est plein de bonnes choses
   - Introduire 'cat << EOF > fichier'
-* Permissions
+* Permissions: "ls -gGR --time-style=+" pour afficher les permissions sans bruit
 * processus et jobs
 
 ## Notions manquantes
