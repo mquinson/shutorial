@@ -8,6 +8,7 @@ license=("GPL3")
 source=($pkgname-$pkgver.tar.xz)
 depends=("schroot" "squashfs-tools" "debootstrap")
 makedepends=("python>=3.6" "python-markdown" "python-markupsafe" "python-jinja" "sharutils")
+install=".install"
 
 build() {
 	cd $pkgname-$pkgver
@@ -18,17 +19,3 @@ package() {
 	cd $pkgname-$pkgver
 	make DESTDIR="$pkgdir/" install-arch
 }
-
-post_install() {
-	echo "Creating the shutorial squashfs"
-	/usr/sbin/shutorial-admin ensure-squashfs
-	/usr/sbin/shutorial-admin schroot-users
-}
-
-pre_remove() {
-	if [ -e /usr/lib/shutorial/debian-stable.squashfs ] ; then
-        echo "Cleaning the shutorial squashfs"
-        rm /usr/lib/shutorial/debian-stable.squashfs
-	fi
-}
-
