@@ -14,7 +14,6 @@ dist-tgz: dist-dir
 	rm -rf shutorial-$(VERSION)
 	@echo; echo "Distribution built"
 
-
 debian: dist-dir
 	tar cfvJ shutorial_$(VERSION).orig.tar.xz shutorial-$(VERSION)
 	cd shutorial-$(VERSION) ; cp -r distros/debian . ; dpkg-buildpackage -us -uc
@@ -23,7 +22,7 @@ arch-linux: dist-dir
 	tar cfvJ shutorial-$(VERSION).tar.xz shutorial-$(VERSION)
 	mv shutorial-$(VERSION).tar.xz shutorial-$(VERSION)/shutorial-$(VERSION).tar.xz
 	cp -r distros/archlinux/. ./shutorial-$(VERSION)/
-	cd shutorial-$(VERSION) ; makepkg -g >> PKGBUILD; makepkg -si
+	cd shutorial-$(VERSION) ; makepkg -g >> PKGBUILD; makepkg -s; mv *.pkg.tar.zst ../
 
 install:
 	mkdir -p $(DESTDIR)/usr/share/shutorial
