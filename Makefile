@@ -41,6 +41,7 @@ install:
 install-arch:
 	mkdir -p $(DESTDIR)/usr/share/shutorial
 	cp -r site/* $(DESTDIR)/usr/share/shutorial
+	chmod -R +r $(DESTDIR)/usr/share/shutorial/*
 
 	mkdir -p $(DESTDIR)/etc/schroot/chroot.d/
 	cp etc/shutorial.conf $(DESTDIR)/etc/schroot/chroot.d/
