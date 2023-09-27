@@ -6,7 +6,7 @@ arch=("any")
 url="https://github.com/mquinson/shutorial"
 license=("GPL3")
 source=($pkgname-$pkgver.tar.xz)
-depends=("schroot" "squashfs-tools" "debootstrap")
+depends=("schroot" "squashfs-tools")
 makedepends=("python>=3.6" "python-markdown" "python-markupsafe" "python-jinja" "sharutils")
 install=".install"
 

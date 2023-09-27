@@ -1,5 +1,4 @@
 post_install() {
-	note "You can now run the shutorial exerciser with the command: shutorial"
 	echo "Creating the shutorial squashfs"
 	/usr/sbin/shutorial-admin ensure-squashfs
 	/usr/sbin/shutorial-admin schroot-users
