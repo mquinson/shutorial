@@ -13,6 +13,7 @@ install=".install"
 build() {
 	cd $pkgname-$pkgver
 	make all
+	yay -S --needed mmdebstrap
 }
 
 package() {
