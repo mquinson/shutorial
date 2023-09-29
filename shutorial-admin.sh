@@ -44,7 +44,6 @@ squashfs_build() {
       --customize-hook='chroot "$1" passwd --delete root' \
       --customize-hook='echo shutorial > "$1/etc/hostname"' \
       --customize-hook='echo "127.0.0.1 localhost host" > "$1/etc/hosts"' \
-      --mode="sudo"\
       stable /usr/lib/shutorial/basedir
 
 #    --customize-hook='chroot "$1" mandb' \

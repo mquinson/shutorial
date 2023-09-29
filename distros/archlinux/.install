@@ -9,7 +9,7 @@ post_upgrade() {
 }
 
 pre_remove() {
-	if [ -e /usr/lib/shutorial/debian-stable.squashfs ] ; then
+	if [ -e "/usr/lib/shutorial/debian-stable.squashfs" ] ; then
         echo "Cleaning the shutorial squashfs"
         rm /usr/lib/shutorial/debian-stable.squashfs
 	fi
