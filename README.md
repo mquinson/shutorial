@@ -38,7 +38,7 @@ sudo apt install debhelper-compat python3 python3-markdown python3-markupsafe py
 Typing `make arch-linux` from the main directory will build an arch package.
 You can then install it with `pacman -U shutorial-*.pkg.tar.xz`.
 
-You will need a working `yay` installation to build the package because the `mmdebstrap` package is not in the official repositories.
+You will need a working `yay` installation to build the package because the `mmdebstrap` package is not in the official repositories. [Here](https://github.com/Jguer/yay#installation) is how to install `yay`.
 
 Everything is installed and configured automatically but, if needed, you can install the package manually.
 
