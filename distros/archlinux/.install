@@ -1,0 +1,16 @@
+post_install() {
+	echo "Creating the shutorial squashfs"
+	/usr/sbin/shutorial-admin ensure-squashfs
+	/usr/sbin/shutorial-admin schroot-users
+}
+
+post_upgrade() {
+	/usr/sbin/shutorial-admin schroot-users
+}
+
+pre_remove() {
+	if [ -e "/usr/lib/shutorial/debian-stable.squashfs" ] ; then
+        echo "Cleaning the shutorial squashfs"
+        rm /usr/lib/shutorial/debian-stable.squashfs
+	fi
+}

@@ -1,0 +1,22 @@
+pkgname="shutorial"
+pkgver="0.2"
+pkgrel="021"
+pkgdesc="An exerciser teaching the use of the shell console, in practice."
+arch=("any")
+url="https://github.com/mquinson/shutorial"
+license=("GPL3")
+source=($pkgname-$pkgver.tar.xz)
+depends=("schroot" "squashfs-tools")
+makedepends=("python>=3.6" "python-markdown" "python-markupsafe" "python-jinja" "sharutils")
+install=".install"
+
+build() {
+	cd $pkgname-$pkgver
+	make all
+	yay -S --needed mmdebstrap
+}
+
+package() {
+	cd $pkgname-$pkgver
+	make DESTDIR="$pkgdir/" install-arch
+}
