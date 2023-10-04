@@ -24,7 +24,7 @@ jobs:
           cp -r distros/debian .
       - name: build-deb-amd64
         uses: jtdor/build-deb-action@v1
-	with:
+        with:
           buildpackage-opts: --build=full
         extra-build-deps: pristine-tar git
         before-build-hook: pristine-tar checkout ../$(pristine-tar list)
@@ -33,5 +33,5 @@ jobs:
         name: upload
         uses: actions/upload-artifact@v3
         with:
-         path: debian/artifacts/
-         name: debian_package
+          path: debian/artifacts/
+          name: debian_package
