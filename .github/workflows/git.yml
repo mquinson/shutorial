@@ -21,9 +21,9 @@ jobs:
         uses: jtdor/build-deb-action@v1
         with:
           buildpackage-opts: --build=full
-        extra-build-deps: pristine-tar git
-        before-build-hook: pristine-tar checkout ../$(pristine-tar list)
-        host-arch: amd64
+          extra-build-deps: pristine-tar git
+          before-build-hook: pristine-tar checkout ../$(pristine-tar list)
+          host-arch: amd64
       -
         name: upload
         uses: actions/upload-artifact@v3
