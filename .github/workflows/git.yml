@@ -9,21 +9,47 @@ name: Git builds
 on: workflow_dispatch
 
 jobs:
-  shutorial-regular-ubuntu:
+  debian:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: prepare for Debian
+      - name: build Debian package
         run: |
           sudo apt install debhelper-compat python3 python3-markdown python3-markupsafe python3-jinja2 sharutils
           cp -r distros/debian .
           make debian
-          mkdir dist
-          mv shutorial_*_all.deb dist
       -
         name: upload
         uses: actions/upload-artifact@v3
         with:
-          path: dist/shutorial_*_all.deb
+          path: shutorial_*_all.deb
           name: debian_package
+
+  arch:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux
+      options: --privileged
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install yay
+        run: |
+          pacman -S --needed git base-devel
+          git clone https://aur.archlinux.org/yay-bin.git
+          cd yay-bin
+          makepkg -si
+      - name: Install dependencies
+        run: |
+          yay -S mmdebstrap
+          pacman -S schroot squashfs-tools
+          pacman -S python-markdown python-markupsafe python-jinja sharutils
+      - name: Build Arch package
+        run: |
+          make arch-linux
+      -
+        name: upload
+        uses: actions/upload-artifact@v3
+        with:
+          path: shutorial-*.pkg.tar.xz
+          name: arch_package
