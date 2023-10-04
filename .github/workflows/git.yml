@@ -11,15 +11,10 @@ on: workflow_dispatch
 jobs:
   shutorial-regular-ubuntu:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Init options
-      - name: prepare for ubuntu
+      - name: prepare for Debian
         run: |
           cp -r distros/debian .
       - name: build-deb-amd64
