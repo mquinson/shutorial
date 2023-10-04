@@ -1,0 +1,37 @@
+name: Git builds
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# Only trigger manually
+on: workflow_dispatch
+
+jobs:
+  shutorial-regular-ubuntu:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Init options
+      - name: prepare for ubuntu
+        run: |
+          cp -r distros/debian .
+      - name: build-deb-amd64
+        uses: jtdor/build-deb-action@v1
+	with:
+          buildpackage-opts: --build=full
+        extra-build-deps: pristine-tar git
+        before-build-hook: pristine-tar checkout ../$(pristine-tar list)
+        host-arch: amd64
+      -
+        name: upload
+        uses: actions/upload-artifact@v3
+        with:
+         path: debian/artifacts/
+         name: debian_package
