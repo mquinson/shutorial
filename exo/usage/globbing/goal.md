@@ -43,4 +43,17 @@ tous ces fichiers sont vides.
 Avouez que pouvoir déplacer autant de fichiers en une seule commande
 est tout de même agréable, non ?
 
+
+Bravo! Vous fini cet exercice. Passez au suivant en tapant
+```shutorial run viewing``` dans le terminal. Vous pouvez fermer
+cette fenêtre.
+
+</div>
+
+<div id="tg-feedback" class="alert" role="alert" style="display: none">
+
+Bravo! Vous fini cet exercice. Passez au suivant en tapant
+```shutorial run viewing``` dans le terminal. Vous pouvez fermer
+cette fenêtre.
+
 </div>
