@@ -3,9 +3,9 @@
 case "$1" in
    run)
       exo=$2
-      if [ -z "$exo" -o ! -e "/usr/share/shutorial/usage/$exo/" ] ; then
+      if [ -z "$exo" -o ! -e "/var/www/html/shutorial/usage/$exo/" ] ; then
         echo "Please select an exercise from the following list:"
-	sed 's/^/  /' /usr/share/shutorial/usage/exercises.list
+	sed 's/^/  /' /var/www/html/shutorial/usage/exercises.list
 	echo
 	echo "For example, to start the first exercise from this list, simply type:"
 	echo "  shutorial run intro"
@@ -18,15 +18,21 @@ case "$1" in
       session=$(schroot --chroot shutorial --begin-session)
       
       # Some exercises need a setup script (it's automatically removed from the chroot after execution)
-      if [ -e "/usr/share/shutorial/usage/$exo/setup.sh" ] ; then
-        cp /usr/share/shutorial/usage/$exo/setup.sh /var/run/schroot/mount/${session}/usr/lib/shutorial/bin/
+      if [ -e "/var/www/html/shutorial/usage/$exo/setup.sh" ] ; then
+        cp /var/www/html/shutorial/usage/$exo/setup.sh /var/run/schroot/mount/${session}/usr/lib/shutorial/bin/
         echo "sh /usr/lib/shutorial/bin/setup.sh" >>  "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
 	echo "rm /usr/lib/shutorial/bin/setup.sh" >>  "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"	
       fi
       
       # Tell the user what to do on login
-      firefox "/usr/share/shutorial/usage/$exo/goal.html" 2>/dev/null&
-      echo "echo 'Please open /usr/share/shutorial/usage/$exo/goal.html in your browser if it was not automatically done (use Ctrl-Insert in place of Ctrl-C on need).'" >> "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
+      if pidof -q lighttpd ; then
+        url="http://localhost/shutorial/usage/$exo/goal.html"
+      else
+        url="/var/www/html/shutorial/usage/$exo/goal.html"
+      fi
+      
+      firefox "$url" 2>/dev/null&
+      echo "echo 'Please open $url in your browser if it was not automatically done (use Ctrl-Insert in place of Ctrl-C if you need to copy this URL).'" >> "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
       echo "echo 'When you are done, simply press Ctrl-D to exit the shutorial.'" >> "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
       echo "echo " >> "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
 

@@ -1,0 +1,4 @@
+version 0.3: Use lighttpd to serve the pages
+ - This is particularly important on Ubuntu, as Firefox refuses to
+   open local pages, arguing security concerns I fail to understand.
+version 0.2: Intial release

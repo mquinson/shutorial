@@ -1,3 +1,9 @@
+shutorial (0.3-1) UNRELEASED; urgency=medium
+
+  * Serve the pages with lighttpd to pass security concerns on Ubuntu.
+
+ -- Martin Quinson <mquinson@debian.org>  Sun, 8 Oct 2023 19:03:40 +0200
+
 shutorial (0.2-1) UNRELEASED; urgency=medium
 
   * Initial release.

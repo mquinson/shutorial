@@ -1,4 +1,4 @@
-VERSION=0.2
+VERSION=0.3
 all:
 	./compiler.py
 	@cd exo; for f in `find -name '*.list'` ; do echo "Copying $$f over"; cp $$f ../site/$$f ; done
@@ -25,8 +25,8 @@ arch-linux: dist-dir
 	cd shutorial-$(VERSION) ; makepkg -g >> PKGBUILD; makepkg -s; mv *.pkg.tar.zst ../
 
 install:
-	mkdir -p $(DESTDIR)/usr/share/shutorial
-	cp -r site/* $(DESTDIR)/usr/share/shutorial
+	mkdir -p $(DESTDIR)/var/www/html/shutorial
+	cp -r site/* $(DESTDIR)/var/www/html/shutorial
 
 	mkdir -p $(DESTDIR)/etc/schroot/chroot.d/
 	cp etc/shutorial.conf $(DESTDIR)/etc/schroot/chroot.d/
@@ -38,9 +38,9 @@ install:
 	cp shutorial-admin.sh $(DESTDIR)/usr/sbin/shutorial-admin
 
 install-arch:
-	mkdir -p $(DESTDIR)/usr/share/shutorial
-	cp -r site/* $(DESTDIR)/usr/share/shutorial
-	chmod -R +r $(DESTDIR)/usr/share/shutorial/*
+	mkdir -p $(DESTDIR)/var/www/html/shutorial
+	cp -r site/* $(DESTDIR)/var/www/html/shutorial
+	chmod -R +r $(DESTDIR)/var/www/html/shutorial/*
 
 	mkdir -p $(DESTDIR)/etc/schroot/chroot.d/
 	cp etc/shutorial.conf $(DESTDIR)/etc/schroot/chroot.d/
