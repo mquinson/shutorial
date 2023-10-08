@@ -22,12 +22,26 @@ for now.
 
 ## Installation
 
-### Debian
+### Debian/Ubuntu
 
-Typing `make debian` from the main directory will build a Debian
-package that you can then install with `dpkg -i shutorial_*deb`.
+You can simply grab the latest version of the package from the [GitHub
+actions](https://github.com/mquinson/shutorial/actions). Click on the
+top line written "Git builds". The package can be downloaded from the
+link "debian_package" at the bottom of this page. Open the zip file,
+and install the package with `sudo dpkg -i shutorial_*deb`. 
 
-You may need to install the build dependencies for this to work:
+During the installation, a mini-system is downloaded and compressed on
+your disk. It produces quite a lot of output, ending with something as
+follows (but with your name instead of mine at the end of the line).
+If you see this, it worked and you can probably ignore any warning
+produced in the process.
+```
+Giving access to the schroot to the following users: mquinson.
+```
+
+Alternatively, you can build the package by yourself by typing `make
+debian` from the main directory. You may need to install the build
+dependencies for this to work:
 
 ```sh
 sudo apt install debhelper-compat python3 python3-markdown python3-markupsafe python3-jinja2 sharutils
@@ -57,14 +71,6 @@ And the following packages are only needed for building the package:
 ```sh
 pacman -S python-markdown python-markupsafe python-jinja sharutils
 ```
-
-### Important note
-
-Note that this code is still rather young. You probably don't want to
-install it on a shared computer before reading this whole page, and at
-least glancing over the source code. I believe that it's safe to use
-this tool, but it uses mechanisms that can hurt when shooting in your
-foot.
 
 ## Running
 
