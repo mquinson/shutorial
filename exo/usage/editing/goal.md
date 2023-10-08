@@ -68,3 +68,15 @@ pourrez pas passer le test avec succès.
 
 1. Quel est le code de victoire de cet exercice, tel qu'affiché par ```shtrl-check```?
     - R:= 605718ab0bac243706ffba0bcf79ff99c12fb607
+
+<div id="tg-feedback" class="alert" role="alert" style="display: none">
+
+Bravo, vous savez maintenant survivre aux fois où il faut éditer en
+ligne de commande. Libre à vous maintenant de vous contenter de nano,
+ou d'apprendre à utiliser un éditeur plus évolué comme emacs ou vim.
+
+En attendant, vous pouvez passer à l'exercice suivant avec ```shutorial
+run searching```. Vous pouvez aussi consulter la liste des exercices
+existants avec ```shutorial list```.
+
+</div>

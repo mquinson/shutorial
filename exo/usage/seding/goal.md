@@ -203,3 +203,23 @@ attendu.
 
 1. Quel est le code de victoire de cet exercice, tel qu'affiché par ```shtrl-check```?
     - R:= 7b050f10f86034b7bf2a884a281843a88e9a0c92
+
+<div id="tg-feedback" class="alert" role="alert" style="display: none">
+
+Voilà, vous connaissez grep, sed et les tubes, vos trois meilleurs
+amis dans le terminal.
+
+Malheureusement, vous venez de finir le dernier exercice du shutorial.
+Vous allez devoir apprendre le reste par ailleurs, par exemple en
+lisant ces livres et tutoriels:
+
+ - https://linuxcommand.org/tlcl.php
+ - https://www.dsl.org/cookbook/
+ - http://www.ee.surrey.ac.uk/Teaching/Unix/
+ - https://www.learnshell.org/
+
+Si vous avez l'envie (et le courage) d'écrire des exercices pour le
+shutorial, n'hésitez pas à proposer un patch au projet
+https://github.com/mquinson/shutorial
+
+</div>

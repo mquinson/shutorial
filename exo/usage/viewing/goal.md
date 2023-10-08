@@ -82,3 +82,10 @@ recherche: c'est assez bien fait.
     - R:=gagné
 
 Vous ne trouvez pas les informations ? Essayez avec les commandes ``cat``, ``head`` et ``less``.
+
+<div id="tg-feedback" class="alert" role="alert" style="display: none">
+
+Bien joué, encore une fois. Pour passer à l'exercice suivant, utilisez la commande ```shutorial
+run editing```. Vous pouvez consulter la liste des exercices existants avec ```shutorial list```.
+
+</div>

@@ -126,3 +126,14 @@ les pages d'introduction pour arriver au jeu.
 
 Cet [outil de visualisation des regex](https://jex.im/regulex/) me
 semble également très pédagogique.
+
+<div id="tg-feedback" class="alert" role="alert" style="display: none">
+
+Grep est l'un des outils fondamentaux pour tirer le plein parti de son
+terminal, et comme vous le voyez, il n'est pas si complexe à utiliser.
+
+Vous pouvez maintenant passer à l'exercice suivant avec ```shutorial
+run piping```. Vous pouvez aussi consulter la liste des exercices
+existants avec ```shutorial list```.
+
+</div>

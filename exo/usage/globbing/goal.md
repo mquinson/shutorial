@@ -43,4 +43,7 @@ tous ces fichiers sont vides.
 Avouez que pouvoir déplacer autant de fichiers en une seule commande
 est tout de même agréable, non ?
 
+Pour passer à l'exercice suivant, utilisez la commande ```shutorial
+run viewing```. Vous pouvez consulter la liste des exercices existants avec
+```shutorial list```.
 </div>

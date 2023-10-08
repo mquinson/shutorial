@@ -84,3 +84,13 @@ Commencez par vous rendre dans le bon répertoire avec ```cd ~/ddd```
 
 4. Que contient le fichier caché dans 'ddd'?
     - R:= xepitapozu
+
+<div id="tg-feedback" class="alert" role="alert" style="display: none">
+
+Bravo, vous êtes maintenant capable de retrouver vos fichiers plus
+vite avec un clavier qu'avec une souris. Vous pouvez maintenant passer
+à l'exercice suivant avec ```shutorial run grepping```. Vous pouvez
+aussi consulter la liste des exercices existants avec ```shutorial
+list```.
+
+</div>

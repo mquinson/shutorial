@@ -1,6 +1,15 @@
 #! /bin/sh
 
 case "$1" in
+   list)
+      echo "Here is the list of existing exercises:"
+      sed 's/^/  /' /var/www/html/shutorial/usage/exercises.list
+      echo
+      echo "For example, to start the first exercise from this list, simply type:"
+      echo "  shutorial run intro"
+      exit 0
+    ;;
+
    run)
       exo=$2
       if [ -z "$exo" -o ! -e "/var/www/html/shutorial/usage/$exo/" ] ; then
@@ -56,6 +65,7 @@ case "$1" in
     ;;
     *)
         echo "Usage:" >&2
+	echp " shutorial list             # Print the list of existing exercises" >&2
 	echo " shutorial run [exercise]   # Run the specified exercise" >&2
 	echo " shutorial prune-sessions   # End all shutorial sessions (warning, ongoing sessions will be terminated too)" >&2
         exit 1

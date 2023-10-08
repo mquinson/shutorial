@@ -102,4 +102,5 @@ Bravo! Vous avez terminé cet exercice. Vous pouvez passer à l'exercice
 suivant avec la commande ```shutorial run globbing```. Vous pouvez
 fermer cette fenêtre.
 
+Vous pouvez aussi consulter la liste des exercices existants avec ```shutorial list```.
 </div>

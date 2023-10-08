@@ -174,3 +174,16 @@ affichées.
 *Indication:* utilisez ``grep``, ``uniq`` et ``sort``, ainsi que la
 commande ``wc -l`` qui compte le nombre de lignes de son entrée
 standard.
+
+<div id="tg-feedback" class="alert" role="alert" style="display: none">
+
+Lier plusieurs commandes avec des tubes est un mécanisme
+incroyablement puissant, à l'usage. Une fois qu'on commence à s'y
+habituer, il est très difficile de faire machine arrière et d'accepter
+l'aliénation de la souris.
+
+Vous pouvez maintenant passer à l'exercice suivant avec ```shutorial
+run seding```. Vous pouvez aussi consulter la liste des exercices
+existants avec ```shutorial list```.
+
+</div>
