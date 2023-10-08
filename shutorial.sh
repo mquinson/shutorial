@@ -25,7 +25,7 @@ case "$1" in
       fi
       
       # Tell the user what to do on login
-      firefox "/usr/share/shutorial/usage/$exo/goal.html"&
+      firefox "/usr/share/shutorial/usage/$exo/goal.html" 2>/dev/null&
       echo "echo 'Please open /usr/share/shutorial/usage/$exo/goal.html in your browser if it was not automatically done (use Ctrl-Insert in place of Ctrl-C on need).'" >> "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
       echo "echo 'When you are done, simply press Ctrl-D to exit the shutorial.'" >> "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
       echo "echo " >> "/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
