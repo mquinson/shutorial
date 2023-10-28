@@ -65,7 +65,7 @@ case "$1" in
     ;;
     *)
         echo "Usage:" >&2
-	echp " shutorial list             # Print the list of existing exercises" >&2
+	echo " shutorial list             # Print the list of existing exercises" >&2
 	echo " shutorial run [exercise]   # Run the specified exercise" >&2
 	echo " shutorial prune-sessions   # End all shutorial sessions (warning, ongoing sessions will be terminated too)" >&2
         exit 1
