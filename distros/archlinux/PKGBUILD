@@ -1,12 +1,12 @@
 pkgname="shutorial"
-pkgver="0.2"
-pkgrel="021"
+pkgver="0.3"
+pkgrel="031"
 pkgdesc="An exerciser teaching the use of the shell console, in practice."
 arch=("any")
 url="https://github.com/mquinson/shutorial"
 license=("GPL3")
 source=($pkgname-$pkgver.tar.xz)
-depends=("schroot" "squashfs-tools")
+depends=("schroot" "squashfs-tools" "lighttpd")
 makedepends=("python>=3.6" "python-markdown" "python-markupsafe" "python-jinja" "sharutils")
 install=".install"
 
