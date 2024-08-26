@@ -37,7 +37,7 @@ jobs:
         run: |
           pacman -Sy --noconfirm --needed git base-devel
           git clone https://aur.archlinux.org/yay-bin.git
-	  chmod -R 777 yay-bin
+          chmod -R 777 yay-bin
           cd yay-bin
           runuser -unobody -- makepkg -si
       - name: Install dependencies
