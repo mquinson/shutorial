@@ -6,7 +6,7 @@ name: Git builds
 # documentation.
 
 # Only trigger manually
-on: workflow_dispatch
+on: [push, workflow_dispatch]
 
 jobs:
   debian:
