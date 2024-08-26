@@ -42,7 +42,7 @@ jobs:
           echo "XXX Current directory content:"
           ls -a
           echo "XXX Installing the package with 'pacman -U yay-bin-1*.pkg.tar.zst'"
-          pacman -U yay-bin-1*.pkg.tar.zst
+          pacman --noconfirm -U yay-bin-1*.pkg.tar.zst
       - name: Install dependencies
         run: |
           yay -Sy mmdebstrap
