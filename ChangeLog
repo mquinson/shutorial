@@ -1,4 +1,7 @@
 
+version 0.3.1: Use javascript to remember past answers
+ - Thanks to Wyrdix for the patch.
+
 version 0.3: Use lighttpd to serve the pages
  - This is particularly important on Ubuntu, as Firefox refuses to
    open local pages, arguing security concerns I fail to understand.
