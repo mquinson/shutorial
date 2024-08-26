@@ -39,7 +39,8 @@ jobs:
           git clone https://aur.archlinux.org/yay-bin.git
           chmod -R 777 yay-bin
           cd yay-bin
-          runuser -unobody -- makepkg -si
+          runuser -unobody -- makepkg --syncdeps
+          makepkg --install
       - name: Install dependencies
         run: |
           yay -Sy mmdebstrap
