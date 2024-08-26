@@ -28,7 +28,7 @@ jobs:
   arch:
     runs-on: ubuntu-latest
     container:
-      image: archlinux
+      image: carlodepieri/docker-archlinux-systemd
       options: --privileged
     steps:
       - uses: actions/checkout@v3
