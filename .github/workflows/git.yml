@@ -40,6 +40,7 @@ jobs:
           chmod -R 777 yay-bin
           cd yay-bin
           runuser -unobody -- makepkg --syncdeps
+          ls -a
           makepkg --install
       - name: Install dependencies
         run: |
