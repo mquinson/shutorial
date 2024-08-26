@@ -19,8 +19,7 @@ jobs:
           sudo apt install debhelper-compat python3 python3-markdown python3-markupsafe python3-jinja2 sharutils
           cp -r distros/debian .
           make debian
-      -
-        name: upload
+      - name: upload
         uses: actions/upload-artifact@v3
         with:
           path: shutorial_*_all.deb
@@ -40,8 +39,10 @@ jobs:
           chmod -R 777 yay-bin
           cd yay-bin
           runuser -unobody -- makepkg --syncdeps
+          echo "XXX Current directory content:"
           ls -a
-          makepkg --install
+          echo "XXX Installing the package with 'pacman -U yay-bin-1*.pkg.tar.zst'"
+          pacman -U yay-bin-1*.pkg.tar.zst
       - name: Install dependencies
         run: |
           yay -Sy mmdebstrap
@@ -50,8 +51,7 @@ jobs:
       - name: Build Arch package
         run: |
           make arch-linux
-      -
-        name: upload
+      - name: upload
         uses: actions/upload-artifact@v3
         with:
           path: shutorial-*.pkg.tar.xz
