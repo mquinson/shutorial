@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: carlodepieri/docker-archlinux-systemd
-      options: --privileged
+      options: --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro
     steps:
       - uses: actions/checkout@v3
       - name: Install yay
