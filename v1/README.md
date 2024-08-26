@@ -37,6 +37,8 @@ technique.
 
   https://www.tuteurs.ens.fr/unix/shell/index.html
 
+- http://robert.cireddu.free.fr/SNIR/TP%20sur%20la%20programmation%20Shell.pdf
+
 ## En anglais
 
 La liste suivante n'est pas particulièrement triée.
