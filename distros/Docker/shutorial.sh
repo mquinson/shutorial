@@ -32,12 +32,13 @@ run)
         url="$PWD/site/usage/$exo/goal.html"
     fi
     firefox "$url" 2>/dev/null
-
+    echo ''
+    echo 'Please open $$url in your browser if it was not automatically done (use Ctrl-Insert in place of Ctrl-C if you need to copy this URL).'
+    echo 'When you are done, simply press Ctrl-D to exit the shutorial.'
+    echo ''
     docker run -v ./site/usage/$exo:/exo -e LANG=C.UTF-8 -it shutorial sh -c "if test -f /exo/setup.sh; then /bin/bash /exo/setup.sh; fi && export PATH='/shutorial/bin:$PATH' && /bin/bash"
 
 
-
- 
     echo "The session is terminating. Cleaning up."
     ;;
 
@@ -49,6 +50,7 @@ prune-sessions)
     echo "Usage:" >&2
     echo " shutorial list             # Print the list of existing exercises" >&2
     echo " shutorial run [exercise]   # Run the specified exercise" >&2
+    # Actually, no need to prune anything with docker
     echo " shutorial prune-sessions   # End all shutorial sessions (warning, ongoing sessions will be terminated too)" >&2
     exit 1
     ;;
