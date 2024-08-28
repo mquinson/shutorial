@@ -25,34 +25,34 @@ jobs:
           path: shutorial_*_all.deb
           name: debian_package
 
-  arch:
-    runs-on: ubuntu-latest
-    container:
-      image: carlodepieri/docker-archlinux-systemd
-      options: --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install yay
-        run: |
-          pacman -Sy --noconfirm --needed git base-devel
-          git clone https://aur.archlinux.org/yay-bin.git
-          chmod -R 777 yay-bin
-          cd yay-bin
-          runuser -unobody -- makepkg --syncdeps
-          echo "XXX Current directory content:"
-          ls -a
-          echo "XXX Installing the package with 'pacman -U yay-bin-1*.pkg.tar.zst'"
-          pacman --noconfirm -U yay-bin-1*.pkg.tar.zst
-      - name: Install dependencies
-        run: |
-          yay -Sy mmdebstrap
-          pacman -Sy --noconfirm schroot squashfs-tools
-          pacman -Sy --noconfirm python-markdown python-markupsafe python-jinja sharutils
-      - name: Build Arch package
-        run: |
-          make arch-linux
-      - name: upload
-        uses: actions/upload-artifact@v3
-        with:
-          path: shutorial-*.pkg.tar.xz
-          name: arch_package
+#  arch:
+#    runs-on: ubuntu-latest
+#    container:
+#      image: carlodepieri/docker-archlinux-systemd
+#      options: --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro
+#    steps:
+#      - uses: actions/checkout@v3
+#      - name: Install yay
+#        run: |
+#          pacman -Sy --noconfirm --needed git base-devel
+#          git clone https://aur.archlinux.org/yay-bin.git
+#          chmod -R 777 yay-bin
+#          cd yay-bin
+#          runuser -unobody -- makepkg --syncdeps
+#          echo "XXX Current directory content:"
+#          ls -a
+#          echo "XXX Installing the package with 'pacman -U yay-bin-1*.pkg.tar.zst'"
+#          pacman --noconfirm -U yay-bin-1*.pkg.tar.zst
+#      - name: Install dependencies
+#        run: |
+#          yay -Sy mmdebstrap
+#          pacman -Sy --noconfirm schroot squashfs-tools
+#          pacman -Sy --noconfirm python-markdown python-markupsafe python-jinja sharutils
+#      - name: Build Arch package
+#        run: |
+#          make arch-linux
+#      - name: upload
+#        uses: actions/upload-artifact@v3
+#        with:
+#          path: shutorial-*.pkg.tar.xz
+#          name: arch_package
