@@ -24,6 +24,12 @@ arch-linux: dist-dir
 	cp -r distros/archlinux/. ./shutorial-$(VERSION)/
 	cd shutorial-$(VERSION) ; makepkg -g >> PKGBUILD; makepkg -s; mv *.pkg.tar.zst ../
 
+docker: all
+	docker build -t shutorial distros/Docker/.
+	cp distros/Docker/shutorial.sh shutorial
+	chmod +x shutorial
+	for f in `find site -name '*setup.sh'`; do echo "Changing location of shtrl-check in $$f"; sed -i 's/\/usr\/lib\/shutorial\/bin/\/shutorial\/bin/' $$f; chmod +rx $$f; done
+
 install:
 	mkdir -p $(DESTDIR)/var/www/html/shutorial
 	cp -r site/* $(DESTDIR)/var/www/html/shutorial
@@ -59,4 +65,4 @@ clean:
 	rm -rf site shutorial-$(VERSION) shutorial_$(VERSION)*
 	find -name __pycache__ | xargs rm -rf
 	find -name '*~' | xargs rm -rf
-
+	rm shutorial
