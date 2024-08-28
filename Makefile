@@ -65,4 +65,4 @@ clean:
 	rm -rf site shutorial-$(VERSION) shutorial_$(VERSION)*
 	find -name __pycache__ | xargs rm -rf
 	find -name '*~' | xargs rm -rf
-	rm shutorial
+	rm -f shutorial
