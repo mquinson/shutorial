@@ -1,4 +1,4 @@
-# Please keep the version number synchronized in Makefile
+# Please keep the version number synchronized in Makefile and debian/changelog
 
 version 0.3.2: Allow to use docker as the virtualization tool
  - Thanks to mwalp for the patch.
