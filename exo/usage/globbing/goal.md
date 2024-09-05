@@ -13,8 +13,8 @@ Voici quelques exemples de commandes manipulant plusieurs fichiers à la fois:
   * ```mv t* AZE``` déplace tous les fichiers dont le nom commence par un t dans le répertoire `AZE`.
   * ```mv *G* plouf``` déplace tous les fichiers ayant un G au millieu de leur nom (ni au début, ni à la fin)
   * ```mv [RO]* boum``` déplace les fichiers dont le nom commence par soit par un R, soit par un O.
-  * ```mv [aeiou]* paf``` déplace les fichiers dont le nom commence par
-    une lettre comprise de l'ensemble ```[aeiou]``` (donc, commençant
+  * ```mv [aeiouy]* paf``` déplace les fichiers dont le nom commence par
+    une lettre comprise dans l'ensemble ```[aeiouy]``` (donc, commençant
     par une voyelle).
     ```mv [a-d]* paf``` déplace les fichiers dont le nom commence par
     une lettre comprise dans l'intervale ```[a-d]``` (donc, commençant
