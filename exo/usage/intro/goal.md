@@ -70,9 +70,9 @@ ce mois, ou encore ```df``` ou ```free``` pour voir la place
 libre respectivement sur le disque (df=disk free) ou en mémoire.
 
 Le résultat de ```free``` n'est pas très lisible ? Ajoutez l'option ```-k```
-pour lui demander de parler en kilo-octets (en tapant ```free -k```
+pour lui demander de parler en kibioctets (en tapant ```free -k```
 avec une espace entre la commande et l'option), ```-m``` pour avoir
-des kilo-octets, ou carrément ```-h``` pour lui dire que vous êtes un
+des mébioctets, ou carrément ```-h``` pour lui dire que vous êtes un
 humain (et non un programme) et que vous voulez la meilleure unité
 possible. Allez-y, essayez.
 
