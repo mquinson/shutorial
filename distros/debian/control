@@ -19,6 +19,7 @@ Package: shutorial
 Architecture: all
 Depends:
  ${misc:Depends},
+ bash,
  lighttpd,
  mmdebstrap,
  schroot,
