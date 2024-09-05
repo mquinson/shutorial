@@ -4,7 +4,7 @@ Comme avec les autres systèmes d'exploitation, Linux range les fichiers dans un
 arborescence de répertoires. Voici quelques commandes utiles:
 
 - ```pwd``` savoir où on est sur le disque (Print Working Directory).
-- ```mkdir machin``` créer un nouveau répertoire nommé machin.
+- ```mkdir machin``` créer un nouveau répertoire nommé machin dans le répertoire courant.
 - ```ls``` lister les fichiers et répertoires du répertoire courant.
 - ```cd machin``` entrer dans le répertoire machin (Change Directory).
 - ```cd ..``` aller dans le répertoire "..", c'est-à-dire un étage

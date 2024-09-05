@@ -90,7 +90,8 @@ particulière se fait avec ```/``` suivi de la chaîne à chercher, suivi
 de Entrée. Quitter le manuel se fait avec avec la touche ```q```, et
 on voit la liste des commandes du programme d'affichage avec ```h```.
 Si l'affichage devient fou, changer la taille de la fenêtre de votre
-navigateur web réinitialise l'affichage du terminal. 
+navigateur web réinitialise l'affichage du terminal. Vous pouvez également
+quitter le shutoriel avec Ctrl-D puis le relancer.
 
 Comment faire pour afficher toute l'année avec ```cal```?
 C'est écrit dans le manuel (```man cal```), mais certes pas
@@ -168,7 +169,7 @@ reste à faire.
 
 <div id="tg-feedback" class="alert" role="alert" style="display: none">
 
-Bravo! Vous fini cet exercice. Passez au suivant en tapant
+Bravo! Vous avez fini cet exercice. Passez au suivant en tapant
 ```shutorial run navigation``` dans le terminal. Vous pouvez fermer
 cette fenêtre.
 
