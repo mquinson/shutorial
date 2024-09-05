@@ -45,7 +45,7 @@ arborescence.
 
 Lorsque vous pensez avoir terminé, lancez la commande
 ```shtrl-check```. Si vous avez réussi, cette commande vous donnera un
-code secret à taper dans la boite ci-dessus pour continuer. 
+code secret à taper dans la boite ci-dessous pour continuer. 
 
 1. Quel est le code de victoire de cet exercice, tel qu'affiché par ```shtrl-check```?
     - R:= 274515f130b1ad50f4b2de325dd0781d59e2116c
