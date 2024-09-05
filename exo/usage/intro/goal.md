@@ -70,9 +70,9 @@ ce mois, ou encore ```df``` ou ```free``` pour voir la place
 libre respectivement sur le disque (df=disk free) ou en mémoire.
 
 Le résultat de ```free``` n'est pas très lisible ? Ajoutez l'option ```-k```
-pour lui demander de parler en kilo-octets (en tapant ```free -k```
+pour lui demander de parler en kibioctets (en tapant ```free -k```
 avec une espace entre la commande et l'option), ```-m``` pour avoir
-des kilo-octets, ou carrément ```-h``` pour lui dire que vous êtes un
+des mébioctets, ou carrément ```-h``` pour lui dire que vous êtes un
 humain (et non un programme) et que vous voulez la meilleure unité
 possible. Allez-y, essayez.
 
@@ -90,7 +90,8 @@ particulière se fait avec ```/``` suivi de la chaîne à chercher, suivi
 de Entrée. Quitter le manuel se fait avec avec la touche ```q```, et
 on voit la liste des commandes du programme d'affichage avec ```h```.
 Si l'affichage devient fou, changer la taille de la fenêtre de votre
-navigateur web réinitialise l'affichage du terminal. 
+navigateur web réinitialise l'affichage du terminal. Vous pouvez également
+quitter le shutoriel avec Ctrl-D puis le relancer.
 
 Comment faire pour afficher toute l'année avec ```cal```?
 C'est écrit dans le manuel (```man cal```), mais certes pas
@@ -100,7 +101,7 @@ presque lisible, par rapport par exemple à la liste des raccourcis
 claviers pour du shell, qui est cachée au fond de ```man
 readline```. Les lignes de synopsis (qui indiquent comment
 on peut utiliser la ``cal``) terminent toutes par ``[[month] year]``.
-Les crochets indiquent que cette partie est optionnelle: on peut
+Les crochets indiquent que cette partie est optionnelle : on peut
 invoquer cal sans aucun paramètre, ou avec un paramètre qui sera
 compris comme l'année, ou avec deux paramètres qui seront compris
 comme le mois puis l'année. Affichez l'année de votre naissance, pour
@@ -168,7 +169,7 @@ reste à faire.
 
 <div id="tg-feedback" class="alert" role="alert" style="display: none">
 
-Bravo! Vous fini cet exercice. Passez au suivant en tapant
+Bravo! Vous avez fini cet exercice. Passez au suivant en tapant
 ```shutorial run navigation``` dans le terminal. Vous pouvez fermer
 cette fenêtre.
 
