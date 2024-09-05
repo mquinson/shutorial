@@ -1,3 +1,5 @@
+# Please keep the version number synchronized in Makefile
+
 version 0.3.2: Allow to use docker as the virtualization tool
  - Thanks to mwalp for the patch.
 

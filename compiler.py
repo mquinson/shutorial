@@ -1,7 +1,7 @@
 #! /usr/bin/python3
 
 """
-    2023 (C) Martin Quinson.
+    2023-2024 (C) Martin Quinson.
     
     This file is distributed as GPL v3+.
 """
@@ -119,6 +119,7 @@ if __name__ == "__main__":
                 
                 render_html(f"{outfile}html", f.read())
 
+    # Compile the sharin scripts
     print("-" * 50 + "\nCompile the sharin scripts\n")
     for file_name in sorted(Path('exo').rglob('*.sharin')):
         if not file_name.name.startswith('.#'): # Pass emacs temp files
