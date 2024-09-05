@@ -20,7 +20,7 @@ jobs:
           cp -r distros/debian .
           make debian
       - name: upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           path: shutorial_*_all.deb
           name: debian_package
