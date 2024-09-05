@@ -1,4 +1,4 @@
-VERSION=0.3
+VERSION=0.3.2
 all:
 	./compiler.py
 	@cd exo; for f in `find -name '*.list'` ; do echo "Copying $$f over"; cp $$f ../site/$$f ; done
@@ -65,4 +65,4 @@ clean:
 	rm -rf site shutorial-$(VERSION) shutorial_$(VERSION)*
 	find -name __pycache__ | xargs rm -rf
 	find -name '*~' | xargs rm -rf
-	rm shutorial
+	rm -f shutorial

@@ -13,10 +13,15 @@ Voici quelques exemples de commandes manipulant plusieurs fichiers à la fois:
   * ```mv t* AZE``` déplace tous les fichiers dont le nom commence par un t dans le répertoire `AZE`.
   * ```mv *G* plouf``` déplace tous les fichiers ayant un G au millieu de leur nom (ni au début, ni à la fin)
   * ```mv [RO]* boum``` déplace les fichiers dont le nom commence par soit par un R, soit par un O.
-  * ```mv [a-d]* paf``` déplace les fichiers dont le nom commence par
+  * ```mv [aeiou]* paf``` déplace les fichiers dont le nom commence par
+    une lettre comprise de l'ensemble ```[aeiou]``` (donc, commençant
+    par une voyelle).
+    ```mv [a-d]* paf``` déplace les fichiers dont le nom commence par
     une lettre comprise dans l'intervale ```[a-d]``` (donc, commençant
     soit par un a, soit par un b, soit par un c, soit par un d). On
-    peut utiliser des motifs encore plus compliqués pour spécifier les
+    prend un intervale et non seulement le a et le d car il y a un tiret
+    dans le motif entre les deux lettres.    
+    On peut utiliser des motifs encore plus compliqués pour spécifier les
     fichiers que l'on veut sélectionner, mais définir un intervale
     comme dans ce cas est déjà un usage assez avancé. 
 
@@ -32,7 +37,7 @@ dans le répertoire `print` (que vous devez créer). Les fichiers `png`
 doivent être coupés en deux ensembles: ceux dont le numéro est impair
 doivent aller dans le répertoire `images` tandis que les fichiers
 `png` dont le numéro est pair doivent aller dans le répertoire
-`image2`. Notez que le contenu de ces fichiers étant sans importance,
+`images2`. Notez que le contenu de ces fichiers étant sans importance,
 tous ces fichiers sont vides.
 
 1. Quel est le code de victoire de cet exercice, tel qu'affiché par ```shtrl-check```?
