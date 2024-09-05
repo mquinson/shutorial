@@ -15,8 +15,8 @@ dist-tgz: dist-dir
 	@echo; echo "Distribution built"
 
 debian: dist-dir
-	tar cfv shutorial_$(VERSION).orig.tar shutorial-$(VERSION)
-	cd shutorial-$(VERSION) ; cp -r distros/debian . ; cat debian/changelog; dpkg-buildpackage -us -uc
+	tar cfvJ shutorial_$(VERSION).orig.tar.xz shutorial-$(VERSION)
+	cd shutorial-$(VERSION) ; cp -r distros/debian . ; dpkg-buildpackage -us -uc
 
 arch-linux: dist-dir
 	tar cfvJ shutorial-$(VERSION).tar.xz shutorial-$(VERSION)
