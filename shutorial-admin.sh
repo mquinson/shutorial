@@ -66,16 +66,20 @@ EOF
     # Create a directory in which the exercises can add binaries (such as setup and check scripts)
     mkdir -p /usr/lib/shutorial/basedir//usr/lib/shutorial/bin
     chmod 777 /usr/lib/shutorial/basedir//usr/lib/shutorial/bin
-    
-    # Create a home directory for every user that could log in
-    for user in `getent passwd $(ls /home) | sed 's/:.*//'` ; do
-      echo "Create /home/$user within the squashfs"
-      group=`groups $user | sed 's/^[^:]*: //' | cut -d' ' -f1`
-      mkdir -p /usr/lib/shutorial/basedir//home/$user
-      echo "export LANG=$LANG" > /usr/lib/shutorial/basedir//home/$user/.bash_profile
-      echo "export PATH=\$PATH:/usr/lib/shutorial/bin" >> /usr/lib/shutorial/basedir//home/$user/.bash_profile
-      chown -R $user:$group /usr/lib/shutorial/basedir//home/$user
-    done
+
+    # Create a home directory in which we can later create the homedirs
+    mkdir -p /usr/lib/shutorial/basedir//home
+    chmod 777 /usr/lib/shutorial/basedir//home
+
+#    # Create a home directory for every user that could log in
+#    for user in `getent passwd $(ls /home) | sed 's/:.*//'` ; do
+#      echo "Create /home/$user within the squashfs"
+#      group=`groups $user | sed 's/^[^:]*: //' | cut -d' ' -f1`
+#      mkdir -p /usr/lib/shutorial/basedir//home/$user
+#      echo "export LANG=$LANG" > /usr/lib/shutorial/basedir//home/$user/.bash_profile
+#      echo "export PATH=\$PATH:/usr/lib/shutorial/bin" >> /usr/lib/shutorial/basedir//home/$user/.bash_profile
+#      chown -R $user:$group /usr/lib/shutorial/basedir//home/$user
+#    done
 
     # 3. Build a squashfs out of that basedir (and remove the basedir)
     cd /usr/lib/shutorial/
@@ -91,12 +95,12 @@ case "$1" in
        squashfs_build
     ;;
     ensure-squashfs)
-       if [ -e "/usr/lib/shutorial/debian-stable.squashfs" ] ; then
-           echo "The shutorial squashfs already exists. Good."
-       else
-           echo "Rebuild the missing shutorial squashfs."
-	   squashfs_build
-       fi
+        if [ -e "/usr/lib/shutorial/debian-stable.squashfs" ] ; then
+            echo "The shutorial squashfs already exists. Good."
+        else
+            echo "Rebuild the missing shutorial squashfs."
+	        squashfs_build
+        fi
     ;;
     remove-squashfs)
        echo "Removing the shutorial squahfs."

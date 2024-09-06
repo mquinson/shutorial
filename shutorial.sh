@@ -37,6 +37,8 @@ run)
         echo "Entering the schroot"
         session=$(schroot --chroot shutorial --begin-session)
 
+        mkdir /var/run/schroot/mount/${session}/home/${user}
+
         # Some exercises need a setup script (it's automatically removed from the chroot after execution)
         if [ -e "${ROOT_DIR}/usage/$exo/setup.sh" ]; then
             cp ${ROOT_DIR}/usage/$exo/setup.sh /var/run/schroot/mount/${session}/usr/lib/shutorial/bin/
@@ -59,8 +61,9 @@ run)
         echo "echo " >>"/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
 
         schroot --run -c $session -d /home/$user -- bash --login
-        schroot --end-session -c $session
+        
         echo "The session is terminating. Cleaning up."
+        schroot --end-session -c $session
     elif [ -n ${DOCKER_OK} ] ; then
         echo ''
         echo 'Please open $$url in your browser if it was not automatically done (use Ctrl-Insert in place of Ctrl-C if you need to copy this URL).'
