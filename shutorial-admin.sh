@@ -25,6 +25,8 @@ squashfs_build() {
       --setup-hook='mkdir -p "$1/bin"' \
       --setup-hook='echo root:x:0:0:root:/root:/bin/sh > "$1/etc/passwd"' \
       --setup-hook='printf "root:x:0:\nmail:x:8:\nutmp:x:43:\n" > "$1/etc/group"' \
+      --setup-hook='mkdir -p "$1/etc/apt/trusted.gpg.d"' \
+      --setup-hook='apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 54404762BBB6E853 0E98404D386FA1D9' \
       --dpkgopt='path-exclude=/usr/share/doc/*' \
       --dpkgopt='path-exclude=/usr/share/man/*' \
       --dpkgopt='path-include=/usr/share/man/man[12345678]/*' \
@@ -44,8 +46,9 @@ squashfs_build() {
       --customize-hook='echo "127.0.0.1 localhost host" > "$1/etc/hosts"' \
       stable /usr/lib/shutorial/basedir
 
-#       --setup-hook='mkdir -p "$1/etc/apt/trusted.gpg.d"' \
-#      --setup-hook='apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 54404762BBB6E853 0E98404D386FA1D9' \
+    # These keys are needed on Ubuntu and variants, but they are already there on Debian
+    # 54404762BBB6E853 is Debian Security Archive Automatic Signing Key (11/bullseye)
+    # 0E98404D386FA1D9 is Debian Archive Automatic Signing Key (11/bullseye)
 
 #    --customize-hook='chroot "$1" mandb' \
 #    --dpkgopt='path-exclude=/usr/lib/*/gconv/*' \
