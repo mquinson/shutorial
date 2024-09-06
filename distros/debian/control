@@ -22,6 +22,7 @@ Depends:
  bash,
  lighttpd,
  mmdebstrap,
+ proot,
  schroot,
  squashfs-tools,
 Description: Educational exerciser to teach the shell

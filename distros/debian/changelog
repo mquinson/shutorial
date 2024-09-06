@@ -1,3 +1,9 @@
+shutorial (0.3.3-1) UNRELEASED; urgency=medium
+
+  * Make it work with PRoot as virtualization tool.
+
+ -- Martin Quinson <mquinson@debian.org>  Thu, 06 Sep 2024 15:37:24 +0200
+
 shutorial (0.3.2-1) UNRELEASED; urgency=medium
 
   * Use javascript to remember the past answers.

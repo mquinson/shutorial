@@ -19,8 +19,9 @@ set -e
 
 case "$1" in
     configure)
-       /usr/sbin/shutorial-admin rebuild-squashfs
-       # /usr/sbin/shutorial-admin schroot-users
+       /usr/sbin/shutorial-admin ensure-rootfs
+       /usr/sbin/shutorial-admin ensure-squashfs
+       /usr/sbin/shutorial-admin schroot-users
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
