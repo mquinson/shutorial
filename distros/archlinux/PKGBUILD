@@ -1,6 +1,6 @@
 pkgname="shutorial"
-pkgver="0.3"
-pkgrel="031"
+pkgver="0.3.4"
+pkgrel="1"
 pkgdesc="An exerciser teaching the use of the shell console, in practice."
 arch=("any")
 url="https://github.com/mquinson/shutorial"
