@@ -1,4 +1,16 @@
-shutorial (0.3.2-1) UNRELEASED; urgency=medium
+shutorial (0.3.4-1) unstable; urgency=medium
+
+  * Reinstall the Debian keys to make it work on Ubuntu.
+
+ -- Martin Quinson <mquinson@debian.org>  Fri, 06 Sep 2024 21:25:20 +0200
+
+shutorial (0.3.3-1) unstable; urgency=medium
+
+  * Make it work with PRoot as virtualization tool.
+
+ -- Martin Quinson <mquinson@debian.org>  Thu, 06 Sep 2024 15:37:24 +0200
+
+shutorial (0.3.2-1) unstable; urgency=medium
 
   * Use javascript to remember the past answers.
 

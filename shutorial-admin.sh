@@ -46,6 +46,10 @@ squashfs_build() {
       --customize-hook='echo "127.0.0.1 localhost host" > "$1/etc/hosts"' \
       stable /usr/lib/shutorial/basedir
 
+    # These keys are needed on Ubuntu and variants, but they are already there on Debian
+    # 54404762BBB6E853 is Debian Security Archive Automatic Signing Key (11/bullseye)
+    # 0E98404D386FA1D9 is Debian Archive Automatic Signing Key (11/bullseye)
+
 #    --customize-hook='chroot "$1" mandb' \
 #    --dpkgopt='path-exclude=/usr/lib/*/gconv/*' \
 #    --dpkgopt='path-exclude=/usr/lib/locale/*' \
@@ -66,56 +70,79 @@ EOF
     # Create a directory in which the exercises can add binaries (such as setup and check scripts)
     mkdir -p /usr/lib/shutorial/basedir//usr/lib/shutorial/bin
     chmod 777 /usr/lib/shutorial/basedir//usr/lib/shutorial/bin
-    
-    # Create a home directory for every user that could log in
-    for user in `getent passwd $(ls /home) | sed 's/:.*//'` ; do
-      echo "Create /home/$user within the squashfs"
-      group=`groups $user | sed 's/^[^:]*: //' | cut -d' ' -f1`
-      mkdir -p /usr/lib/shutorial/basedir//home/$user
-      echo "export LANG=$LANG" > /usr/lib/shutorial/basedir//home/$user/.bash_profile
-      echo "export PATH=\$PATH:/usr/lib/shutorial/bin" >> /usr/lib/shutorial/basedir//home/$user/.bash_profile
-      chown -R $user:$group /usr/lib/shutorial/basedir//home/$user
-    done
+
+    # Create a home directory in which we can later create the homedirs
+    mkdir -p /usr/lib/shutorial/basedir//home
+    chmod 777 /usr/lib/shutorial/basedir//home
+
+#    # Create a home directory for every user that could log in
+#    for user in `getent passwd $(ls /home) | sed 's/:.*//'` ; do
+#      echo "Create /home/$user within the squashfs"
+#      group=`groups $user | sed 's/^[^:]*: //' | cut -d' ' -f1`
+#      mkdir -p /usr/lib/shutorial/basedir//home/$user
+#      echo "export LANG=$LANG" > /usr/lib/shutorial/basedir//home/$user/.bash_profile
+#      echo "export PATH=\$PATH:/usr/lib/shutorial/bin" >> /usr/lib/shutorial/basedir//home/$user/.bash_profile
+#      chown -R $user:$group /usr/lib/shutorial/basedir//home/$user
+#    done
 
     # 3. Build a squashfs out of that basedir (and remove the basedir)
     cd /usr/lib/shutorial/
     rm -f debian-stable.squashfs
     mksquashfs basedir debian-stable.squashfs -comp xz
     chown root:root debian-stable.squashfs
+
+    # 4. Build a targz of the basedir
+    rm -f debian-stable.tar.xz
+    cd basedir
+    tar cfJ ../debian-stable.tar.xz --exclude dev --exclude proc .
+    cd ..
+    chown root:root debian-stable.tar.xz
     rm -rf basedir
 }
 
 case "$1" in
     rebuild-squashfs)
-       echo "Rebuild the shutorial squahfs."
+       echo "Rebuild the shutorial squashfs."
        squashfs_build
     ;;
     ensure-squashfs)
-       if [ -e "/usr/lib/shutorial/debian-stable.squashfs" ] ; then
-           echo "The shutorial squashfs already exists. Good."
-       else
-           echo "Rebuild the missing shutorial squashfs."
-	   squashfs_build
-       fi
+        if [ -e "/usr/lib/shutorial/debian-stable.squashfs" ] ; then
+            echo "The shutorial squashfs already exists. Good."
+        else
+            echo "Rebuild the missing shutorial squashfs."
+	        squashfs_build
+        fi
+    ;;
+    rebuild-rootfs)
+       echo "Rebuild the shutorial rootfs."
+       squashfs_build
+    ;;
+    ensure-rootfs)
+        if [ -e "/usr/lib/shutorial/debian-stable.tar.xz" ]; then
+            echo "The shutorial rootfs already exists. Good."
+        else
+            echo "Rebuild the missing shutorial rootfs."
+	        squashfs_build
+        fi
     ;;
     remove-squashfs)
        echo "Removing the shutorial squahfs."
        rm -rf /usr/lib/shutorial/debian-stable.squashfs
     ;;
     schroot-users)
-	for user in `getent passwd $(ls /home) | sed 's/:.*//'` ; do 
-	  users="$user,$users"
-	done
-	users=`echo $users | sed 's/,$//'`
-	echo "Giving access to the schroot to the following users: $users."
-	sed -i 's/^[# ]*users.*$/users='"$users/" /etc/schroot/chroot.d/shutorial.conf
+    	for user in `getent passwd $(ls /home) | sed 's/:.*//'` ; do 
+	        users="$user,$users"
+	    done
+	    users=`echo $users | sed 's/,$//'`
+	    echo "Giving access to the schroot to the following users: $users."
+	    sed -i 's/^[# ]*users.*$/users='"$users/" /etc/schroot/chroot.d/shutorial.conf
     ;;
     *)
         echo "Usage:" >&2
         echo " shutorial-admin ensure-squashfs  # Make sure that the squashfs exists" >&2
-	echo " shutorial-admin rebuild-squashfs # Build the squashfs even if it already exists" >&2
-	echo " shutorial-admin remove-squashfs  # Erase the squashfs if it exists" >&2
-	echo " shutorial-admin schroot-users    # Configure schroot to allow every users to connect" >&2
+	    echo " shutorial-admin rebuild-squashfs # Build the squashfs even if it already exists" >&2
+	    echo " shutorial-admin remove-squashfs  # Erase the squashfs if it exists" >&2
+	    echo " shutorial-admin schroot-users    # Configure schroot to allow every users to connect" >&2
         exit 1
     ;;
 esac
