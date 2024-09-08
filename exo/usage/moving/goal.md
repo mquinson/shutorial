@@ -61,7 +61,7 @@ et à faire des essais dans le terminal.
 ## Au travail
 
 Si vous effacez les quelques répertoires et fichiers en trop (avec
-```rm -r truc/``` et companie), vous devriez avoir une arborescence
+```rm -r truc/``` et compagnie), vous devriez avoir une arborescence
 très proche de ce que vous aviez à la fin de l'exercice précédent:
 
 
@@ -72,7 +72,7 @@ très proche de ce que vous aviez à la fin de l'exercice précédent:
      └── 📁 dir3
          └── 🖹 doc2
 
-L'objectif est de renomer tous les éléments pour les mettre en
+L'objectif est de renommer tous les éléments pour les mettre en
 majuscule, comme suit. Il n'est pas possible de juste recréer
 l'arborescence, car le contenu des fichiers doc1 et doc2 doit être
 préservé.

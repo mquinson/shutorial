@@ -13,16 +13,16 @@ Voici quelques exemples de commandes manipulant plusieurs fichiers à la fois:
   * ```mv t* AZE``` déplace tous les fichiers dont le nom commence par un t dans le répertoire `AZE`.
   * ```mv *G* plouf``` déplace tous les fichiers ayant un G au millieu de leur nom (ni au début, ni à la fin)
   * ```mv [RO]* boum``` déplace les fichiers dont le nom commence par soit par un R, soit par un O.
-  * ```mv [aeiou]* paf``` déplace les fichiers dont le nom commence par
-    une lettre comprise de l'ensemble ```[aeiou]``` (donc, commençant
+  * ```mv [aeiouy]* paf``` déplace les fichiers dont le nom commence par
+    une lettre comprise dans l'ensemble ```[aeiouy]``` (donc, commençant
     par une voyelle).
-    ```mv [a-d]* paf``` déplace les fichiers dont le nom commence par
-    une lettre comprise dans l'intervale ```[a-d]``` (donc, commençant
+  * ```mv [a-d]* paf``` déplace les fichiers dont le nom commence par
+    une lettre comprise dans l'intervalle ```[a-d]``` (donc, commençant
     soit par un a, soit par un b, soit par un c, soit par un d). On
-    prend un intervale et non seulement le a et le d car il y a un tiret
+    prend un intervalle et non seulement le a et le d car il y a un tiret
     dans le motif entre les deux lettres.    
     On peut utiliser des motifs encore plus compliqués pour spécifier les
-    fichiers que l'on veut sélectionner, mais définir un intervale
+    fichiers que l'on veut sélectionner, mais définir un intervalle
     comme dans ce cas est déjà un usage assez avancé. 
 
 À la souris, il serait fastidieux de devoir sélectionner précisément
