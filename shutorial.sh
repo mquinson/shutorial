@@ -117,7 +117,7 @@ run)
         echo "echo 'When you are done, simply press Ctrl-D to exit the shutorial.'" >>"/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
         echo "echo " >>"/var/run/schroot/mount/${session}/home/${user}/.bash_profile"
 
-        schroot --run -c $session -d /home/$user -- bash --login
+        schroot --run -c $session -d /home/$user -- /usr/bin/env bash --login
 
         echo "The session is terminating. Cleaning up."
         schroot --end-session -c $session

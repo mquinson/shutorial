@@ -1,4 +1,4 @@
-#! /bin/bash -x
+#! /usr/bin/env bash -x
 
 rm -rf truc toto bidule machin
 mv dir1 DIR1

@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 # for n in $(find -type d|grep '[a-z]') ; do if [ -e $n/wait-config.sh ] ; then rm $n/wait-config.sh; ln wait-config.sh $n ; fi; done
 export LANG=fr_FR.UTF-8

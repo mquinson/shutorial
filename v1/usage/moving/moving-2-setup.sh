@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 # THIS SCRIPT WAS GENERATED, DO NOT EDIT
 # Real source: moving-2-setup.sharin
