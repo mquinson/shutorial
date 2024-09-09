@@ -24,7 +24,7 @@ Cela vous permettra de répondre aux questions suivantes.
 
 Comme précédement, pas question de retaper la ligne de commande en
 entier à chaque tentative. Soyez fainéants. Utilisez l'historique des
-commandes, et faites des copie/colle (avec Ctrl+Inser et Shift+Inser).
+commandes, et faites des copier/coller (avec Ctrl+Inser et Shift+Inser).
 Les informaticiens sont de grands fainéants prêts à tout pour faire
 travailler l'ordinateur à leur place.
 

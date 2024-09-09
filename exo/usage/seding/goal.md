@@ -39,7 +39,7 @@ attrape toutes les lettres. Comme il y a `^` tout au début de la
 commande, on demande à ce que cet ensemble de lettre soit placé au
 début de la ligne.
 
-Prenez le temps de copie/coller ces commandes dans le terminal et de
+Prenez le temps de copier/coller ces commandes dans le terminal et de
 tenter de les modifier un peu pour mieux comprendre ce qui se passe.
 Essayez par exemple de prédire ce qui se passe si l'on remplace le
 caractère '^' par ' ' dans la dernière commande avant de vérifier dans

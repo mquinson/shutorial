@@ -33,7 +33,7 @@ if ! md5sum -c /tmp/.md5sum.expect ; then
     exit 1
 fi
 
-echo -n "Bravo, vous avez réussi. Le code de victoire de cet exercise est le suivant : "
+echo -n "Bravo, vous avez réussi. Le code de victoire de cet exercice est le suivant : "
 cat /tmp/.tree.got /tmp/.tree.expect | sha1sum - | cut -d' ' -f1
 
 rm /tmp/.tree.got /tmp/.tree.expect /tmp/.md5sum.expect

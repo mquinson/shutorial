@@ -65,5 +65,5 @@ else
   exit 1
 fi
 
-echo -n "Bravo, vous avez réussi. Le code de victoire de cet exercise est le suivant : "
+echo -n "Bravo, vous avez réussi. Le code de victoire de cet exercice est le suivant : "
 cat deux_ans-sans_o deux_ans-sans_voyelle deux_ans-poil_aux_dents deux_ans-rot13 7_lignes.txt | sha1sum | cut -d' ' -f1

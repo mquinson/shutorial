@@ -100,7 +100,7 @@ connaît, mais il faut connaître. Et encore, la page de ``cal`` est
 presque lisible, par rapport par exemple à la liste des raccourcis
 claviers pour du shell, qui est cachée au fond de ```man
 readline```. Les lignes de synopsis (qui indiquent comment
-on peut utiliser la ``cal``) terminent toutes par ``[[month] year]``.
+on peut utiliser la commande ``cal``) terminent toutes par ``[[month] year]``.
 Les crochets indiquent que cette partie est optionnelle : on peut
 invoquer cal sans aucun paramètre, ou avec un paramètre qui sera
 compris comme l'année, ou avec deux paramètres qui seront compris
