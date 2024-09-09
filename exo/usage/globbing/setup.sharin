@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#! /bin/bash
 
 if [ ! -e /usr/lib/shutorial/bin ] ; then
   echo "This command is dangerous to execute out of the shutorial environment. Stop being foolish and get some sleep. Now."
