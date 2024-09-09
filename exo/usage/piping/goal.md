@@ -14,7 +14,7 @@ fichiers, vérifier que tout s'est bien passé puis effacer les fichiers
 temporaires. Le tout en une seule commande, accessible simplement avec
 flèche vers le haut. On trouve même
 [ici](https://www.commandlinefu.com/) et
-[là](http://www.bashoneliners.com/) des collections de ligne de
+[là](https://onceupon.github.io/Bash-Oneliner/) des collections de ligne de
 commandes shell d'une seule ligne (on appelle ça des *one-liners*).
 Certaines très pratiques, d'autres plutôt anecdotiques. Ces lignes
 sont parfois très longues, et toutes sont difficiles à relire et à
@@ -90,7 +90,7 @@ sans le sauvegarder sur disque, redirigez la sortie vers le fichier
 est perdu.
 
 Mais si vous faites ```ls GaBuZoMeu > /dev/null``` ou
-```echo bla bla > fichier ; ./plus.sh < fichier```, vous
+```echo bla bla > fichier ; ./plus.sh < fichier > /dev/null```, vous
 verrez quand même le message d'erreur s'afficher. Comment ce message
 a-t-il réussi à s'échapper du trou noir ? C'est qu'en fait, tous les
 programmes ont deux flux de sortie sur lesquels ils peuvent écrire: la

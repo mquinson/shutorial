@@ -108,6 +108,6 @@ if ! cmp /tmp/.tree.got /tmp/.tree.expect ; then
     exit 1
 fi
 
-echo -n "Bravo, vous avez réussi. Le code de victoire de cet exercise est le suivant : "
+echo -n "Bravo, vous avez réussi. Le code de victoire de cet exercice est le suivant : "
 sha1sum /tmp/.tree.got | cut -d' ' -f1
 
