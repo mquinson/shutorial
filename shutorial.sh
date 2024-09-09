@@ -1,7 +1,7 @@
 #! /bin/sh
 
 
-if proot --help >/dev/null 2>&1 && x${SHUTORIAL_PROOT} = x1 ; then
+if proot --help >/dev/null 2>&1 && [ x${SHUTORIAL_PROOT} = x1 ] ; then
     PROOT_OK=1
     ROOT_DIR=`pwd`"/"
     if [ -e /usr/lib/shutorial/debian-stable.tar.xz ] ; then
