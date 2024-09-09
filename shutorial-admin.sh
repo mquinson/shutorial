@@ -107,7 +107,16 @@ case "$1" in
     ;;
     ensure-squashfs)
         if [ -e "/usr/lib/shutorial/debian-stable.squashfs" ] ; then
-            echo "The shutorial squashfs already exists. Good."
+            session=$(schroot --chroot shutorial --begin-session)
+            schroot --run ls >/dev/null 2>&1
+            worked=$?
+            schroot --end-session -c $session
+            if [ x$worked = x0 ] ; then
+                echo "The shutorial squashfs already exists and is working. Good."
+            else
+                echo "The existing shutorial squashfs does not work. Rebuild it."
+                squashfs_build
+            fi
         else
             echo "Rebuild the missing shutorial squashfs."
 	        squashfs_build
