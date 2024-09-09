@@ -82,6 +82,8 @@ run)
         session=$(schroot --chroot shutorial --begin-session)
 
         mkdir /var/run/schroot/mount/${session}/home/${user}
+        echo "export LANG=$LANG" > /var/run/schroot/mount/${session}/home/${user}/.bash_profile
+        echo "export PATH=\$PATH:/usr/lib/shutorial/bin" >> /var/run/schroot/mount/${session}/home/${user}/.bash_profile
 
         # Some exercises need a setup script (it's automatically removed from the chroot after execution)
         if [ -e "${ROOT_DIR}/usage/$exo/setup.sh" ]; then
