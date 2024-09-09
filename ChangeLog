@@ -1,5 +1,11 @@
 # Please keep the version number synchronized in Makefile and debian/changelog
 
+version 0.3.5:
+ - Fix many typos
+ - Make sure that the squashfs works when it exists, or rebuild it
+ - Restore the PATH and LANG envvar that got cleared in recent changes
+ - Convert an input file to ascii to avoid LANG issues
+
 version 0.3.4: Reinstall the Debian keys so that it works on Ubuntu too
 version 0.3.3: Allow to use PRoot as the virtualization tool
 

@@ -1,4 +1,4 @@
-VERSION=0.3.4
+VERSION=0.3.5
 all:
 	./compiler.py
 	@cd exo; for f in `find -name '*.list'` ; do echo "Copying $$f over"; cp $$f ../site/$$f ; done

@@ -1,5 +1,5 @@
 pkgname="shutorial"
-pkgver="0.3.4"
+pkgver="0.3.5"
 pkgrel="1"
 pkgdesc="An exerciser teaching the use of the shell console, in practice."
 arch=("any")
