@@ -1,6 +1,6 @@
 #! /bin/sh
 
-if [ -e animaux.ok ] ; then
+if [ -e animaux.ok ] ; then
   # SHTRL_COMMAND out sort -u animaux | diff -u animaux.ok -
 
   if [ $? -eq 0 ] ; then
@@ -15,7 +15,7 @@ else
   exit 1
 fi 
 
-if [ -e ligne33 ] ; then
+if [ -e ligne33 ] ; then
   # SHTRL_COMMAND out sort -u animaux |head -n 33 |tail -n 1 | diff -u ligne33 -
 
   if [ $? -eq 0 ] ; then
