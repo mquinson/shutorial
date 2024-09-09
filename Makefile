@@ -1,4 +1,4 @@
-VERSION=0.3.2
+VERSION=0.3.4
 all:
 	./compiler.py
 	@cd exo; for f in `find -name '*.list'` ; do echo "Copying $$f over"; cp $$f ../site/$$f ; done
@@ -26,7 +26,6 @@ arch-linux: dist-dir
 
 docker: all
 	docker build -t shutorial distros/Docker/.
-	cp distros/Docker/shutorial.sh shutorial
 	chmod +x shutorial
 	for f in `find site -name '*setup.sh'`; do echo "Changing location of shtrl-check in $$f"; sed -i 's/\/usr\/lib\/shutorial\/bin/\/shutorial\/bin/' $$f; chmod +rx $$f; done
 

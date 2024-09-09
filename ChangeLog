@@ -1,5 +1,8 @@
 # Please keep the version number synchronized in Makefile and debian/changelog
 
+version 0.3.4: Reinstall the Debian keys so that it works on Ubuntu too
+version 0.3.3: Allow to use PRoot as the virtualization tool
+
 version 0.3.2: Allow to use docker as the virtualization tool
  - Thanks to mwalp for the patch.
 
