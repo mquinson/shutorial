@@ -1,7 +1,7 @@
 #! /bin/sh
 
 
-if proot --help >/dev/null 2>&1 && x${SHUTORIAL_PROOT} = x1 ; then
+if proot --help >/dev/null 2>&1 && [ x${SHUTORIAL_PROOT} = x1 ] ; then
     PROOT_OK=1
     ROOT_DIR=`pwd`"/"
     if [ -e /usr/lib/shutorial/debian-stable.tar.xz ] ; then
@@ -82,6 +82,8 @@ run)
         session=$(schroot --chroot shutorial --begin-session)
 
         mkdir /var/run/schroot/mount/${session}/home/${user}
+        echo "export LANG=$LANG" > /var/run/schroot/mount/${session}/home/${user}/.bash_profile
+        echo "export PATH=\$PATH:/usr/lib/shutorial/bin" >> /var/run/schroot/mount/${session}/home/${user}/.bash_profile
 
         # Some exercises need a setup script (it's automatically removed from the chroot after execution)
         if [ -e "${ROOT_DIR}/usage/$exo/setup.sh" ]; then

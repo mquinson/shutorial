@@ -164,7 +164,7 @@ lignes. Regardez dans le manuel comment changer le nombre de lignes
 affichées.
 
 1. Quel est le code de victoire de cet exercice, tel qu'affiché par ```shtrl-check```?
-    - R:= 5dc97040ffc81898031473c67c8e27cad9333cd7
+    - R:= 6c2b7a1192c3ce8839c5db66b8ebffa41e0af1f4
 
 ## Exercice 3
 
