@@ -1,5 +1,8 @@
 # Please keep the version number synchronized in Makefile and debian/changelog
 
+version 0.4 (240925):
+ - Ship the squashfs in the package instead of rebuilding it upon installation
+
 version 0.3.5:
  - Fix many typos
  - Make sure that the squashfs works when it exists, or rebuild it

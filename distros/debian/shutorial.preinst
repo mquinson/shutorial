@@ -16,6 +16,8 @@ set -e
 
 case "$1" in
     install|upgrade)
+       # This file was built upon install on pre-v0.4 but it's now shiped in the package
+       /usr/sbin/shutorial-admin remove-squashfs
     ;;
 
     abort-upgrade)

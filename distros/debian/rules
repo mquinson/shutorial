@@ -12,4 +12,9 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 
 override_dh_auto_configure:
-	# Nothing to configure
+	# Speed up the build by reusing an existing image if it exists
+	mkdir -p debian/tmp/usr/lib/shutorial/
+	if [ -e debian-stable.squashfs ] ; cp debian-stable.squashfs debian/tmp/usr/lib/shutorial/ ; fi
+	# Build the image we need to ship in the package
+	DISTDIR=debian/tmp ./shutorial-admin.sh build-squashfs
+
