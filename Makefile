@@ -29,6 +29,7 @@ arch-linux: dist-dir
 
 docker: all
 	docker build -t shutorial distros/Docker/.
+	cp distros/Docker/shutorial.sh shutorial
 	chmod +x shutorial
 	for f in `find site -name '*setup.sh'`; do echo "Changing location of shtrl-check in $$f"; sed -i 's/\/usr\/lib\/shutorial\/bin/\/shutorial\/bin/' $$f; chmod +rx $$f; done
 
