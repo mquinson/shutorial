@@ -31,7 +31,7 @@ run)
     else
         url="$PWD/site/usage/$exo/goal.html"
     fi
-    firefox "$url" 2>/dev/null
+    firefox "$url" 2>/dev/null &
     echo ''
     echo "Please open $url in your browser if it was not automatically done (use Ctrl-Insert in place of Ctrl-C if you need to copy this URL)."
     echo 'When you are done, simply press Ctrl-D to exit the shutorial.'
