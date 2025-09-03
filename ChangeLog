@@ -1,5 +1,11 @@
 # Please keep the version number synchronized in Makefile and debian/changelog
 
+version 0.5 (250903):
+ - Allow to install the squashfs in another directory using DISTDIR
+ - Use the debian-archive-keyring package instead of relying on the deprecated apt-key
+ - Actually ship the squashfs in the Debian package
+ - Prebuild similarly the debian-base.tar.xz that is used Arch and other distros relying on Docker
+
 version 0.4 (240925):
  - Ship the squashfs in the package instead of rebuilding it upon installation
 

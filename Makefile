@@ -1,20 +1,23 @@
-VERSION=0.4
+VERSION=0.5
 all:
 	./compiler.py
 	@cd exo; for f in `find -name '*.list'` ; do echo "Copying $$f over"; cp $$f ../site/$$f ; done
 
 dist-dir:
+	@echo "XX make dist-dir"
 	rm -rf shutorial-$(VERSION) ; mkdir shutorial-$(VERSION)
 	cp -r app compiler.py distros exo  Makefile  README.md requirements.txt etc\
               shutorial.sh shutorial-admin.sh shutorial-$(VERSION)
 	$(MAKE) -C shutorial-$(VERSION) clean
 
 dist-tgz: dist-dir
+	@echo "XX make dist-tgz"
 	tar cfvJ shutorial-$(VERSION).tar.xz shutorial-$(VERSION)
 	rm -rf shutorial-$(VERSION)
 	@echo; echo "Distribution built"
 
 debian: dist-dir
+	@echo "XX make debian"
 	tar cfvJ shutorial_$(VERSION).orig.tar.xz shutorial-$(VERSION)
 	cd shutorial-$(VERSION) ; cp -r distros/debian . ; dpkg-buildpackage -us -uc
 
@@ -30,6 +33,8 @@ docker: all
 	for f in `find site -name '*setup.sh'`; do echo "Changing location of shtrl-check in $$f"; sed -i 's/\/usr\/lib\/shutorial\/bin/\/shutorial\/bin/' $$f; chmod +rx $$f; done
 
 install:
+	@echo "XX make install"
+
 	mkdir -p $(DESTDIR)/var/www/html/shutorial
 	cp -r site/* $(DESTDIR)/var/www/html/shutorial
 
@@ -41,6 +46,9 @@ install:
 	cp shutorial.sh $(DESTDIR)/usr/bin/shutorial
 	mkdir -p $(DESTDIR)/usr/sbin
 	cp shutorial-admin.sh $(DESTDIR)/usr/sbin/shutorial-admin
+
+	if [ -e usr/lib/shutorial/debian-stable.squashfs ] ; then mkdir -p $(DESTDIR)/usr/lib/shutorial/ ; cp usr/lib/shutorial/debian-stable.squashfs $(DESTDIR)/usr/lib/shutorial/ ; fi
+	if [ -e usr/lib/shutorial/debian-stable.tar.xz ] ;   then mkdir -p $(DESTDIR)/usr/lib/shutorial/ ; cp usr/lib/shutorial/debian-stable.tar.xz   $(DESTDIR)/usr/lib/shutorial/ ; fi
 
 install-arch:
 	mkdir -p $(DESTDIR)/var/www/html/shutorial
@@ -65,3 +73,4 @@ clean:
 	find -name __pycache__ | xargs rm -rf
 	find -name '*~' | xargs rm -rf
 	rm -f shutorial
+	rm -f usr

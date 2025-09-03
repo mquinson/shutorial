@@ -7,7 +7,7 @@
 #  build-squashfs:  Do build /usr/lib/shutorial/debian-stable.squashfs 
 #  remove-squashfs: Remove the squashfs
 
-# This script honors $(DISTDIR) if you want to prefix the path to the image dir
+# This script honors ${DISTDIR} if you want to prefix the path to the image dir
 
 squashfs_build() {
     # Config: check the language to use
@@ -18,17 +18,15 @@ squashfs_build() {
     lang=`echo $LANG|sed 's/_.*$//'`
 
     # First, clean previous attempts and create the base directory
-    rm -rf $(DISTDIR)/usr/lib/shutorial/basedir
-    mkdir -p $(DISTDIR)/usr/lib/shutorial
+    rm -rf ${DISTDIR:=}/usr/lib/shutorial/basedir
+    mkdir -p ${DISTDIR:=}/usr/lib/shutorial
 
-    # 1. Prepare the chroot base directory in $(DISTDIR)/usr/lib/shutorial/basedir
+    # 1. Prepare the chroot base directory in ${DISTDIR:=}/usr/lib/shutorial/basedir
     mmdebstrap --variant=essential \
-      --include=less,nano,tree,man-db,manpages,manpages-dev,manpages-fr,manpages-fr-dev,locales,bash,bash-completion,passwd,sharutils,locate \
+      --include=bash,bash-completion,debian-archive-keyring,gpg,less,locales,locate,man-db,manpages,manpages-dev,manpages-fr,manpages-fr-dev,nano,passwd,sharutils,tree \
       --setup-hook='mkdir -p "$1/bin"' \
       --setup-hook='echo root:x:0:0:root:/root:/bin/sh > "$1/etc/passwd"' \
       --setup-hook='printf "root:x:0:\nmail:x:8:\nutmp:x:43:\n" > "$1/etc/group"' \
-      --setup-hook='mkdir -p "$1/etc/apt/trusted.gpg.d"' \
-      --setup-hook='apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 54404762BBB6E853 0E98404D386FA1D9' \
       --dpkgopt='path-exclude=/usr/share/doc/*' \
       --dpkgopt='path-exclude=/usr/share/man/*' \
       --dpkgopt='path-include=/usr/share/man/man[12345678]/*' \
@@ -46,7 +44,7 @@ squashfs_build() {
       --customize-hook='chroot "$1" passwd --delete root' \
       --customize-hook='echo shutorial > "$1/etc/hostname"' \
       --customize-hook='echo "127.0.0.1 localhost host" > "$1/etc/hosts"' \
-      stable $(DISTDIR)/usr/lib/shutorial/basedir
+      stable ${DISTDIR:=}/usr/lib/shutorial/basedir
 
     # These keys are needed on Ubuntu and variants, but they are already there on Debian
     # 54404762BBB6E853 is Debian Security Archive Automatic Signing Key (11/bullseye)
@@ -57,7 +55,7 @@ squashfs_build() {
 #    --dpkgopt='path-exclude=/usr/lib/locale/*' \
 
     # 2. Further configure the environment
-    bash -c 'sed "s/^      //" >> $(DISTDIR)/usr/lib/shutorial/basedir//etc/bash.bashrc' <<EOF
+    bash -c 'sed "s/^      //" >> ${DISTDIR:=}/usr/lib/shutorial/basedir//etc/bash.bashrc' <<EOF
         # Addition for shutorial
         if [ "\$color_prompt" = yes ]; then
            PS1="\[\033[01;32m\]SHuToRiaL\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $ "
@@ -70,12 +68,12 @@ squashfs_build() {
 EOF
 
     # Create a directory in which the exercises can add binaries (such as setup and check scripts)
-    mkdir -p $(DISTDIR)/usr/lib/shutorial/basedir//usr/lib/shutorial/bin
-    chmod 777 $(DISTDIR)/usr/lib/shutorial/basedir//usr/lib/shutorial/bin
+    mkdir -p ${DISTDIR:=}/usr/lib/shutorial/basedir//usr/lib/shutorial/bin
+    chmod 777 ${DISTDIR:=}/usr/lib/shutorial/basedir//usr/lib/shutorial/bin
 
     # Create a home directory in which we can later create the homedirs
-    mkdir -p $(DISTDIR)/usr/lib/shutorial/basedir//home
-    chmod 777 $(DISTDIR)/usr/lib/shutorial/basedir//home
+    mkdir -p ${DISTDIR:=}/usr/lib/shutorial/basedir//home
+    chmod 777 ${DISTDIR:=}/usr/lib/shutorial/basedir//home
 
 #    # Create a home directory for every user that could log in
 #    for user in `getent passwd $(ls /home) | sed 's/:.*//'` ; do
@@ -88,7 +86,7 @@ EOF
 #    done
 
     # 3. Build a squashfs out of that basedir (and remove the basedir)
-    cd $(DISTDIR)/usr/lib/shutorial/
+    cd ${DISTDIR:=}/usr/lib/shutorial/
     rm -f debian-stable.squashfs
     mksquashfs basedir debian-stable.squashfs -comp xz
     chown root:root debian-stable.squashfs
@@ -108,7 +106,7 @@ case "$1" in
        squashfs_build
     ;;
     ensure-squashfs)
-        if [ -e "$(DISTDIR)/usr/lib/shutorial/debian-stable.squashfs" ] ; then
+        if [ -e "${DISTDIR:=}/usr/lib/shutorial/debian-stable.squashfs" ] ; then
             session=$(schroot --chroot shutorial --begin-session)
             schroot -c $session --run ls > /tmp/shutorial-test.log 2>&1
             worked=$?
@@ -133,7 +131,7 @@ case "$1" in
        squashfs_build
     ;;
     ensure-rootfs)
-        if [ -e "$(DISTDIR)/usr/lib/shutorial/debian-stable.tar.xz" ]; then
+        if [ -e "${DISTDIR:=}/usr/lib/shutorial/debian-stable.tar.xz" ]; then
             echo "The shutorial rootfs already exists. Good."
         else
             echo "Rebuild the missing shutorial rootfs."
@@ -142,7 +140,7 @@ case "$1" in
     ;;
     remove-squashfs)
        echo "Removing the shutorial squahfs."
-       rm -rf $(DISTDIR)/usr/lib/shutorial/debian-stable.squashfs
+       rm -rf ${DISTDIR:=}/usr/lib/shutorial/debian-stable.squashfs
     ;;
     schroot-users)
     	for user in `getent passwd $(ls /home) | sed 's/:.*//'` ; do 
@@ -150,7 +148,7 @@ case "$1" in
 	done
 	users=`echo $users | sed 's/,$//'`
 	echo "Giving access to the schroot to the following users: $users."
-	sed -i 's/^[# ]*users.*$/users='"$users/" $(DISTDIR)/etc/schroot/chroot.d/shutorial.conf
+	sed -i 's/^[# ]*users.*$/users='"$users/" ${DISTDIR:=}/etc/schroot/chroot.d/shutorial.conf
     ;;
     *)
         echo "Usage:" >&2

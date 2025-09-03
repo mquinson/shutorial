@@ -1,6 +1,6 @@
 #! /bin/sh
 
-
+# Search how to run the chroot (either proot, schroot or docker)
 if proot --help >/dev/null 2>&1 && [ x${SHUTORIAL_PROOT} = x1 ] ; then
     PROOT_OK=1
     ROOT_DIR=`pwd`"/"
@@ -103,7 +103,7 @@ run)
     firefox "$url" 2>/dev/null &
     if [ "x${PROOT_OK}" = x1 ] ; then
 
-        echo "echo 'Please open $url in your browser if it was not automatically done (use Ctrl-Insert in place of Ctrl-C if you need to copy this URL).'" >>"${TMPDIR}/home/${user}/.bash_profile"
+        echo "echo 'Please open $url in your browser if it was not automatically done (use Ctrl-Insert or Shift-Ctrl-C but not Ctrl-C if you need to copy this URL).'" >>"${TMPDIR}/home/${user}/.bash_profile"
         echo "echo 'When you are done, simply press Ctrl-D to exit the shutorial.'" >>"${TMPDIR}/home/${user}/.bash_profile"
         echo "echo " >>"${TMPDIR}/home/${user}/.bash_profile"
 

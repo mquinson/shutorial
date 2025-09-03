@@ -1,3 +1,10 @@
+shutorial (0.5-1) unstable; urgency=medium
+
+  * New upstream release, really shiping the squashfs for debian
+    (and not using apt-key to build it).
+
+ -- Martin Quinson <mquinson@debian.org>  Wed, 03 Sep 2025 09:47:51 +0200
+
 shutorial (0.4-1) unstable; urgency=medium
 
   * New upstream release: ship the squashfs in the package instead of
