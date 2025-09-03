@@ -68,7 +68,13 @@ def compile_sharin(outfile_name: str, sharin_name:str, script_template: str) -> 
 #            print(f"destdir:{destdir} destname:{destname}")
             output.write(f"{line}\n")
             output.write("uudecode << 'SHTRL_INCLUDE_EOF' > {}/{} &&\n".format(destdir,destname))
-            encoded = subprocess.run("uuencode --base64 - < {}".format(component), stdout=subprocess.PIPE, shell=True, text=True)
+            encoded = subprocess.run("uuencode --base64 - < {}".format(component), capture_output=True, shell=True, text=True)
+            if encoded.returncode != 0:
+                print("Fail to execute uuencode. On Linux, you need to install sharutils to get this command. Error message:", file=sys.stderr)
+                print("  " + encoded.stderr,file=sys.stderr)
+                print("Standard output was:",file=sys.stderr)
+                print("  " + encoded.stdout,file=sys.stderr)
+                sys.exit(1)
             for l in encoded.stdout:
                 output.write(l)
             output.write("SHTRL_INCLUDE_EOF\n")
@@ -87,7 +93,13 @@ def compile_sharin(outfile_name: str, sharin_name:str, script_template: str) -> 
             output.write("# SHTRL_COMMAND '${}' gets an opaque value\n".format(var))
 
             output.write("uudecode << 'SHTRL_COMMAND_EOF' > /tmp/.cmd\n")
-            encoded = subprocess.run("uuencode --base64 -", input=cmd, stdout=subprocess.PIPE, shell=True, text=True)
+            encoded = subprocess.run("uuencode --base64 -", input=cmd, capture_output=True, shell=True, text=True)
+            if encoded.returncode != 0:
+                print("Fail to execute uuencode. On Linux, you need to install sharutils to get this command. Error message:", file=sys.stderr)
+                print("  " + encoded.stderr,file=sys.stderr)
+                print("Standard output was:",file=sys.stderr)
+                print("  " + encoded.stdout,file=sys.stderr)
+                sys.exit(1)
             for l in encoded.stdout:
                 output.write(l)
             output.write("SHTRL_COMMAND_EOF\n")
