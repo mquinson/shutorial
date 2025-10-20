@@ -43,6 +43,7 @@ technique.
 
 La liste suivante n'est pas particulièrement triée.
 
+- Un outil comparable. Faut regarder si y'a des exos ou des idées à reprendre https://github.com/jaxtonw/iticse2024-shell-tutor
 - Des comics expliquant énormément de petites choses: https://jvns.ca/
 - Liste de ressources: https://www3.nd.edu/~pbui/teaching/cse.20289.sp19/
 - Livre en ligne: http://linuxcommand.org/tlcl.php
