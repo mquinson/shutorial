@@ -18,7 +18,7 @@ use a malicious image (i.e., not the shutorial).
 ## Starting 
 
 Download the
-[https://github.com/mquinson/shutorial/raw/refs/heads/master/shutorial](shutorial)
+[shutorial](https://github.com/mquinson/shutorial/raw/refs/heads/master/shutorial)
 script on your disk and run it from a terminal as follows. Move your
 terminal to the location where the script was downloaded (or copy the
 script in your home directory), and type the following:
@@ -27,7 +27,7 @@ script in your home directory), and type the following:
 ./shutorial run intro
 ```
 
-The following should appear in the terminal window. 
+The following text should appear in the terminal window. 
 ```
 Launching exercice intro
 

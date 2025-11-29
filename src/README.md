@@ -1,22 +1,22 @@
-
-
 # How does it work?
 
-## Limitations
+## Main scripts
 
-For now, every assignments are in French (because I'm reusing some
-earlier material) while the machinery is in English. At some point, I
-will setup an i18n infrastructure, so that everything becomes
-available both in English, French, and other community-provided
-languages.
+Two scripts are provided:
 
-The success per exercises are not saved anywhere yet, so you won't get
-any nice shiny stars from this project. Any help in javascript toward
-that direction would be welcome.
+* The `shutorial.sh` script is the main interface provided to the users.
+  It is installed within the Docker and serves as an entry point.
+  It takes the following sub-commands:
 
-It is not really difficult to cheat on this system, but if you manage
-to understand the logic of my scripts and cheat, then you don't need
-no shell course anyway :)
+  - `shutorial run list`
+
+  - `shutorial run <exo>`: Start the given exercise if it exists, or
+    give the list of existing exercises if not. Press Ctrl-D to exit.
+
+* The `compile.sh` is used at build time (when creating the Docker
+  image) and not installed. It compiles the markdown assignments to HTML
+  static pages, and the `setup.sharin` script templates into `setup.sh`
+  scripts as explained below. It does not take any parameter.
 
 ## Exercise components
 
@@ -24,7 +24,7 @@ The assignment web pages are compiled from Markdown by an internal
 python-markdown extension allowing to build javascript-controlled
 quizzes. This mechanism (found in the `app/` directory and the
 `compiler.py` script) is a bit crude as I'm not very good in Python and
-rather bad in JavaScript. Any help is welcome, as usual.
+rather bad in JavaScript. Any help is welcome.
 
 The machinery of each exercise comes as a set of small shell scripts
 that are injected within the chroot environment upon startup. The
@@ -72,23 +72,6 @@ SHTRL_INCLUDE_EOF
 chmod 0755 /usr/lib/shutorial/bin/shtrl-check.sh
 ```
 
-## Main scripts
-
-Two scripts are used to get the shutorial working.
-
-The `shutorial.sh` script is the main interface provided to the users.
-It is installed within the Docker and serves as an entry point.
-It takes the following sub-commands:
-
-- `shutorial run list`
-
-- `shutorial run <exo>`: Start the given exercise if it exists, or
-  give the list of existing exercises if not. Press Ctrl-D to exit.
-
-The `compile.sh` is used at build time (when creating the Docker
-image) and not installed. It compiles the markdown assignments to HTML
-static pages, and the `setup.sharin` script templates into `setup.sh`
-scripts. It does not take any parameter.
 
 ## License
 
