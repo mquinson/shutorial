@@ -31,9 +31,8 @@ docker: all
 	rm -rf dockersite && cp -r site dockersite	
 	for f in `find dockersite -name '*setup.sh'`; do echo "Changing location of shtrl-check in $$f"; sed -i 's|usr/lib/shutorial/bin|shutorial/bin|' $$f; chmod +rx $$f; done
 	cp distros/Docker/shutorial.sh dockersite/
-	docker build -t shutorial -f distros/Docker/Dockerfile dockersite
+	docker build -t mquinson/shutorial -f distros/Docker/Dockerfile dockersite
 	rm -rf dockersite
-#	chmod +x shutorial
 
 install:
 	@echo "XX make install"

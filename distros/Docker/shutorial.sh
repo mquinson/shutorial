@@ -13,7 +13,7 @@ login)
     # log into the docker
     exec bash
     ;;
-list)
+list|ls)
     echo "Here is the list of existing exercises:"
     sed 's/^/  /' /usr/share/shutorial/usage/exercises.list
     echo
@@ -35,6 +35,12 @@ run)
 
     user=$(id -un)
 
+    if [ ! -e "/usr/share/shutorial/usage/$exo/" ]; then
+        echo "There is no exercise $exo in the list. To see the current list,  simply type:"
+        echo "  shutorial list"
+        exit 1
+    fi
+    
     echo "Launching exercice $exo"
     
     # Tell the user what to do on login
