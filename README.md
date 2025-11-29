@@ -31,18 +31,12 @@ The following text should appear in the terminal window.
 ```
 Launching exercice intro
 
-Please open http://localhost:8080/shutorial/usage/intro/goal.html in
-your browser (Ctrl-Click on the URL may help, or use Ctrl-Insert in
-place of Ctrl-C to copy this URL).
+Please open http://localhost:8080/shutorial/usage/intro/goal.html in your browser
+(Ctrl-Click on the URL may help, or use Ctrl-Insert in place of Ctrl-C to copy this URL).
 When you are done, simply press Ctrl-D to exit the shutorial.
 
 SHuToRiaL:~ $ 
 ```
-
-Do not proceed with the exercise when the `SHuToRiaL:~ $ ` is not
-shown, as it probably means that you are not within Docker. Running
-the commands directly on your machine out of Docker may harm your
-system.
 
 If you get an error about file permission, first make the script
 executable as follows, and try again.
@@ -56,11 +50,12 @@ chmod +x shutorial
 When entering the shutorial environment, click on the depicted URL
 while holding Ctrl to open the right web page, and follow the
 instructions. **Do not proceed with the exercise if it does not look
-this way**
+this way**, as it probably means that you are not within Docker.
+Running the commands directly on your machine out of Docker may harm
+your system.
 
 ```none
 SHuToRiaL:~ $
-
 ```
 
 When you are done or when you want to start again, press Ctrl-D to
