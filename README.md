@@ -38,6 +38,10 @@ When you are done, simply press Ctrl-D to exit the shutorial.
 SHuToRiaL:~ $ 
 ```
 
+## Troubleshooting
+
+### Shell permission
+
 If you get an error about file permission, first make the script
 executable as follows, and try again.
 
@@ -45,9 +49,25 @@ executable as follows, and try again.
 chmod +x shutorial 
 ```
 
+### Docker permission
+
+If you get an error ressembling to the following:
+```
+docker: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock:
+/var/run/docker.sock: connect: permission denied
+```
+
+then you need to add your user to the docker group so that it is
+allowed to use the Docker program (I would not allow public users of a
+shared system to do so -- see the section Security concern below).
+
+```shell
+sudo usermod -a -G docker $USER
+```
+
 ## Solving the assignment
 
-When entering the shutorial environment, click on the depicted URL
+When entering the shutorial environment, click on the URL shown
 while holding Ctrl to open the right web page, and follow the
 instructions. **Do not proceed with the exercise if it does not look
 this way**, as it probably means that you are not within Docker.
