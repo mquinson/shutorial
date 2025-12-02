@@ -27,7 +27,9 @@ script in your home directory), and type the following:
 ./shutorial run intro
 ```
 
-The following text should appear in the terminal window. 
+The first time you run the shutorial, system image of about 200Mb is
+downloaded (it is only downloaded once). Upon start, the following
+text should appear in the terminal window.
 ```
 Launching exercice intro
 
@@ -38,9 +40,25 @@ When you are done, simply press Ctrl-D to exit the shutorial.
 SHuToRiaL:~ $ 
 ```
 
+## Solving the assignment
+
+When entering the shutorial environment, click on the shown URL
+while holding Ctrl to open the right web page, and follow the
+instructions. **Do not proceed with the exercise if it does not look
+this way**, as it probably means that you are not within Docker.
+Running the commands directly on your machine out of Docker may harm
+your system.
+
+```none
+SHuToRiaL:~ $
+```
+
+When you are done or when you want to start again, press Ctrl-D to
+exit the shutorial.
+
 ## Troubleshooting
 
-### Shell permission
+### bash: ./shutorial: Permission denied
 
 If you get an error about file permission, first make the script
 executable as follows, and try again.
@@ -49,7 +67,7 @@ executable as follows, and try again.
 chmod +x shutorial 
 ```
 
-### Docker permission
+### docker: permission denied
 
 If you get an error ressembling to the following:
 ```
@@ -64,22 +82,6 @@ shared system to do so -- see the section Security concern below).
 ```shell
 sudo usermod -a -G docker $USER
 ```
-
-## Solving the assignment
-
-When entering the shutorial environment, click on the URL shown
-while holding Ctrl to open the right web page, and follow the
-instructions. **Do not proceed with the exercise if it does not look
-this way**, as it probably means that you are not within Docker.
-Running the commands directly on your machine out of Docker may harm
-your system.
-
-```none
-SHuToRiaL:~ $
-```
-
-When you are done or when you want to start again, press Ctrl-D to
-exit the shutorial.
 
 ## Provided exercises
 
