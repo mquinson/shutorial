@@ -38,7 +38,7 @@ When you are done, simply press Ctrl-D to exit the shutorial.
 SHuToRiaL:~ $ 
 ```
 
-## Troubleshooting
+## Troubleshooting
 
 ### Shell permission
 
